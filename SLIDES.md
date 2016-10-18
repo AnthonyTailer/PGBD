@@ -3,8 +3,8 @@
 % Projeto e Gerência de Banco de Dados - UFSM
 
 # Definições de Projeto
-* Ferramentas Utilizadas
-  * Atom TextEditor
+* Bibliotecas/Frameworks Utilizados
+  - JQuery
 # Arquitetura de desenvolvimento
 
 # API's usadas
