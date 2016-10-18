@@ -3,8 +3,12 @@
 % Projeto e Gerência de Banco de Dados - UFSM
 
 # Definições de Projeto
-* Bibliotecas/Frameworks Utilizados
+* Bibliotecas/Frameworks
   - JQuery
+* Linguagem de programação
+  - PHP
+  - JavaScript
+  - HTML/CSS
 # Arquitetura de desenvolvimento
 
 # API's utilizadas
