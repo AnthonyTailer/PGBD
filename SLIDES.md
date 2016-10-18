@@ -7,7 +7,7 @@
   - JQuery
 # Arquitetura de desenvolvimento
 
-# API's usadas
+# API's utilizadas
 
 # Etapa 1
 
