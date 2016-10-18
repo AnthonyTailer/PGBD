@@ -3,21 +3,24 @@
 % Projeto e Gerência de Banco de Dados - UFSM
 
 # Definições de Projeto
-* Bibliotecas/Frameworks
-  - JQuery
-* Linguagens de programação
-  - PHP
-  - JavaScript
-  - HTML/CSS
-  - SQL 
+  * Bibliotecas/Frameworks
+    - JQuery
+    - BootStrap
+
+  * Linguagens de programação
+    - PHP
+    - JavaScript
+    - HTML/CSS
+    - SQL
+
 # Arquitetura de desenvolvimento
 
 # API's utilizadas
 
-# Etapa 1
+# Etapa 1 - Criação do Banco de Dados
 
-# Etapa 2
+# Etapa 2 - Importação dos dados
 
-# Etapa 3
+# Etapa 3 - Consultas
 
-# Etapa 4
+# Etapa 4 - Relatórios Gráficos
