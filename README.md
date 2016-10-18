@@ -3,10 +3,10 @@ Disciplina de Projeto e Gerência de Banco de Dados, 5° semestre do curso de Si
 
 # Objetivos Gerais
 
-- O trabalho é dividido em 4 etapas
-	1. Criação do Banco de Dados
+### O trabalho é dividido em 4 etapas
+	#### 1. Criação do Banco de Dados
 	
-		+ Escolher uma planilha com *dados abertos* disponibilizados na Web.
+		+ Escolher uma planilha com **dados abertos** disponibilizados na Web.
 		+ Criar um banco de dados normalizado que suporte os dados da planilha.
 		+ Criação de uma ferramenta de visualização de dados.
 			+ Podendo ser desenvolvida usando:
@@ -15,19 +15,19 @@ Disciplina de Projeto e Gerência de Banco de Dados, 5° semestre do curso de Si
 				+ Qualquer tipo de arquitetura/padrão de desenvolvimento
 				+ Qualquer plataforma de acesso (web, Desktop, Mobile..)
 				
-	2. Importação dos dados a partir de uma fonte de dados
+	#### 2. Importação dos dados a partir de uma fonte de dados
 	
-		+ A aplicação deve ter um recurso que permita a *importação de dados* a partir de uma fonte de dados.
+		+ A aplicação deve ter um recurso que permita a **importação de dados** a partir de uma fonte de dados.
 			+ Podendo ser uma planilha ou arquivo texto gerado a partir da planilha.
 			+ Os dados devem ser importados no banco de dados da aplicação.
 	
-	3. Acesso aos dados a partir de formulários de consulta
+	#### 3. Acesso aos dados a partir de formulários de consulta
 	
 		+ A aplicação deve ter formulários que permitam navegar pelos registros de cada uma das tabelas existentes.
 		+ Para tabelas que possuem chaves estrangeiras, deve-se exibir:
-			+ As colunas representativas da respectiva chave primária, *NÃO* o valor da chave estrangeira
+			+ As colunas representativas da respectiva chave primária, **NÃO** o valor da chave estrangeira
 	
-	4. Acesso aos dados a partir de relatórios gráficos
+	#### 4. Acesso aos dados a partir de relatórios gráficos
 	
 		+ A aplicação deve gerar relatórios gráficos acessando estatísticas a partir das tabelas existentes.
 	
