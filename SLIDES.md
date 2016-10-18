@@ -9,6 +9,7 @@
   - PHP
   - JavaScript
   - HTML/CSS
+  - SQL
 # Arquitetura de desenvolvimento
 
 # API's utilizadas
