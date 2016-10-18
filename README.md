@@ -14,7 +14,7 @@ Disciplina de Projeto e Gerência de Banco de Dados, 5° semestre do curso de Si
 		+ Qualquer linguagem de programação
 		+ Qualquer framework de desenvolvimento
 		+ Qualquer tipo de arquitetura/padrão de desenvolvimento
-	- Qualquer plataforma de acesso (web, Desktop, Mobile..)
+		+ Qualquer plataforma de acesso (web, Desktop, Mobile..)
 			
 #### Importação dos dados a partir de uma fonte de dados
 
@@ -31,4 +31,9 @@ Disciplina de Projeto e Gerência de Banco de Dados, 5° semestre do curso de Si
 #### Acesso aos dados a partir de relatórios gráficos
 
 - A aplicação deve gerar relatórios gráficos acessando estatísticas a partir das tabelas existentes.
+- Pelo menos 3 relatórios devem ser gerados
+	+ Pelo menos um dos relatórios deve ser de distribuição espacial
+	+ Para isso, é importante que os dados possuam algum tipo de referência geográfica
+- Os relatórios devem permitir filtros
+	+ Deve ser possível que o gráfico condense apenas os registros que satisfaçam alguma condição de filtro
 
