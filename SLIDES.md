@@ -5,7 +5,7 @@
 # Definições de Projeto
 * Bibliotecas/Frameworks
   - JQuery
-* Linguagem de programação
+* Linguagens de programação
   - PHP
   - JavaScript
   - HTML/CSS
