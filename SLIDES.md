@@ -2,7 +2,6 @@
 % Anthony Tailer R. de Almeida; Lucas Lima de Oliveira
 % Prof. Sérgio Luís Sardi Mergen
 % Projeto e Gerência de Banco de Dados - UFSM
-%Prof. Sérgio Luís Sardi Mergen
 
 # Definições de Projeto
   * Bibliotecas/Frameworks
