@@ -6,8 +6,7 @@
 * @author Lucas Lima
 **/
 
-class MagicDesnormalizada
-{
+class MagicDesnormalizada{
   private $id;
   private $data;
   private $municipio;
@@ -32,4 +31,4 @@ class MagicDesnormalizada
   }
 }
 
- ?>
+?>

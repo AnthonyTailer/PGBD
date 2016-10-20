@@ -18,8 +18,8 @@ class DAODesnormalizada extends PDOBaladaSegura{
   }
 
   /*
-  * Inserção de novos dados na tabelas desnormalizada
-  */
+   * Inserção de novos dados na tabelas desnormalizada
+   */
 
   public function insertDesnormalizada($desnormalizada){
     try {
@@ -47,6 +47,5 @@ class DAODesnormalizada extends PDOBaladaSegura{
 
   }
 }
-
 
 ?>

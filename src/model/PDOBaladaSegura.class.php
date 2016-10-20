@@ -8,32 +8,22 @@
 
 class PDOBaladaSegura {
 
-  protected $con = null; // recebe a conexão do banco
+  protected $conc = null; // recebe a conexão do banco
 
   protected $dbType = "mysql";
 
-  protected $host = "127.0.0.1";
+  protected $host = "localhost";
   protected $user = "root";
-  protected $pass = "imroot";
+  protected $pass = "";
   protected $db   = "op_balada_segura";
-
-  protected $persistent = false;
-
-
-
-  public function PDOBaladaSegura($persistent = false){
-    if ($persistent != false) {
-      $this->persistent = true;
-    }
-  }
 
   public function getConnection(){
     try {
 
-      $this->con = new PDO($this->dbType . ":host=" . $this->host . ";dbname=" . $this->db, $this->user, $this->pass);
-      $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $this->conc = new PDO($this->dbType . ":host=" . $this->host . ";dbname=" . $this->db, $this->user, $this->pass);
+      $this->conc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       echo "Connected successfully"."</br>";
-      return $this->con; //retorna a conexao se bem sucedida
+      return $this->conc; //retorna a conexao se bem sucedida
 
     } catch (PDOException $e) {
 
@@ -43,8 +33,8 @@ class PDOBaladaSegura {
   }
 
   public function Close(){
-      if ($this->con != null) {
-        $this->con = null;
+      if ($this->conc != null) {
+        $this->conc = null;
       }
   }
 
