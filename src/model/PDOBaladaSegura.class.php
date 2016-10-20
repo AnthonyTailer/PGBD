@@ -12,7 +12,7 @@ class PDOBaladaSegura {
 
   protected $dbType = "mysql";
 
-  protected $host = "localhost";
+  protected $host = "127.0.0.1";
   protected $user = "root";
   protected $pass = "imroot";
   protected $db   = "op_balada_segura";
@@ -30,12 +30,14 @@ class PDOBaladaSegura {
   public function getConnection(){
     try {
 
-      $this->con = new PDO($this->dbType . ":host=" . $this->host . ";dbname=" . $this->db, $this->user, $this->pass, array(PDO::ATTR_PERSISTENT => $this->persistent));
+      $this->con = new PDO($this->dbType . ":host=" . $this->host . ";dbname=" . $this->db, $this->user, $this->pass);
+      $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      echo "Connected successfully"."</br>";
       return $this->con; //retorna a conexao se bem sucedida
 
     } catch (PDOException $e) {
 
-      echo "Erro ao conectar: " . $ex->getMessage();
+      echo "Erro ao conectar: ". $e->getMessage();
 
     }
   }
