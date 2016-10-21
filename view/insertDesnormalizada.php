@@ -1,9 +1,9 @@
 <?php
 /**
-* Classe responsável por manter métodos de conexão com a base dados
-* @author Anthony Tailer
-* @author Lucas Lima
-**/
+  * Classe responsável por manter métodos de conexão com a base dados
+  * @author Anthony Tailer
+  * @author Lucas Lima
+  **/
 
 	function __autoload($classe){
 		include_once "../model/{$classe}.class.php";

@@ -1,19 +1,22 @@
-DROP DATABASE IF EXISTS op_balada_segura;
-CREATE DATABASE IF NOT EXISTS op_balada_segura;
-USE op_balada_segura;
+DROP DATABASE IF EXISTS obras_pac;
+CREATE DATABASE IF NOT EXISTS obras_pac;
+USE obras_pac;
 
-CREATE TABLE IF NOT EXISTS baladaSegura_desnormalizada(
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  data char(10) NOT NULL,
-  municipio VARCHAR(255) NOT NULL,
-  endereco VARCHAR(255) NOT NULL,
-  CRVL_recolhida CHAR(2),
-  CNH_recolhida CHAR(2),
-  veiculo_recolhido CHAR(2),
-  veiculo_autuado CHAR(2),
-  recusou_teste_etiometro CHAR(2),
-  autuado_teste_etiometro CHAR(2),
-  qtd_autuacoes INT,
-  tipo_veiculo VARCHAR(255),
-  marca_modelo_veiculo VARCHAR(255)
+CREATE TABLE IF NOT EXISTS obras_pac_des(
+	id INT,
+	idDigs INT,
+    titulo VARCHAR(255),
+    investimento DECIMAL(16,2),
+    uf VARCHAR(255),
+    cidade TEXT,
+    executor VARCHAR(255),
+    orgao VARCHAR(255),
+    estagio TINYINT UNSIGNED,
+	ciclo DATE,
+    selecao DATE,
+    conclusao DATE,
+    latitude TEXT,
+    longitude TEXT,
+    emblematica VARCHAR(255),
+    observacao VARCHAR(255)
 );

@@ -1,9 +1,9 @@
 <?php
 /**
-* Classe responsável por manter métodos get() e set() da tabela desnormalizada
-* @author Anthony Tailer
-* @author Lucas Lima
-**/
+  * Classe responsável por manter métodos get() e set() da tabela desnormalizada
+  * @author Anthony Tailer
+  * @author Lucas Lima
+  **/
 
   class MagicDesnormalizada{
     private $id;

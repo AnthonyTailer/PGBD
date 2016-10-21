@@ -1,9 +1,9 @@
 <?php
 /**
-* Classe responsável por manter métodos CRUD da tabela desnormalizada
-* @author Anthony Tailer
-* @author Lucas Lima
-**/
+  * Classe responsável por manter métodos CRUD da tabela desnormalizada
+  * @author Anthony Tailer
+  * @author Lucas Lima
+  **/
 
 	require_once 'PDOBaladaSegura.class.php';
 

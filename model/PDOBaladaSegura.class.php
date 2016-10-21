@@ -1,10 +1,12 @@
 <?php
 
 /**
-* Classe responsável por manter métodos de conexão com a base dados
-* @author Anthony Tailer
-* @author Lucas Lima
-**/
+  * Classe responsável por manter métodos de conexão com a base dados
+  * @author Anthony Tailer
+  * @author Lucas Lima
+  * REFERENCE- http://dados.gov.br/dataset/obras-do-pac-programa-de-aceleracao-do-crescimento 
+  * ESPECIFIC- http://dados.gov.br/dataset/obras-do-pac-programa-de-aceleracao-do-crescimento/resource/9eaee56d-9343-4d6d-a79b-a554c0095131
+  **/
 
 class PDOBaladaSegura {
 
