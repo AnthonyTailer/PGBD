@@ -1,13 +1,16 @@
 # Trabalho Final de Projeto e Gerência de Banco de Dados
-Disciplina de Projeto e Gerência de Banco de Dados, 5° semestre do curso de Sistemas de Informação UFSM
+Disciplina de Projeto e Gerência de Banco de Dados
+5° semestre do curso de Sistemas de Informação UFSM
 
-# Objetivos Gerais
+# Descrição
 
 ### O trabalho é dividido em 4 etapas:
 
 #### Criação do Banco de Dados
 
 * Escolher uma planilha com **dados abertos** disponibilizados na Web.
+	- **Planilha escolhida:** Obras do PAC - Programa de Aceleração do Crescimento
+	- **Disponível em:** https://goo.gl/LiqMWe (Link CSV: https://goo.gl/uFTIkG) 
 * Criar um banco de dados normalizado que suporte os dados da planilha.
 * Criação de uma ferramenta de visualização de dados.
 	- Podendo ser desenvolvida usando:
