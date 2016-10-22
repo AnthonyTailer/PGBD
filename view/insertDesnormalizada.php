@@ -11,18 +11,22 @@
 
 	$desnormalizada = new MagicDesnormalizada();
 
-	$desnormalizada->data = '20/10/2016';
-	$desnormalizada->municipio = 'MATA';
-	$desnormalizada->endereco = 'Rua General osorio';
-	$desnormalizada->CRVL_recolhida = 'S';
-	$desnormalizada->CNH_recolhida = 'S';
-	$desnormalizada->veiculo_recolhido = 'S';
-	$desnormalizada->veiculo_autuado = 'S';
-	$desnormalizada->recusou_teste_etiometro = 'S';
-	$desnormalizada->autuado_teste_etiometro = 'N';
-	$desnormalizada->qtd_autuacoes = 5;
-	$desnormalizada->tipo_veiculo = 'Carro';
-	$desnormalizada->marca_modelo_veiculo = 'Chevrolet/Opala SS 1979';
+	$desnormalizada->id = 1311;
+	$desnormalizada->idDigs = 1001;
+	$desnormalizada->titulo = "Adequação Linha Férrea de Barra Mansa/RJ e construção de pátio - RJ";
+	$desnormalizada->investimento = 143996640.77;
+	$desnormalizada->uf = "RJ";
+	$desnormalizada->cidade = "BARRA MANSA, VOLTA REDONDA";
+	$desnormalizada->executor = "DNIT";
+	$desnormalizada->orgao = "Ministério dos Transportes";
+	$desnormalizada->estagio = 70;
+	$desnormalizada->ciclo = "30.06.2016";
+	$desnormalizada->selecao = NULL;
+	$desnormalizada->conclusao = NULL;
+	$desnormalizada->latitude = "22°32'24.000000''''S";
+	$desnormalizada->longitude = "44°10'38.280000''O";
+	$desnormalizada->emblematica = "";
+	$desnormalizada->observacao = "";
 
 	$DAODesnormalizada = new DAODesnormalizada();
 	$DAODesnormalizada->insertDesnormalizada($desnormalizada);

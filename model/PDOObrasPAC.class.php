@@ -8,7 +8,7 @@
   * ESPECIFIC- http://dados.gov.br/dataset/obras-do-pac-programa-de-aceleracao-do-crescimento/resource/9eaee56d-9343-4d6d-a79b-a554c0095131
   **/
 
-class PDOBaladaSegura {
+class PDOObrasPAC {
 
   protected $conc = null; // recebe a conexão do banco
 
@@ -17,7 +17,7 @@ class PDOBaladaSegura {
   protected $host = "localhost";
   protected $user = "root";
   protected $pass = "";
-  protected $db   = "op_balada_segura";
+  protected $db   = "obras_pac";
 
   public function getConnection(){
     try {

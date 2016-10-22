@@ -7,18 +7,21 @@
 
   class MagicDesnormalizada{
     private $id;
-    private $data;
-    private $municipio;
-    private $endereco;
-    private $CRVL_recolhida;
-    private $CNH_recolhida;
-    private $veiculo_recolhido;
-    private $veiculo_autuado;
-    private $recusou_teste_etiometro;
-    private $autuado_teste_etiometro;
-    private $qtd_autuacoes;
-    private $tipo_veiculo;
-    private $marca_modelo_veiculo;
+    private $idDigs;
+    private $titulo;
+    private $investimento;
+    private $uf;
+    private $cidade;
+    private $executor;
+    private $orgao;
+    private $estagio;
+    private $ciclo;
+    private $selecao;
+    private $conclusao;
+    private $latitude;
+    private $longitude;
+    private $emblematica;
+    private $observacao;
 
 
     function __set($name, $value){
