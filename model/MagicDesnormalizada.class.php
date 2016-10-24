@@ -6,23 +6,29 @@
   **/
 
   class MagicDesnormalizada{
-    private $id;
-    private $idDigs;
-    private $titulo;
-    private $investimento;
+    private $regiao;
     private $uf;
     private $cidade;
-    private $executor;
-    private $orgao;
-    private $estagio;
-    private $ciclo;
-    private $selecao;
-    private $conclusao;
-    private $latitude;
-    private $longitude;
-    private $emblematica;
-    private $observacao;
-
+    private $sexo;
+    private $faixaEtaria;
+    private $anoAbertura;
+    private $mesAbertura;
+    private $dataAbertura;
+    private $dataResposta;
+    private $dataFinalizacao;
+    private $tempoResposta;
+    private $nomeFantasia;
+    private $segmentoMercado;
+    private $area;
+    private $assunto;
+    private $grupoProblema;
+    private $problema;
+    private $comoComprou;
+    private $procurouEmpresa;
+    private $respondida;
+    private $situacao;
+    private $avaliacao;
+    private $notaConsumidor;
 
     function __set($name, $value){
       $this->$name = $value;
