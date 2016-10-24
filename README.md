@@ -9,8 +9,8 @@ Disciplina de Projeto e Gerência de Banco de Dados
 #### Criação do Banco de Dados
 
 * Escolher uma planilha com **dados abertos** disponibilizados na Web.
-	- **Planilha escolhida:** Obras do PAC - Programa de Aceleração do Crescimento
-	- **Disponível em:** https://goo.gl/LiqMWe (Link CSV: https://goo.gl/uFTIkG) 
+	- **Planilha escolhida:** Reclamações do consumidor.gov.br
+	- **Disponível em:** https://goo.gl/ai0KCR  
 * Criar um banco de dados normalizado que suporte os dados da planilha.
 * Criação de uma ferramenta de visualização de dados.
 	- Podendo ser desenvolvida usando:
