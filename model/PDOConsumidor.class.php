@@ -23,7 +23,7 @@ class PDOConsumidor {
 
       $this->conc = new PDO($this->dbType . ":host=" . $this->host . ";dbname=" . $this->db, $this->user, $this->pass);
       $this->conc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      echo "Connected successfully"."</br>";
+      echo "Conexão efetuada com sucesso"."</br>";
       return $this->conc; //retorna a conexao se bem sucedida
 
     } catch (PDOException $e) {

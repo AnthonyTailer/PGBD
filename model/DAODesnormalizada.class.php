@@ -5,15 +5,20 @@
   * @author Lucas Lima
   **/
 
-	require_once 'PDOObrasPAC.class.php';
+	require_once 'PDOConsumidor.class.php';
 
-	class DAODesnormalizada extends PDOObrasPAC {
+	class DAODesnormalizada extends PDOConsumidor {
 
 		public $conex = null;
-		const insertSql = 'INSERT INTO obras_pac_des(id, idDigs, titulo, investimento, uf, cidade, executor, orgao, estagio, ciclo, selecao, conclusao, latitude, longitude, emblematica, observacao) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+		const insertSql = 'INSERT INTO consumidor_des regiao, uf, cidade, sexo,
+		faixaEtaria, anoAbertura, mesAbertura, dataAbertura, dataResposta,
+		dataFinalizacao, tempoResposta, nomeFantasia, segmentoMercado,
+		area, assunto, grupoProblema, problema, comoComprou, procurouEmpresa,
+		respondida, situacao, avaliacao, notaConsumidor VALUES (?, ?, ?, ?, ?,
+		?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
 
 		public function __construct(){
-					$this->conex = PDOObrasPAC::getConnection();
+					$this->conex = PDOConsumidor::getConnection();
 		}
 
 		// Inserção de novos dados na tabelas desnormalizada
@@ -22,32 +27,53 @@
 			try {
 				$stmt = $this->conex->prepare(self::insertSql);
 
-				$stmt->bindValue(1, $desnormalizada->id, PDO::PARAM_INT);
-				$stmt->bindValue(2, $desnormalizada->idDigs, PDO::PARAM_INT);
-				$stmt->bindValue(3, $desnormalizada->titulo, PDO::PARAM_STR);
-				$stmt->bindValue(4, $desnormalizada->investimento);
-				$stmt->bindValue(5, $desnormalizada->uf, PDO::PARAM_STR);
-				$stmt->bindValue(6, $desnormalizada->cidade);
-				$stmt->bindValue(7, $desnormalizada->executor, PDO::PARAM_STR);
-				$stmt->bindValue(8, $desnormalizada->orgao, PDO::PARAM_STR);
-				$stmt->bindValue(9, $desnormalizada->estagio, PDO::PARAM_INT);
-				$stmt->bindValue(10, $desnormalizada->ciclo);
-				$stmt->bindValue(11, $desnormalizada->selecao);
-				$stmt->bindValue(12, $desnormalizada->conclusao);
-				$stmt->bindValue(13, $desnormalizada->latitude);
-				$stmt->bindValue(14, $desnormalizada->longitude);
-				$stmt->bindValue(15, $desnormalizada->emblematica, PDO::PARAM_STR);
-				$stmt->bindValue(16, $desnormalizada->observacao, PDO::PARAM_STR);
+				$stmt->bindValue(1, $desnormalizada->regiao);
+				$stmt->bindValue(2, $desnormalizada->uf);
+				$stmt->bindValue(3, $desnormalizada->cidade);
+				$stmt->bindValue(4, $desnormalizada->sexo);
+				$stmt->bindValue(5, $desnormalizada->faixaEtaria);
+				$stmt->bindValue(6, $desnormalizada->anoAbertura, PDO::PARAM_INT);
+				$stmt->bindValue(7, $desnormalizada->mesAbertura, PDO::PARAM_INT);
+				$stmt->bindValue(8, $desnormalizada->dataAbertura);
+				$stmt->bindValue(9, $desnormalizada->dataResposta);
+				$stmt->bindValue(10, $desnormalizada->dataFinalizacao);
+				$stmt->bindValue(11, $desnormalizada->tempoResposta);
+				$stmt->bindValue(12, $desnormalizada->nomeFantasia);
+				$stmt->bindValue(13, $desnormalizada->segmentoMercado);
+				$stmt->bindValue(14, $desnormalizada->area);
+				$stmt->bindValue(15, $desnormalizada->assunto);
+				$stmt->bindValue(16, $desnormalizada->grupoProblema);
+				$stmt->bindValue(17, $desnormalizada->problema);
+				$stmt->bindValue(18, $desnormalizada->comoComprou);
+				$stmt->bindValue(19, $desnormalizada->procurouEmpresa);
+				$stmt->bindValue(20, $desnormalizada->respondida);
+				$stmt->bindValue(21, $desnormalizada->situacao);
+				$stmt->bindValue(22, $desnormalizada->avaliacao);
+				$stmt->bindValue(23, $desnormalizada->notaConsumidor, PDO::PARAM_INT);
 
 				$stmt->execute();
 				$this->conex = null;
 
-				echo "Insert successfully"."</br>";
+				echo "Inserido com Sucesso"."</br>";
 
 			} catch (Exception $e) {
-				echo "Erro ao Inserir Desnormalizada: ". $e->getMessage();
+				echo "Erro ao Inserir Desnormalizada: </br>". $e->getMessage();
 			}
 
+		}
+
+		public function selectDesnormalizada($query=null){
+			try {
+				if ($query == null) {
+					$stmt = $this->conex->query("SELECT * FROM consumidor_des");
+				}else {
+					$stmt = $this->conex->query($query);
+				}
+			} catch (Exception $e) {
+				echo "Erro ao consultar Desnormalizada: </br>". $e->getMessage();
+			}
+			$this->conex = null;
+			return $stmt;
 		}
 	}
 

@@ -10,26 +10,6 @@
 	}
 
 	$desnormalizada = new MagicDesnormalizada();
-
-	// $desnormalizada->id = 1311;
-	// $desnormalizada->idDigs = 1001;
-	// $desnormalizada->titulo = "Adequação Linha Férrea de Barra Mansa/RJ e construção de pátio - RJ";
-	// $desnormalizada->investimento = 143996640.77;
-	// $desnormalizada->uf = "RJ";
-	// $desnormalizada->cidade = "BARRA MANSA, VOLTA REDONDA";
-	// $desnormalizada->executor = "DNIT";
-	// $desnormalizada->orgao = "Ministério dos Transportes";
-	// $desnormalizada->estagio = 70;
-	// $desnormalizada->ciclo = "30.06.2016";
-	// $desnormalizada->selecao = NULL;
-	// $desnormalizada->conclusao = NULL;
-	// $desnormalizada->latitude = "22°32'24.000000''''S";
-	// $desnormalizada->longitude = "44°10'38.280000''O";
-	// $desnormalizada->emblematica = "";
-	// $desnormalizada->observacao = "";
-
-
-
 	$DAODesnormalizada = new DAODesnormalizada();
 	//$DAODesnormalizada->insertDesnormalizada($desnormalizada);
 
@@ -43,6 +23,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">	</script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">	</script>
+		<script src="../control/importAjax.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -62,27 +43,63 @@
 				<div style="clear:both"></div>
 			</form>
 			<br><br><br>
-			<div class="table-responsive" id="pac_table">
+			<div class="table-responsive" id="consumidor_table">
 				<table class="table table-bordered">
 					<tr>
-						<th width="5%">ID</th>
-						<th width="6%">IDigs</th>
-						<th width="15%">TITULO</th>
-						<th width="8%">INVESTIMENTO</th>
-						<th width="5%">UF</th>
-						<th width="10%">CIDADE</th>
-						<th width="10%">EXECUTOR</th>
-						<th width="10%">ORGÃO</th>
-						<th width="15%">ESTAGIO</th>
-						<th width="15%">CICLO</th>
-						<th width="10%">SELECAO</th>
-						<th width="5%">CONCLUSAO</th>
-						<th width="5%">LATITUDE</th>
-						<th width="5%">LONGITUDE</th>
-						<th width="5%">EMBLEMATICA</th>
-						<th width="15%">OBSERVAÇÃO</th>
-
+						<th width="5%">REGIÃO</th>
+						<th width="6%">UF</th>
+						<th width="15%">CIDADE</th>
+						<th width="8%">SEXO</th>
+						<th width="5%">FAIXA ETÁRIA</th>
+						<th width="10%">ANO ABERTURA</th>
+						<th width="10%">MÊS ABERTURA</th>
+						<th width="10%">DATA ABERTURA</th>
+						<th width="15%">DATA RESPOSTA</th>
+						<th width="15%">DATA FINALIZAÇÃO</th>
+						<th width="10%">TEMPO RESPOSTA</th>
+						<th width="5%">NOME FANTASIA</th>
+						<th width="5%">SEGMENTO MERCADO</th>
+						<th width="5%">ÁREA</th>
+						<th width="5%">ASSUNTO</th>
+						<th width="15%">GRUPO PROBLEMA</th>
+						<th width="15%">PROBLEMA</th>
+						<th width="15%">COMO COMPROU</th>
+						<th width="15%">PROCUROU EMPRESA</th>
+						<th width="15%">RESPONDIDA</th>
+						<th width="15%">SITUAÇÃO</th>
+						<th width="15%">AVALIAÇÃO</th>
+						<th width="15%">NOTA CONSUMIDOR</th>
 					</tr>
+					<?php
+					while($row = $DAODesnormalizada->selectDesnormalizada()->fetch(PDO::FETCH_ASSOC)){
+          ?>
+          <tr>
+           	<td><?php echo $row["regiao"]; ?></td>
+           	<td><?php echo $row["uf"]; ?></td>
+           	<td><?php echo $row["cidade"]; ?></td>
+           	<td><?php echo $row["sexo"]; ?></td>
+           	<td><?php echo $row["faixaEtaria"]; ?></td>
+           	<td><?php echo $row["anoAbertura"]; ?></td>
+           	<td><?php echo $row["mesAbertura"]; ?></td>
+           	<td><?php echo $row["dataAbertura"]; ?></td>
+           	<td><?php echo $row["dataFinalizacao"]; ?></td>
+           	<td><?php echo $row["tempoResposta"]; ?></td>
+           	<td><?php echo $row["nomeFantasia"]; ?></td>
+           	<td><?php echo $row["segmentoMercado"]; ?></td>
+           	<td><?php echo $row["area"]; ?></td>
+           	<td><?php echo $row["assunto"]; ?></td>
+           	<td><?php echo $row["grupoProblema"]; ?></td>
+           	<td><?php echo $row["problema"]; ?></td>
+           	<td><?php echo $row["comoComprou"]; ?></td>
+           	<td><?php echo $row["procurouEmpresa"]; ?></td>
+           	<td><?php echo $row["respondida"]; ?></td>
+           	<td><?php echo $row["situacao"]; ?></td>
+           	<td><?php echo $row["avaliacao"]; ?></td>
+           	<td><?php echo $row["notaConsumidor"]; ?></td>
+          </tr>
+          <?php
+          }
+          ?>
 				</table>
 
 			</div>
