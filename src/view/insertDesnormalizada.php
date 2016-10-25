@@ -20,13 +20,12 @@
 		<meta charset="utf-8">
 		<title>Importação da Base de Dados</title>
 
-		<link rel="shortcut icon" href="../../utilities/img/favicon.png" type="image/png"/>
-		<!-- REVER PARA BAIXAR OS ARQUIVOS, MELHORA O DESEMPENHO, NA APRESENTAÇÃO NÃO TEREMOS INTERNET -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-		
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">	</script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">	</script>
-		<script src="../control/importAjax.js"></script>
+		<link rel="shortcut icon" href="../utilities/img/favicon.png" type="image/png"/>
+		<link rel="stylesheet" href="../utilities/css/bootstrap.min.css">
+		<script src="../utilities/js/jquery-3.1.1.min.js">	</script>
+		<script src="../utilities/js/bootstrap.min.js">	</script>
+		<script src="../control/ImportAjax.js"></script>
+
 	</head>
 	<body>
 		<div class="container">
@@ -38,7 +37,7 @@
 					<label>Adicionar mais dados</label>
 				</div>
 				<div class="col-md-4">
-					<input type="file" name="pac_csv" value="Selecione o Arquivo" style="margin-top: 15px;">
+					<input type="file" name="consumidor_csv" value="Selecione o Arquivo" style="margin-top: 15px;">
 				</div>
 				<div class="col-md-5">
 					<input type="submit" name="uploadBtn" id="uploadBtn" value="Enviar" style="margin-top:10px;">
@@ -54,14 +53,14 @@
 						<th width="15%">CIDADE</th>
 						<th width="8%">SEXO</th>
 						<th width="5%">FAIXA ETÁRIA</th>
-						<th width="10%">ANO ABERTURA</th>
-						<th width="10%">MÊS ABERTURA</th>
-						<th width="10%">DATA ABERTURA</th>
+						<th width="20%">ANO ABERTURA</th>
+						<th width="20%">MÊS ABERTURA</th>
+						<th width="20%">DATA ABERTURA</th>
 						<th width="15%">DATA RESPOSTA</th>
 						<th width="15%">DATA FINALIZAÇÃO</th>
-						<th width="10%">TEMPO RESPOSTA</th>
-						<th width="5%">NOME FANTASIA</th>
-						<th width="5%">SEGMENTO MERCADO</th>
+						<th width="15%">TEMPO RESPOSTA</th>
+						<th width="15%">NOME FANTASIA</th>
+						<th width="15%">SEGMENTO MERCADO</th>
 						<th width="5%">ÁREA</th>
 						<th width="5%">ASSUNTO</th>
 						<th width="15%">GRUPO PROBLEMA</th>
@@ -77,28 +76,28 @@
 					while($row = $DAODesnormalizada->selectDesnormalizada()->fetch(PDO::FETCH_ASSOC)){
           ?>
           <tr>
-           	<td><?php echo $row["regiao"]; ?></td>
-           	<td><?php echo $row["uf"]; ?></td>
-           	<td><?php echo $row["cidade"]; ?></td>
-           	<td><?php echo $row["sexo"]; ?></td>
-           	<td><?php echo $row["faixaEtaria"]; ?></td>
-           	<td><?php echo $row["anoAbertura"]; ?></td>
-           	<td><?php echo $row["mesAbertura"]; ?></td>
-           	<td><?php echo $row["dataAbertura"]; ?></td>
-           	<td><?php echo $row["dataFinalizacao"]; ?></td>
-           	<td><?php echo $row["tempoResposta"]; ?></td>
-           	<td><?php echo $row["nomeFantasia"]; ?></td>
-           	<td><?php echo $row["segmentoMercado"]; ?></td>
-           	<td><?php echo $row["area"]; ?></td>
-           	<td><?php echo $row["assunto"]; ?></td>
-           	<td><?php echo $row["grupoProblema"]; ?></td>
-           	<td><?php echo $row["problema"]; ?></td>
-           	<td><?php echo $row["comoComprou"]; ?></td>
-           	<td><?php echo $row["procurouEmpresa"]; ?></td>
-           	<td><?php echo $row["respondida"]; ?></td>
-           	<td><?php echo $row["situacao"]; ?></td>
-           	<td><?php echo $row["avaliacao"]; ?></td>
-           	<td><?php echo $row["notaConsumidor"]; ?></td>
+           	<td><?php echo $row["REGIAO"]; ?></td>
+           	<td><?php echo $row["UF"]; ?></td>
+           	<td><?php echo $row["CIDADE"]; ?></td>
+           	<td><?php echo $row["SEXO"]; ?></td>
+           	<td><?php echo $row["FAIXAETARIA"]; ?></td>
+           	<td><?php echo $row["ANOABERTURA"]; ?></td>
+           	<td><?php echo $row["MESABERTURA"]; ?></td>
+           	<td><?php echo $row["DATAABERTURA"]; ?></td>
+           	<td><?php echo $row["DATAFINALIZACAO"]; ?></td>
+           	<td><?php echo $row["TEMPORESPOSTA"]; ?></td>
+           	<td><?php echo $row["NOMEFANTASIA"]; ?></td>
+           	<td><?php echo $row["SEGMENTOMERCADO"]; ?></td>
+           	<td><?php echo $row["AREA"]; ?></td>
+           	<td><?php echo $row["ASSUNTO"]; ?></td>
+           	<td><?php echo $row["GRUPOPROBLEMA"]; ?></td>
+           	<td><?php echo $row["PROBLEMA"]; ?></td>
+           	<td><?php echo $row["COMOCOMPROU"]; ?></td>
+           	<td><?php echo $row["PROCUROUEMPRESA"]; ?></td>
+           	<td><?php echo $row["RESPONDIDA"]; ?></td>
+           	<td><?php echo $row["SITUACAO"]; ?></td>
+           	<td><?php echo $row["AVALIACAO"]; ?></td>
+           	<td><?php echo $row["NOTACONSUMIDOR"]; ?></td>
           </tr>
           <?php
           }

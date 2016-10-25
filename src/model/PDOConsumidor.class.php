@@ -12,7 +12,7 @@ class PDOConsumidor {
 
   protected $dbType = "mysql";
 
-  protected $host = "localhost";
+  protected $host = "127.0.0.1";
   protected $user = "root";
   protected $pass = "";
   protected $db   = "reclamacoes_consumidor";
