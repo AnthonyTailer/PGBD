@@ -4,7 +4,6 @@
   * Classe responsável por manter métodos de conexão com a base dados
   * @author Anthony Tailer
   * @author Lucas Lima
-  * REFERENCE - http://dados.gov.br/dataset/reclamacoes-do-consumidor-gov-br
   **/
 
 class PDOConsumidor {

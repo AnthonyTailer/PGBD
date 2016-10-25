@@ -12,7 +12,6 @@
 	$desnormalizada = new MagicDesnormalizada();
 	$DAODesnormalizada = new DAODesnormalizada();
 	//$DAODesnormalizada->insertDesnormalizada($desnormalizada);
-
  ?>
 
 <!DOCTYPE html>
@@ -20,9 +19,13 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Importação da Base de Dados</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">	</script>
+
+		<link rel="shortcut icon" href="../../utilities/img/favicon.png" type="image/png"/>
+		<!-- REVER PARA BAIXAR OS ARQUIVOS, MELHORA O DESEMPENHO, NA APRESENTAÇÃO NÃO TEREMOS INTERNET -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">	</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">	</script>
 		<script src="../control/importAjax.js"></script>
 	</head>
 	<body>

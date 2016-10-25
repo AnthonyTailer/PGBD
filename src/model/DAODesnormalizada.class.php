@@ -11,14 +11,14 @@
 
 		public $conex = null;
 		const insertSql = "INSERT INTO consumidor_des
-		(regiao, uf, cidade, sexo,faixaEtaria, anoAbertura, mesAbertura,
+			(regiao, uf, cidade, sexo,faixaEtaria, anoAbertura, mesAbertura,
 			dataAbertura, dataResposta, dataFinalizacao, tempoResposta, nomeFantasia,
 			segmentoMercado, area, assunto, grupoProblema, problema, comoComprou,
 			procurouEmpresa, respondida, situacao, avaliacao, notaConsumidor)
 			VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
 		public function __construct(){
-					$this->conex = PDOConsumidor::getConnection();
+			$this->conex = PDOConsumidor::getConnection();
 		}
 
 		// Inserção de novos dados na tabelas desnormalizada
@@ -49,7 +49,7 @@
 				$stmt->bindValue(20, $desnormalizada->respondida);
 				$stmt->bindValue(21, $desnormalizada->situacao);
 				$stmt->bindValue(22, $desnormalizada->avaliacao);
-				$stmt->bindValue(23, $desnormalizada->notaConsumidor, PDO::PARAM_INT);
+				$stmt->bindValue(23, $desnormalizada->notaConsumidor);
 
 				$stmt->execute();
 				$this->conex = null;
