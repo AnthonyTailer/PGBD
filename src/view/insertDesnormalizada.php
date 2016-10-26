@@ -20,7 +20,8 @@
 		<meta charset="utf-8">
 		<title>Importação da Base de Dados</title>
 
-		<link rel="shortcut icon" href="../../utilities/img/favicon.png" type="image/png"/>
+		<link rel="icon" type="image/png" href="../utilities/img/favicon.ico"/>
+		<link rel="stylesheet" type="text/css" href="../utilities/css/style.css" media="all">
 		<!-- REVER PARA BAIXAR OS ARQUIVOS, MELHORA O DESEMPENHO, NA APRESENTAÇÃO NÃO TEREMOS INTERNET -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		
