@@ -10,12 +10,12 @@
 	class DAODesnormalizada extends PDOConsumidor {
 
 		public $conex = null;
-		const insertSql = "INSERT INTO consumidor_des
-			(regiao, uf, cidade, sexo,faixaEtaria, anoAbertura, mesAbertura,
-			dataAbertura, dataResposta, dataFinalizacao, tempoResposta, nomeFantasia,
-			segmentoMercado, area, assunto, grupoProblema, problema, comoComprou,
-			procurouEmpresa, respondida, situacao, avaliacao, notaConsumidor)
-			VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+		const insertSql = "INSERT INTO CONSUMIDOR_DES
+			(REGIAO, UF, CIDADE, SEXO,FAIXAETARIA, ANOABERTURA, MESABERTURA,
+			DATAABERTURA, DATARESPOSTA, DATAFINALIZACAO, TEMPORESPOSTA, NOMEFANTASIA,
+			SEGMENTOMERCADO, AREA, ASSUNTO, GRUPOPROBLEMA, PROBLEMA, COMOCOMPROU,
+			PROCUROUEMPRESA, RESPONDIDA, SITUACAO, AVALIACAO, NOTACONSUMIDOR)
+			VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		public function __construct(){
 			$this->conex = PDOConsumidor::getConnection();
@@ -65,7 +65,7 @@
 		public function selectDesnormalizada($query=null){
 			try {
 				if ($query == null) {
-					$stmt = $this->conex->query("SELECT * FROM consumidor_des");
+					$stmt = $this->conex->query("SELECT * FROM CONSUMIDOR_DES");
 				}else {
 					$stmt = $this->conex->query($query);
 				}

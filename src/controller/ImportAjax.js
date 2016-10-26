@@ -2,7 +2,7 @@ $(document).ready(function(){
           $('#upload_csv').on("submit", function(e){
                e.preventDefault();
                $.ajax({
-                    url:"export.php",
+                    url:"../control/ImportCsv.class.php",
                     method:"POST",
                     data:new FormData(this),
                     contentType:false,
@@ -19,6 +19,7 @@ $(document).ready(function(){
                          }
                          else
                          {
+                              alert("arquivo correto!");
                               $('#consumidor_table').html(data);
                          }
                     }
