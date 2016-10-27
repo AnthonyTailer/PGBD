@@ -28,4 +28,4 @@ CREATE TABLE IF NOT EXISTS CONSUMIDOR_DES(
     NOTACONSUMIDOR TINYINT NULL
 );
 
-	ALTER DATABASE consumidor CHARSET = Latin1 COLLATE = latin1_swedish_ci;
+	ALTER DATABASE reclamacoes_consumidor CHARSET = utf8 COLLATE = utf8_encode;

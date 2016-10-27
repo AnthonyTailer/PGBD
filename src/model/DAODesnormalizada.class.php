@@ -5,11 +5,12 @@
   * @author Lucas Lima
   **/
 
-	require_once 'PDOConsumidor.class.php';
+	require_once 'MySQLiConsumidor.class.php';
 
-	class DAODesnormalizada extends PDOConsumidor {
+	class DAODesnormalizada extends MySQLiConsumidor {
 
-		public $conex = null;
+		public $conex;
+		public $mysqli;
 		const insertSql = "INSERT INTO CONSUMIDOR_DES
 			(REGIAO, UF, CIDADE, SEXO,FAIXAETARIA, ANOABERTURA, MESABERTURA,
 			DATAABERTURA, DATARESPOSTA, DATAFINALIZACAO, TEMPORESPOSTA, NOMEFANTASIA,
@@ -18,62 +19,50 @@
 			VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		public function __construct(){
-			$this->conex = PDOConsumidor::getConnection();
+			$this->conex = new MySQLiConsumidor();
+			$this->mysqli = $this->conex->getConnection();
+
 		}
 
 		// Inserção de novos dados na tabelas desnormalizada
 
 		public function insertDesnormalizada($desnormalizada){
 			try {
-				$stmt = $this->conex->prepare(self::insertSql);
+				$stmt = $this->mysqli->prepare(self::insertSql);
 
-				$stmt->bindValue(1, $desnormalizada->regiao);
-				$stmt->bindValue(2, $desnormalizada->uf);
-				$stmt->bindValue(3, $desnormalizada->cidade);
-				$stmt->bindValue(4, $desnormalizada->sexo);
-				$stmt->bindValue(5, $desnormalizada->faixaEtaria);
-				$stmt->bindValue(6, $desnormalizada->anoAbertura, PDO::PARAM_INT);
-				$stmt->bindValue(7, $desnormalizada->mesAbertura, PDO::PARAM_INT);
-				$stmt->bindValue(8, $desnormalizada->dataAbertura);
-				$stmt->bindValue(9, $desnormalizada->dataResposta);
-				$stmt->bindValue(10, $desnormalizada->dataFinalizacao);
-				$stmt->bindValue(11, $desnormalizada->tempoResposta);
-				$stmt->bindValue(12, $desnormalizada->nomeFantasia);
-				$stmt->bindValue(13, $desnormalizada->segmentoMercado);
-				$stmt->bindValue(14, $desnormalizada->area);
-				$stmt->bindValue(15, $desnormalizada->assunto);
-				$stmt->bindValue(16, $desnormalizada->grupoProblema);
-				$stmt->bindValue(17, $desnormalizada->problema);
-				$stmt->bindValue(18, $desnormalizada->comoComprou);
-				$stmt->bindValue(19, $desnormalizada->procurouEmpresa);
-				$stmt->bindValue(20, $desnormalizada->respondida);
-				$stmt->bindValue(21, $desnormalizada->situacao);
-				$stmt->bindValue(22, $desnormalizada->avaliacao);
-				$stmt->bindValue(23, $desnormalizada->notaConsumidor);
+				 $stmt->bind_param(
+				 'sssssiisssssssssssssssi',
+				 $desnormalizada->regiao, $desnormalizada->uf,
+				 $desnormalizada->cidade, $desnormalizada->sexo,
+				 $desnormalizada->faixaEtaria, $desnormalizada->anoAbertura,
+				 $desnormalizada->mesAbertura, $desnormalizada->dataAbertura,
+				 $desnormalizada->dataResposta, $desnormalizada->dataFinalizacao,
+				 $desnormalizada->tempoResposta, $desnormalizada->nomeFantasia,
+				 $desnormalizada->segmentoMercado, $desnormalizada->area,
+				 $desnormalizada->assunto, $desnormalizada->grupoProblema,
+				 $desnormalizada->problema, $desnormalizada->comoComprou,
+				 $desnormalizada->procurouEmpresa, $desnormalizada->respondida,
+				 $desnormalizada->situacao, $desnormalizada->avaliacao,
+				 $desnormalizada->notaConsumidor);
 
-				$stmt->execute();
-				$this->conex = null;
-
-				echo "Inserido com Sucesso"."</br>";
-
+				 $stmt->execute();
+				 $stmt->close();
+         //$this->mysqli->close();
 			} catch (Exception $e) {
 				echo "Erro ao Inserir Desnormalizada: </br>". $e->getMessage();
 			}
 
 		}
 
-		public function selectDesnormalizada($query=null){
+		public function selectDesnormalizada($query){
 			try {
-				if ($query == null) {
-					$stmt = $this->conex->query("SELECT * FROM CONSUMIDOR_DES");
-				}else {
-					$stmt = $this->conex->query($query);
-				}
+					$stmt = $this->mysqli->query($query);
+					return $stmt;
+
 			} catch (Exception $e) {
 				echo "Erro ao consultar Desnormalizada: </br>". $e->getMessage();
 			}
-			$this->conex = null;
-			return $stmt;
+
 		}
 	}
 

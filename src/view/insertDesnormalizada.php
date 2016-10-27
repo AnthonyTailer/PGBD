@@ -11,7 +11,10 @@
 
 	$desnormalizada = new MagicDesnormalizada();
 	$DAODesnormalizada = new DAODesnormalizada();
-	//$DAODesnormalizada->insertDesnormalizada($desnormalizada);
+	$conex = new MySQLiConsumidor();
+	//$conex->getConnection();
+	$query = "SELECT * FROM CONSUMIDOR_DES";
+	$result = $conex->executeQuery($query);
  ?>
 
 <!DOCTYPE html>
@@ -25,9 +28,10 @@
 		<link rel="stylesheet" type="text/css" href="../utilities/css/style.css" media="all">
 		<link rel="stylesheet" href="../utilities/css/bootstrap.min.css">
 		<!-- Script -->
-		<script src="../utilities/js/jquery-3.1.1.min.js">	</script>
+		<script src="../utilities/js/jquery.min.js">	</script>
 		<script src="../utilities/js/bootstrap.min.js">	</script>
-		<script src="../controller/ImportAjax.js"></script>
+		<script src="../controller/ImportAjax.js"> </script>
+
 	</head>
 	<body>
 		<div class="container">
@@ -42,7 +46,7 @@
 					<input type="file" name="consumidor_csv" value="Selecione o Arquivo" style="margin-top: 15px;">
 				</div>
 				<div class="col-md-5">
-					<input type="submit" name="uploadBtn" id="uploadBtn" value="Enviar" style="margin-top:10px;">
+					<input type="submit" name="uploadBtn" id="uploadBtn" value="Enviar" style="margin-top:10px;" class="btn btn-info">
 				</div>
 				<div style="clear:both"></div>
 			</form>
@@ -75,36 +79,36 @@
 						<th width="15%">NOTA CONSUMIDOR</th>
 					</tr>
 					<?php
-						while($row = $DAODesnormalizada->selectDesnormalizada()->fetch(PDO::FETCH_ASSOC)){
-          			?>
-		          	<tr>
-			           	<td><?php echo $row["REGIAO"]; ?></td>
-			           	<td><?php echo $row["UF"]; ?></td>
-			           	<td><?php echo $row["CIDADE"]; ?></td>
-			           	<td><?php echo $row["SEXO"]; ?></td>
-			           	<td><?php echo $row["FAIXAETARIA"]; ?></td>
-			           	<td><?php echo $row["ANOABERTURA"]; ?></td>
-			           	<td><?php echo $row["MESABERTURA"]; ?></td>
-			           	<td><?php echo $row["DATAABERTURA"]; ?></td>
-			           	<td><?php echo $row["DATAFINALIZACAO"]; ?></td>
-			           	<td><?php echo $row["TEMPORESPOSTA"]; ?></td>
-			           	<td><?php echo $row["NOMEFANTASIA"]; ?></td>
-			           	<td><?php echo $row["SEGMENTOMERCADO"]; ?></td>
-			           	<td><?php echo $row["AREA"]; ?></td>
-			           	<td><?php echo $row["ASSUNTO"]; ?></td>
-			           	<td><?php echo $row["GRUPOPROBLEMA"]; ?></td>
-			           	<td><?php echo $row["PROBLEMA"]; ?></td>
-			           	<td><?php echo $row["COMOCOMPROU"]; ?></td>
-			           	<td><?php echo $row["PROCUROUEMPRESA"]; ?></td>
-			           	<td><?php echo $row["RESPONDIDA"]; ?></td>
-			           	<td><?php echo $row["SITUACAO"]; ?></td>
-			           	<td><?php echo $row["AVALIACAO"]; ?></td>
-			           	<td><?php echo $row["NOTACONSUMIDOR"]; ?></td>
-		          	</tr>
-		          	<?php
-		         		}
-		          	?>
-				</table>
+					while($row = $result->fetch_array(MYSQLI_ASSOC)){
+        			?>
+	          	<tr>
+		           	<td><?php echo $row["REGIAO"]; ?></td>
+		           	<td><?php echo $row["UF"]; ?></td>
+		           	<td><?php echo $row["CIDADE"]; ?></td>
+		           	<td><?php echo $row["SEXO"]; ?></td>
+		           	<td><?php echo $row["FAIXAETARIA"]; ?></td>
+		           	<td><?php echo $row["ANOABERTURA"]; ?></td>
+		           	<td><?php echo $row["MESABERTURA"]; ?></td>
+		           	<td><?php echo $row["DATAABERTURA"]; ?></td>
+		           	<td><?php echo $row["DATAFINALIZACAO"]; ?></td>
+		           	<td><?php echo $row["TEMPORESPOSTA"]; ?></td>
+		           	<td><?php echo $row["NOMEFANTASIA"]; ?></td>
+		           	<td><?php echo $row["SEGMENTOMERCADO"]; ?></td>
+		           	<td><?php echo $row["AREA"]; ?></td>
+		           	<td><?php echo $row["ASSUNTO"]; ?></td>
+		           	<td><?php echo $row["GRUPOPROBLEMA"]; ?></td>
+		           	<td><?php echo $row["PROBLEMA"]; ?></td>
+		           	<td><?php echo $row["COMOCOMPROU"]; ?></td>
+		           	<td><?php echo $row["PROCUROUEMPRESA"]; ?></td>
+		           	<td><?php echo $row["RESPONDIDA"]; ?></td>
+		           	<td><?php echo $row["SITUACAO"]; ?></td>
+		           	<td><?php echo $row["AVALIACAO"]; ?></td>
+		           	<td><?php echo $row["NOTACONSUMIDOR"]; ?></td>
+	          	</tr>
+	          	<?php
+	         		}
+	          	?>
+			</table>
 
 			</div>
 		</div>
