@@ -27,10 +27,10 @@ $(document).ready(function(){
 								 if (evt.lengthComputable) {
 									 var percentComplete = evt.loaded / evt.total;
 									 console.log(evt.loaded);
-									 console.log(evt.loaded);
+									 console.log(evt.total);
 
-									 console.log(percentComplete);
-									 addProgress(percentComplete);
+									 console.log(percentComplete*100);
+									 addProgress(percentComplete*100);
 								 }
 							 });
 							 return xhr;
