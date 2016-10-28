@@ -18,9 +18,9 @@
  ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 	<head>
-		<meta charset="utf-8">
+		<meta http-equiv=”content-language” content=”pt-br” charset="utf-8">
 		<title>Importação da Base de Dados</title>
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="../utilities/img/favicon.png" type="image/png"/>
@@ -39,20 +39,30 @@
 			<h3 align="center">Reclamações do consumidor.gov.br</h3>
 			<br><br><br>
 			<form id="upload_csv" enctype="multipart/form-data" method="post">
-				<div class="col-md-3">
-					<label>Adicionar mais dados</label>
+				<div class="row">
+						<div class="col-md-4">
+							<label for="fileInput">Selecione o Arquivo para a importação</label>
+							<input id="fileInput" class="form-control" type="file" name="consumidor_csv" value="Selecione o Arquivo" >
+							<p class="help-block">Somente arquivos .csv serão suportados!</p>
+						</div>
+					</br>
+						<div class="col-md-8">
+							<input  class="btn btn-info" id="uploadBtn" name="uploadBtn" type="submit" value="Enviar" style="margin-top: 5px;" >
+						</div>
 				</div>
-				<div class="col-md-4">
-					<input type="file" name="consumidor_csv" value="Selecione o Arquivo" style="margin-top: 15px;">
-				</div>
-				<div class="col-md-5">
-					<input type="submit" name="uploadBtn" id="uploadBtn" value="Enviar" style="margin-top:10px;" class="btn btn-info">
+				<div class="row">
+					<div class="progress col-md-12" id="progress" >
+						<div class="progress-bar progress-bar-striped active" id="progressBar" role="progressbar"
+						aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" >
+							<p id="statusTxt">0%</p>
+						</div>
+					</div>
 				</div>
 				<div style="clear:both"></div>
 			</form>
-			<br><br><br>
+			<br><br>
 			<div class="table-responsive" id="consumidor_table">
-				<table class="table table-bordered">
+				<table class="table table-bordered table-striped table-condensed">
 					<tr>
 						<th width="5%">REGIÃO</th>
 						<th width="6%">UF</th>

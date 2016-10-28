@@ -26,6 +26,7 @@ require_once '../model/MySQLiConsumidor.class.php';
      if(in_array($extension, $allowed_ext)){
           $file_data = fopen($_FILES["consumidor_csv"]["tmp_name"], 'r');
           fgetcsv($file_data);
+          $i = 0;
           while($row = fgetcsv($file_data, 0,';')){
                $row = array_map("utf8_encode", $row);
                //print_r($row);
@@ -54,7 +55,7 @@ require_once '../model/MySQLiConsumidor.class.php';
                $desnormalizada->notaConsumidor = $mysqli->real_escape_string($row[22]);
 
                $DAODesnormalizada->insertDesnormalizada($desnormalizada);
-
+               $i++;
           }
           $output = '
           <table class="table table-bordered">
