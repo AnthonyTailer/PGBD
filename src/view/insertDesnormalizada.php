@@ -13,7 +13,7 @@
 	$DAODesnormalizada = new DAODesnormalizada();
 	$conex = new MySQLiConsumidor();
 	//$conex->getConnection();
-	$query = "SELECT * FROM CONSUMIDOR_DES";
+	$query = "SELECT * FROM CONSUMIDOR_DES LIMIT 15";
 	$result = $conex->executeQuery($query);
  ?>
 
@@ -31,10 +31,12 @@
 
 
 		<!-- Script -->
-		<script src="../utilities/js/jquery.min.js">	</script>
+		<!-- <script src="../utilities/js/jquery.min.js">	</script> -->
+		<script src="https://code.jquery.com/jquery-1.12.3.js">	</script>
 		<script src="../utilities/js/bootstrap.min.js">	</script>
 		<script src="../controller/ImportAjax.js"> </script>
 		<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
+
 
 	</head>
 	<body>
@@ -66,37 +68,68 @@
 				<div style="clear:both"></div>
 			</form>
 			<br><br>
-			<div class="table-responsive" id="consumidor_table">
-				<table class="table table-bordered table-striped table-condensed">
+			<div class="table-responsive" id="consumidor_div">
+				<table class="display" id="consumidor_table" width="100%" cellspacing="0">
+					<thead>
 					<tr>
-						<th width="5%">REGIÃO</th>
-						<th width="6%">UF</th>
-						<th width="15%">CIDADE</th>
-						<th width="8%">SEXO</th>
-						<th width="5%">FAIXA ETÁRIA</th>
-						<th width="20%">ANO ABERTURA</th>
-						<th width="20%">MÊS ABERTURA</th>
-						<th width="20%">DATA ABERTURA</th>
-						<th width="15%">DATA RESPOSTA</th>
-						<th width="15%">DATA FINALIZAÇÃO</th>
-						<th width="15%">TEMPO RESPOSTA</th>
-						<th width="15%">NOME FANTASIA</th>
-						<th width="15%">SEGMENTO MERCADO</th>
-						<th width="5%">ÁREA</th>
-						<th width="5%">ASSUNTO</th>
-						<th width="15%">GRUPO PROBLEMA</th>
-						<th width="15%">PROBLEMA</th>
-						<th width="15%">COMO COMPROU</th>
-						<th width="15%">PROCUROU EMPRESA</th>
-						<th width="15%">RESPONDIDA</th>
-						<th width="15%">SITUAÇÃO</th>
-						<th width="15%">AVALIAÇÃO</th>
-						<th width="15%">NOTA CONSUMIDOR</th>
+						<th>REGIÃO</th>
+						<th>UF</th>
+						<th>CIDADE</th>
+						<th>SEXO</th>
+						<th>FAIXA ETÁRIA</th>
+						<th>ANO ABERTURA</th>
+						<th>MÊS ABERTURA</th>
+						<th>DATA ABERTURA</th>
+						<th>DATA RESPOSTA</th>
+						<th>DATA FINALIZAÇÃO</th>
+						<th>TEMPO RESPOSTA</th>
+						<th>NOME FANTASIA</th>
+						<th>SEGMENTO MERCADO</th>
+						<th>ÁREA</th>
+						<th>ASSUNTO</th>
+						<th>GRUPO PROBLEMA</th>
+						<th>PROBLEMA</th>
+						<th>COMO COMPROU</th>
+						<th>PROCUROU EMPRESA</th>
+						<th>RESPONDIDA</th>
+						<th>SITUAÇÃO</th>
+						<th>AVALIAÇÃO</th>
+						<th>NOTA CONSUMIDOR</th>
 					</tr>
+				</thead>
+				<tfoot>
+				<tr>
+					<th>REGIÃO</th>
+					<th>UF</th>
+					<th>CIDADE</th>
+					<th>SEXO</th>
+					<th>FAIXA ETÁRIA</th>
+					<th>ANO ABERTURA</th>
+					<th>MÊS ABERTURA</th>
+					<th>DATA ABERTURA</th>
+					<th>DATA RESPOSTA</th>
+					<th>DATA FINALIZAÇÃO</th>
+					<th>TEMPO RESPOSTA</th>
+					<th>NOME FANTASIA</th>
+					<th>SEGMENTO MERCADO</th>
+					<th>ÁREA</th>
+					<th>ASSUNTO</th>
+					<th>GRUPO PROBLEMA</th>
+					<th>PROBLEMA</th>
+					<th>COMO COMPROU</th>
+					<th>PROCUROU EMPRESA</th>
+					<th>RESPONDIDA</th>
+					<th>SITUAÇÃO</th>
+					<th>AVALIAÇÃO</th>
+					<th>NOTA CONSUMIDOR</th>
+				</tr>
+			</tfoot>
+			<tbody>
+
 					<?php
 					while($row = $result->fetch_array(MYSQLI_ASSOC)){
         			?>
-	          	<tr>
+ 	          	<tr>
 		           	<td><?php echo $row["REGIAO"]; ?></td>
 		           	<td><?php echo $row["UF"]; ?></td>
 		           	<td><?php echo $row["CIDADE"]; ?></td>
@@ -105,6 +138,7 @@
 		           	<td><?php echo $row["ANOABERTURA"]; ?></td>
 		           	<td><?php echo $row["MESABERTURA"]; ?></td>
 		           	<td><?php echo $row["DATAABERTURA"]; ?></td>
+		           	<td><?php echo $row["DATARESPOSTA"]; ?></td>
 		           	<td><?php echo $row["DATAFINALIZACAO"]; ?></td>
 		           	<td><?php echo $row["TEMPORESPOSTA"]; ?></td>
 		           	<td><?php echo $row["NOMEFANTASIA"]; ?></td>
@@ -120,11 +154,12 @@
 		           	<td><?php echo $row["AVALIACAO"]; ?></td>
 		           	<td><?php echo $row["NOTACONSUMIDOR"]; ?></td>
 	          	</tr>
+
 	          	<?php
 	         		}
 	          	?>
+					</tbody>
 			</table>
-
 			</div>
 		</div>
 		<script>
@@ -134,5 +169,6 @@
 			$('#statusTxt').html(percentual+'%');
 		};
 		</script>
+
 	</body>
 </html>

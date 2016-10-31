@@ -57,34 +57,64 @@ require_once '../model/MySQLiConsumidor.class.php';
                $i++;
           }
           $output = '
-          <table class="table table-bordered">
+          <table class="display" id="consumidor_table" width="100%" cellspacing="0">
+  					<thead>
   					<tr>
-  						<th width="5%">REGIÃO</th>
-  						<th width="6%">UF</th>
-  						<th width="15%">CIDADE</th>
-  						<th width="8%">SEXO</th>
-  						<th width="5%">FAIXA ETÁRIA</th>
-  						<th width="10%">ANO ABERTURA</th>
-  						<th width="10%">MÊS ABERTURA</th>
-  						<th width="10%">DATA ABERTURA</th>
-  						<th width="15%">DATA RESPOSTA</th>
-  						<th width="15%">DATA FINALIZAÇÃO</th>
-  						<th width="10%">TEMPO RESPOSTA</th>
-  						<th width="5%">NOME FANTASIA</th>
-  						<th width="5%">SEGMENTO MERCADO</th>
-  						<th width="5%">ÁREA</th>
-  						<th width="5%">ASSUNTO</th>
-  						<th width="15%">GRUPO PROBLEMA</th>
-  						<th width="15%">PROBLEMA</th>
-  						<th width="15%">COMO COMPROU</th>
-  						<th width="15%">PROCUROU EMPRESA</th>
-  						<th width="15%">RESPONDIDA</th>
-  						<th width="15%">SITUAÇÃO</th>
-  						<th width="15%">AVALIAÇÃO</th>
-  						<th width="15%">NOTA CONSUMIDOR</th>
+  						<th>REGIÃO</th>
+  						<th>UF</th>
+  						<th>CIDADE</th>
+  						<th>SEXO</th>
+  						<th>FAIXA ETÁRIA</th>
+  						<th>ANO ABERTURA</th>
+  						<th>MÊS ABERTURA</th>
+  						<th>DATA ABERTURA</th>
+  						<th>DATA RESPOSTA</th>
+  						<th>DATA FINALIZAÇÃO</th>
+  						<th>TEMPO RESPOSTA</th>
+  						<th>NOME FANTASIA</th>
+  						<th>SEGMENTO MERCADO</th>
+  						<th>ÁREA</th>
+  						<th>ASSUNTO</th>
+  						<th>GRUPO PROBLEMA</th>
+  						<th>PROBLEMA</th>
+  						<th>COMO COMPROU</th>
+  						<th>PROCUROU EMPRESA</th>
+  						<th>RESPONDIDA</th>
+  						<th>SITUAÇÃO</th>
+  						<th>AVALIAÇÃO</th>
+  						<th>NOTA CONSUMIDOR</th>
   					</tr>
+  				</thead>
+  				<tfoot>
+  				<tr>
+  					<th>REGIÃO</th>
+  					<th>UF</th>
+  					<th>CIDADE</th>
+  					<th>SEXO</th>
+  					<th>FAIXA ETÁRIA</th>
+  					<th>ANO ABERTURA</th>
+  					<th>MÊS ABERTURA</th>
+  					<th>DATA ABERTURA</th>
+  					<th>DATA RESPOSTA</th>
+  					<th>DATA FINALIZAÇÃO</th>
+  					<th>TEMPO RESPOSTA</th>
+  					<th>NOME FANTASIA</th>
+  					<th>SEGMENTO MERCADO</th>
+  					<th>ÁREA</th>
+  					<th>ASSUNTO</th>
+  					<th>GRUPO PROBLEMA</th>
+  					<th>PROBLEMA</th>
+  					<th>COMO COMPROU</th>
+  					<th>PROCUROU EMPRESA</th>
+  					<th>RESPONDIDA</th>
+  					<th>SITUAÇÃO</th>
+  					<th>AVALIAÇÃO</th>
+  					<th>NOTA CONSUMIDOR</th>
+  				</tr>
+  			</tfoot>
+        <tbody>
             ';
-            $query = "SELECT * FROM CONSUMIDOR_DES";
+            $query = "SELECT * FROM CONSUMIDOR_DES LIMIT 15";
             $result = $conex->executeQuery($query);
   					while($row = $result->fetch_array(MYSQLI_ASSOC)){
               $output .= '
@@ -97,6 +127,7 @@ require_once '../model/MySQLiConsumidor.class.php';
                	<td>'.$row["ANOABERTURA"].'</td>
                	<td>'.$row["MESABERTURA"].'</td>
                	<td>'.$row["DATAABERTURA"].'</td>
+                <td>'.$row["DATARESPOSTA"].'</td>
                	<td>'.$row["DATAFINALIZACAO"].'</td>
                	<td>'.$row["TEMPORESPOSTA"].'</td>
                	<td>'.$row["NOMEFANTASIA"].'</td>
@@ -111,10 +142,12 @@ require_once '../model/MySQLiConsumidor.class.php';
                	<td>'.$row["SITUACAO"].'</td>
                	<td>'.$row["AVALIACAO"].'</td>
                	<td>'.$row["NOTACONSUMIDOR"].'</td>
-              </tr>' ;
+              </tr>
+              ' ;
 
             }
-          $output .= '</table>';
+          $output .= '</tbody>
+          </table>';
           echo $output;
      }
      else{

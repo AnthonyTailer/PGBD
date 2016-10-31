@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	$('#consumidor_table').DataTable();
 		var progressbar     = $('#progressBar');
 		var statustxt       = $('#statusTxt');
 		var submitbutton    = $("#uploadBtn");
@@ -65,7 +66,7 @@ $(document).ready(function(){
 									 }
 									 else
 									 {
-												$('#consumidor_table').html(data);
+												$('#consumidor_div').html(data);
 												$('#consumidor_table').DataTable();
 
 												alert("Importação Finalizada!");
