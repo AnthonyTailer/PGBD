@@ -16,7 +16,6 @@ require_once '../model/MySQLiConsumidor.class.php';
   $mysqli = $conex->getConnection();
   $desnormalizada = new MagicDesnormalizada();
 	$DAODesnormalizada = new DAODesnormalizada();
-
   if(!empty($_FILES["consumidor_csv"]["name"])){
 
      $output = '';

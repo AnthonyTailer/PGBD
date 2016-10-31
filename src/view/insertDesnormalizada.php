@@ -27,10 +27,14 @@
 		<!-- Style -->
 		<link rel="stylesheet" type="text/css" href="../utilities/css/style.css" media="all">
 		<link rel="stylesheet" href="../utilities/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+
+
 		<!-- Script -->
 		<script src="../utilities/js/jquery.min.js">	</script>
 		<script src="../utilities/js/bootstrap.min.js">	</script>
 		<script src="../controller/ImportAjax.js"> </script>
+		<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
 
 	</head>
 	<body>
@@ -58,6 +62,7 @@
 						</div>
 					</div>
 				</div>
+				<input type="hidden" id="inputStop" value="0">
 				<div style="clear:both"></div>
 			</form>
 			<br><br>
@@ -122,6 +127,12 @@
 
 			</div>
 		</div>
-
+		<script>
+		function addProgress(percentual){
+			//console.log(percentual);
+			$('#progressBar').width(percentual+'%');
+			$('#statusTxt').html(percentual+'%');
+		};
+		</script>
 	</body>
 </html>
