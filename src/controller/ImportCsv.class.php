@@ -114,7 +114,7 @@ require_once '../model/MySQLiConsumidor.class.php';
   			</tfoot>
         <tbody>
             ';
-            $query = "SELECT * FROM CONSUMIDOR_DES";
+            $query = "SELECT * FROM RECLAMACAO_DES";
             $result = $conex->executeQuery($query);
   					while($row = $result->fetch_array(MYSQLI_ASSOC)){
               $output .= '

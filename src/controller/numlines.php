@@ -6,7 +6,7 @@ function __autoload($classe){
 $con = new MySQLiConsumidor();
 $con->getConnection();
 
-$result = $con->executeQuery("SELECT count(*) as valor from CONSUMIDOR_DES");
+$result = $con->executeQuery("SELECT count(*) as valor from RECLAMACAO_DES");
 
 echo $result->fetch_array(MYSQLI_ASSOC)["valor"];
 

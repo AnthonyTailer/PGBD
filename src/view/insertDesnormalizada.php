@@ -13,7 +13,7 @@
 	$DAODesnormalizada = new DAODesnormalizada();
 	$conex = new MySQLiConsumidor();
 	//$conex->getConnection();
-	$query = "SELECT * FROM CONSUMIDOR_DES";
+	$query = "SELECT * FROM RECLAMACAO_DES";
 	$result = $conex->executeQuery($query);
  ?>
 
