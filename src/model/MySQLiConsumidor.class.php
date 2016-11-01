@@ -33,13 +33,6 @@ class MySQLiConsumidor {
   public function executeQuery($query) {
 			$this->conc = $this->getConnection();
 			$result = $this->conc->query($query);
-      //$results = "";
-
-			//while ( $row = $result->fetch_object() ) {
-			//	$results[] = $row;
-      //  print_r($row);
-			//}
-
 			return $result;
 		}
 

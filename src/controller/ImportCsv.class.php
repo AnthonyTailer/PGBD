@@ -25,7 +25,7 @@ require_once '../model/MySQLiConsumidor.class.php';
      if(in_array($extension, $allowed_ext)){
           $file_data = fopen($_FILES["consumidor_csv"]["tmp_name"], 'r');
           fgetcsv($file_data);
-          $i = 0;
+          // $i = 0;
           while($row = fgetcsv($file_data, 0,';')){
                $row = array_map("utf8_encode", $row);
                //print_r($row);
@@ -54,7 +54,7 @@ require_once '../model/MySQLiConsumidor.class.php';
                $desnormalizada->notaConsumidor = $mysqli->real_escape_string($row[22]);
 
                $DAODesnormalizada->insertDesnormalizada($desnormalizada);
-               $i++;
+              // $i++;
           }
           $output = '
           <table class="display" id="consumidor_table" width="100%" cellspacing="0">
@@ -114,7 +114,7 @@ require_once '../model/MySQLiConsumidor.class.php';
   			</tfoot>
         <tbody>
             ';
-            $query = "SELECT * FROM CONSUMIDOR_DES LIMIT 15";
+            $query = "SELECT * FROM CONSUMIDOR_DES";
             $result = $conex->executeQuery($query);
   					while($row = $result->fetch_array(MYSQLI_ASSOC)){
               $output .= '

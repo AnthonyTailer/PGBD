@@ -13,7 +13,7 @@
 	$DAODesnormalizada = new DAODesnormalizada();
 	$conex = new MySQLiConsumidor();
 	//$conex->getConnection();
-	$query = "SELECT * FROM CONSUMIDOR_DES LIMIT 15";
+	$query = "SELECT * FROM CONSUMIDOR_DES";
 	$result = $conex->executeQuery($query);
  ?>
 
@@ -54,6 +54,7 @@
 					</br>
 						<div class="col-md-8">
 							<input  class="btn btn-info" id="uploadBtn" name="uploadBtn" type="submit" value="Enviar" style="margin-top: 5px;" >
+							<!-- <a href="http://google.com"><button class="btn btn-success" id="normalizarBtn" name="normalizarBtn" style="display: none; margin-top: 5px">Normalizar Tabela</button></a> -->
 						</div>
 				</div>
 				<div class="row">
@@ -125,7 +126,6 @@
 				</tr>
 			</tfoot>
 			<tbody>
-
 					<?php
 					while($row = $result->fetch_array(MYSQLI_ASSOC)){
         			?>
@@ -158,17 +158,9 @@
 	          	<?php
 	         		}
 	          	?>
-					</tbody>
+							</tbody>
 			</table>
 			</div>
 		</div>
-		<script>
-		function addProgress(percentual){
-			//console.log(percentual);
-			$('#progressBar').width(percentual+'%');
-			$('#statusTxt').html(percentual+'%');
-		};
-		</script>
-
 	</body>
 </html>
