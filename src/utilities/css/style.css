@@ -1,8 +1,12 @@
-body { 
-	width: 100%; 
-	height: 100%;
-	position: relative;
-	margin: 0px;
-	border: 0px none;
-	padding: 0px;
+#import-elems, #progress-elems{
+  margin-right: 0px !important;
+}
+
+@media (max-width: 991px) {
+  #import-elems, #progress-elems{
+    margin-left: 10px !important;
+  }
+  #enviar-btn{
+    margin-top: 5px !important;
+  }
 }
