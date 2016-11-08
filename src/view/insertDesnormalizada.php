@@ -126,9 +126,9 @@
 				</tr>
 			</tfoot>
 			<tbody>
-					<?php
+				<?php
 					while($row = $result->fetch_array(MYSQLI_ASSOC)){
-        			?>
+    			?>
  	          	<tr>
 		           	<td><?php echo $row["REGIAO"]; ?></td>
 		           	<td><?php echo $row["UF"]; ?></td>
