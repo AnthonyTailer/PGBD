@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Classe responsável por manter métodos de conexão com a base dados
 * @author Anthony Tailer
@@ -11,10 +12,11 @@ function __autoload($classe){
 
 $desnormalizada = new MagicDesnormalizada();
 $DAODesnormalizada = new DAODesnormalizada();
-$conex = new MySQLiConsumidor();
+//$conex = new MySQLiConsumidor();
 //$conex->getConnection();
-$query = "SELECT * FROM RECLAMACAO_DES";
-$result = $conex->executeQuery($query);
+//$query = "SELECT * FROM RECLAMACAO_DES";
+//$result = $conex->executeQuery($query);
+
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +34,7 @@ $result = $conex->executeQuery($query);
 
 	<!-- Script -->
 	<script src="../utilities/js/jquery.min.js"></script>
-	<!-- <script src="https://code.jquery.com/jquery-1.12.3.js">	</script> -->
+	<script src="https://code.jquery.com/jquery-1.12.3.js">	</script>
 	<script src="../utilities/js/bootstrap.min.js">	</script>
 	<script src="../controller/ImportAjax.js"> </script>
 	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
@@ -64,114 +66,80 @@ $result = $conex->executeQuery($query);
 								<input  class="btn btn-info" id="uploadBtn" name="uploadBtn" type="submit" value="Enviar">
 							</p>
 						</div>
-				</div>
+					</div>
 
-				<div class="row" id="progress-elems">
-					<div class="progress" id="progress" >
-						<div class="progress-bar progress-bar-striped active" id="progressBar" role="progressbar"
-						aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" >
-						<p id="statusTxt">0%</p>
+					<div class="row" id="progress-elems">
+						<div class="progress" id="progress" >
+							<div class="progress-bar progress-bar-striped active" id="progressBar" role="progressbar"
+							aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" >
+							<p id="statusTxt">0%</p>
+						</div>
 					</div>
 				</div>
-			</div>
-			<input type="hidden" id="inputStop" value="0">
-			<div style="clear:both"></div>
-		</form>
-		<br><br>
-		<div class="table-responsive" id="consumidor_div">
-			<table class="display" id="consumidor_table" width="100%" cellspacing="0">
-				<thead>
-					<tr>
-						<th>REGIÃO</th>
-						<th>UF</th>
-						<th>CIDADE</th>
-						<th>SEXO</th>
-						<th>FAIXA ETÁRIA</th>
-						<th>ANO ABERTURA</th>
-						<th>MÊS ABERTURA</th>
-						<th>DATA ABERTURA</th>
-						<th>DATA RESPOSTA</th>
-						<th>DATA FINALIZAÇÃO</th>
-						<th>TEMPO RESPOSTA</th>
-						<th>NOME FANTASIA</th>
-						<th>SEGMENTO MERCADO</th>
-						<th>ÁREA</th>
-						<th>ASSUNTO</th>
-						<th>GRUPO PROBLEMA</th>
-						<th>PROBLEMA</th>
-						<th>COMO COMPROU</th>
-						<th>PROCUROU EMPRESA</th>
-						<th>RESPONDIDA</th>
-						<th>SITUAÇÃO</th>
-						<th>AVALIAÇÃO</th>
-						<th>NOTA CONSUMIDOR</th>
-					</tr>
-				</thead>
-				<tfoot>
-					<tr>
-						<th>REGIÃO</th>
-						<th>UF</th>
-						<th>CIDADE</th>
-						<th>SEXO</th>
-						<th>FAIXA ETÁRIA</th>
-						<th>ANO ABERTURA</th>
-						<th>MÊS ABERTURA</th>
-						<th>DATA ABERTURA</th>
-						<th>DATA RESPOSTA</th>
-						<th>DATA FINALIZAÇÃO</th>
-						<th>TEMPO RESPOSTA</th>
-						<th>NOME FANTASIA</th>
-						<th>SEGMENTO MERCADO</th>
-						<th>ÁREA</th>
-						<th>ASSUNTO</th>
-						<th>GRUPO PROBLEMA</th>
-						<th>PROBLEMA</th>
-						<th>COMO COMPROU</th>
-						<th>PROCUROU EMPRESA</th>
-						<th>RESPONDIDA</th>
-						<th>SITUAÇÃO</th>
-						<th>AVALIAÇÃO</th>
-						<th>NOTA CONSUMIDOR</th>
-					</tr>
-				</tfoot>
-				<tbody>
-						<?php
-							while($row = $result->fetch_array(MYSQLI_ASSOC)){
-						?>
+				<input type="hidden" id="inputStop" value="0">
+				<div style="clear:both"></div>
+			</form>
+			<br><br>
+			<div class="table-responsive" id="consumidor_div">
+				<table class="display" id="consumidor_table" width="100%" cellspacing="0">
+					<thead>
 						<tr>
-							<td><?php echo $row["REGIAO"]; ?></td>
-							<td><?php echo $row["UF"]; ?></td>
-							<td><?php echo $row["CIDADE"]; ?></td>
-							<td><?php echo $row["SEXO"]; ?></td>
-							<td><?php echo $row["FAIXAETARIA"]; ?></td>
-							<td><?php echo $row["ANOABERTURA"]; ?></td>
-							<td><?php echo $row["MESABERTURA"]; ?></td>
-							<td><?php echo $row["DATAABERTURA"]; ?></td>
-							<td><?php echo $row["DATARESPOSTA"]; ?></td>
-							<td><?php echo $row["DATAFINALIZACAO"]; ?></td>
-							<td><?php echo $row["TEMPORESPOSTA"]; ?></td>
-							<td><?php echo $row["NOMEFANTASIA"]; ?></td>
-							<td><?php echo $row["SEGMENTOMERCADO"]; ?></td>
-							<td><?php echo $row["AREA"]; ?></td>
-							<td><?php echo $row["ASSUNTO"]; ?></td>
-							<td><?php echo $row["GRUPOPROBLEMA"]; ?></td>
-							<td><?php echo $row["PROBLEMA"]; ?></td>
-							<td><?php echo $row["COMOCOMPROU"]; ?></td>
-							<td><?php echo $row["PROCUROUEMPRESA"]; ?></td>
-							<td><?php echo $row["RESPONDIDA"]; ?></td>
-							<td><?php echo $row["SITUACAO"]; ?></td>
-							<td><?php echo $row["AVALIACAO"]; ?></td>
-							<td><?php echo $row["NOTACONSUMIDOR"]; ?></td>
+							<th>REGIÃO</th>
+							<th>UF</th>
+							<th>CIDADE</th>
+							<th>SEXO</th>
+							<th>FAIXA ETÁRIA</th>
+							<th>ANO ABERTURA</th>
+							<th>MÊS ABERTURA</th>
+							<th>DATA ABERTURA</th>
+							<th>DATA RESPOSTA</th>
+							<th>DATA FINALIZAÇÃO</th>
+							<th>TEMPO RESPOSTA</th>
+							<th>NOME FANTASIA</th>
+							<th>SEGMENTO MERCADO</th>
+							<th>ÁREA</th>
+							<th>ASSUNTO</th>
+							<th>GRUPO PROBLEMA</th>
+							<th>PROBLEMA</th>
+							<th>COMO COMPROU</th>
+							<th>PROCUROU EMPRESA</th>
+							<th>RESPONDIDA</th>
+							<th>SITUAÇÃO</th>
+							<th>AVALIAÇÃO</th>
+							<th>NOTA CONSUMIDOR</th>
 						</tr>
-						<?php
-					}
-					?>
-				</tbody>
-			</table>
+					</thead>
+					<tfoot>
+						<tr>
+							<th>REGIÃO</th>
+							<th>UF</th>
+							<th>CIDADE</th>
+							<th>SEXO</th>
+							<th>FAIXA ETÁRIA</th>
+							<th>ANO ABERTURA</th>
+							<th>MÊS ABERTURA</th>
+							<th>DATA ABERTURA</th>
+							<th>DATA RESPOSTA</th>
+							<th>DATA FINALIZAÇÃO</th>
+							<th>TEMPO RESPOSTA</th>
+							<th>NOME FANTASIA</th>
+							<th>SEGMENTO MERCADO</th>
+							<th>ÁREA</th>
+							<th>ASSUNTO</th>
+							<th>GRUPO PROBLEMA</th>
+							<th>PROBLEMA</th>
+							<th>COMO COMPROU</th>
+							<th>PROCUROU EMPRESA</th>
+							<th>RESPONDIDA</th>
+							<th>SITUAÇÃO</th>
+							<th>AVALIAÇÃO</th>
+							<th>NOTA CONSUMIDOR</th>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
-		</div>
-
-</div>
 </body>
 </html>

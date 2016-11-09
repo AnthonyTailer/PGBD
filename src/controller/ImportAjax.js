@@ -1,35 +1,59 @@
 $(document).ready(function(){
 
+	var inputStop			= $("#inputStop"); // Input hidden
+	var progressbar   = $('#progressBar');// Barra de progresso
+	var statustxt     = $('#statusTxt'); // Barra de Status
+	var submitbutton  = $("#uploadBtn"); // Botao de Enviar
+	var myform        = $("#upload_csv");// Formulario
+	var completed     = '0%';
+	var qtdLinhasCsv  = 45388; //qtdLinhas total do arquivo
+	var linhas        = 0;
+	var limitDataTable= 1000;
+	var qtdLinhasDes  = 0;
+
+
+	$.ajax({ //Ajax para saber a qtd de linhas atuais do BD Desnormalizado
+		url:"../controller/QtdLinesDes.php",
+		dataType : "text",
+		async: false,
+		success: function(data) {
+			qtdLinhasDes = data;
+		}
+	});
+
+	console.log("Qtdlinhas BD Desnormalizado: "+qtdLinhasDes);
+
 	function addProgress(percentual){
 		$('#progressBar').width(percentual+'%');
 		$('#statusTxt').html(percentual+'%');
 	}
-	$('#consumidor_table').DataTable();
-	var inputStop				= $("#inputStop"); // Input hidden
-	var progressbar     = $('#progressBar');// Barra de progresso
-	var statustxt       = $('#statusTxt'); // Barra de Status
-	var submitbutton    = $("#uploadBtn"); // Botao de Enviar
-	var myform          = $("#upload_csv");// Formulario
-	var completed       = '0%';
-	var quantidadeLinhas = 99;
-	var linhas = 0;
+
+	$('#consumidor_table').DataTable({
+		"processing": true,
+    "ajax": {
+        "url": "../controller/InsertDataTable.php?tabela=desnormalizada",
+        "type": "GET"
+    },
+	});
+
+	alert(qtdLinhasDes+" Linhas estão inseridas no BD, "+limitDataTable+" é o máximo de linhas visualizaveis");
 
 	function upProgress(){
 		$.ajax({
-			url:"../controller/numlines.php",
+			url:"../controller/QtdLinesDes.php",
 			method:"POST",
 			success: function(data){
 				linhas = data;
-				var res = eval(data)/quantidadeLinhas*100;
-				console.log("Width: "+res+" Linhas: "+linhas+" Data: "+data);
+				var res = eval(data)/qtdLinhasCsv*100;
+				//console.log("Width: "+res+" Linhas: "+linhas+" Data: "+data);
 				addProgress(res.toPrecision(2));
 			}
 		}).done(function (){
-			if(inputStop.val() == '0' && linhas < quantidadeLinhas){
+			if(inputStop.val() == '0' && linhas < qtdLinhasCsv){
 				setTimeout(function(){
 					console.log("Calling function");
 					upProgress();
-				}, 50);
+				}, 500);
 			}else{
 				addProgress(100);
 				//$('#normalizarBtn').css("display", "inline-block");
@@ -40,7 +64,7 @@ $(document).ready(function(){
 	myform.on("submit", function(e){
 		e.preventDefault();
 		$.ajax({
-			url:"../controller/ImportCsv.class.php",
+			url:"../controller/ImportCsv.php",
 			method:"POST",
 			data:new FormData(myform[0]),
 			contentType:false,
@@ -59,22 +83,27 @@ $(document).ready(function(){
 					//addProgress(100);
 				}, false);
 				return xhr;
-			},success: function(data){
+			},success: function(dataSet){
 				//console.log(data);
-				if(data == 'Error1')
+				if(dataSet == 'Error1')
 				{
 					alert("O arquivo selecionado deve ser um .csv");
 					addProgress(completed);
 				}
-				else if(data == "Error2")
+				else if(dataSet == "Error2")
 				{
 					alert("Por Favor selecione um arquivo!");
 					addProgress(completed);
 				}
 				else
 				{
-					$('#consumidor_div').html(data);
-					$('#consumidor_table').DataTable();
+					$('#consumidor_div').html();
+					$('#consumidor_table').DataTable({
+						data: dataSet
+					});
+					alert(
+						qtdLinhas+" Linhas foram inseridas no banco, somente 1000 linhas foram mostradas"
+					);
 				}
 			}
 		})
