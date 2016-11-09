@@ -6,17 +6,6 @@
 * @author Lucas Lima
 **/
 
-function __autoload($classe){
-	include_once "../model/{$classe}.class.php";
-}
-
-$desnormalizada = new MagicDesnormalizada();
-$DAODesnormalizada = new DAODesnormalizada();
-//$conex = new MySQLiConsumidor();
-//$conex->getConnection();
-//$query = "SELECT * FROM RECLAMACAO_DES";
-//$result = $conex->executeQuery($query);
-
 ?>
 
 <!DOCTYPE html>
