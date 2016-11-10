@@ -1,5 +1,4 @@
 <link rel="shortcut icon" href="../utilities/img/icon.svg" type="image/png"/>
-<link rel="stylesheet" href="../utilities/css/menu.css" media="screen" title="no title">
 
 <link rel="stylesheet" href="../utilities/css/style.css" media="all" type="text/css">
 <link rel="stylesheet" href="../utilities/css/bootstrap.min.css">
