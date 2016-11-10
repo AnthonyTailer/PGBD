@@ -1,5 +1,5 @@
 <link rel="shortcut icon" href="../utilities/img/icon.svg" type="image/png"/>
-<!-- <link href="../utilities/fonts/font-awesome.min.css" rel="stylesheet"> -->
+<link href="../utilities/fonts/font-awesome.min.css" rel="stylesheet">
 
 <link rel="stylesheet" href="../utilities/css/style.css" media="all" type="text/css">
 <link rel="stylesheet" href="../utilities/css/bootstrap.min.css">
@@ -14,13 +14,24 @@
       <li>
           <a href="importacao.php"><i class="glyphicon glyphicon-import"></i> Importação </a>
       </li>
-      <li> <!-- data-toggle="collapse" data-target="#normalizacao" class="collapsed" -->
-          <a href="normalizacao.php"><i class="glyphicon glyphicon-thumbs-up"></i> Normalização <!--<span class="arrow">--></span></a>
+      <li>
+          <a href="normalizacao.php"><i class="glyphicon glyphicon-thumbs-up"></i> Normalização </span></a>
       </li>
-          <!--<ul class="sub-menu collapse" id="normalizacao">
-              <li><a href="#">Normalizar BD</a></li>
-              <li><a href="#">Modelo Relacional</a></li>
-          </ul>-->
+      <li data-toggle="collapse" data-target="#tabelas" class="collapsed">
+          <a href="#"><i class="glyphicon glyphicon-th-list"></i> Tabelas <span class="glyphicon glyphicon-menu-down"></span></a>
+      </li>
+          <ul class="sub-menu collapse" id="tabelas">
+              <li><a href="#">Região</a></li>
+              <li><a href="#">Estado</a></li>
+              <li><a href="#">Cidade</a></li>
+              <li><a href="#">Consumidor</a></li>
+              <li><a href="#">Segmento</a></li>
+              <li><a href="#">Area</a></li>
+              <li><a href="#">Empresa</a></li>
+              <li><a href="#">Grupo</a></li>
+              <li><a href="#">Problema</a></li>
+              <li><a href="#">Reclamação</a></li>
+          </ul>
     </ul>
   </div>
 </div>
