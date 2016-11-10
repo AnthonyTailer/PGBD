@@ -97,7 +97,7 @@ $(document).ready(function(){
 					}, false);
 					return xhr;
 				},success: function(dataSet){
-					//console.log(data);
+					inputStop.value = "1";
 					if(dataSet == 'Error1')
 					{
 						alert("O arquivo selecionado deve ser um .csv");
