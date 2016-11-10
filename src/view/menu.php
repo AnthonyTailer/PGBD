@@ -1,5 +1,9 @@
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="shortcut icon" href="../utilities/img/icon.svg" type="image/png"/>
 <link rel="stylesheet" href="../utilities/css/menu.css" media="screen" title="no title">
+
+<link rel="stylesheet" href="../utilities/css/style.css" media="all" type="text/css">
+<link rel="stylesheet" href="../utilities/css/bootstrap.min.css">
+<link rel="stylesheet" href="../utilities/css/jquery.dataTables.min.css">
 
 <div class="nav-side-menu">
   <div class="brand"> consumidor.gov.br </div>
@@ -10,7 +14,7 @@
       <li>
           <a href="importacao.php"><i class="glyphicon glyphicon-import"></i> Importação </a>
       </li>
-      <li  data-toggle="collapse" data-target="#normalizacao" class="collapsed">
+      <li> <!-- data-toggle="collapse" data-target="#normalizacao" class="collapsed" -->
           <a href="normalizacao.php"><i class="glyphicon glyphicon-thumbs-up"></i> Normalização <!--<span class="arrow">--></span></a>
       </li>
           <!--<ul class="sub-menu collapse" id="normalizacao">

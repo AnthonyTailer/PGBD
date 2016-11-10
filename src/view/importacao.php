@@ -13,22 +13,12 @@
 <head>
 	<meta http-equiv=”content-language” content=”pt-br” charset="utf-8">
 	<title>Importação da Base de Dados</title>
-	<!-- Favicon -->
-	<link rel="shortcut icon" href="../utilities/img/favicon.png" type="image/png"/>
-	<!-- Style -->
-	<link rel="stylesheet" type="text/css" href="../utilities/css/style.css" media="all">
-	<link rel="stylesheet" href="../utilities/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
-
-
 	<!-- Script -->
 	<script src="../utilities/js/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-1.12.3.js">	</script>
-	<script src="../utilities/js/bootstrap.min.js">	</script>
+	<script src="https://code.jquery.com/jquery-1.12.3.js"> </script>
+	<script src="../utilities/js/bootstrap.min.js"> </script>
 	<script src="../controller/ImportAjax.js"> </script>
 	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
-
-
 </head>
 <body>
 	<div class="container-fluid">
@@ -40,7 +30,7 @@
 			</div>
 
 			<div class="col-md-9">
-				<h2 align="center">Importando arquivo CSV no Banco de Dados</h2>
+				<h2 align="center">Importando da Base de Dados</h2>
 				<h3 align="center">Reclamações do consumidor.gov.br</h3>
 				<br><br><br>
 				<form id="upload_csv" enctype="multipart/form-data" method="post">
