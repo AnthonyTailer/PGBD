@@ -73,7 +73,7 @@ $(document).ready(function(){
 				processData:false,
 				success: function(data) {
 					qtdLinhasCsv = data;
-					//alert("Qtd Linhas do CSV: "+qtdLinhasCsv);
+					console.log("Qtd Linhas do CSV: "+qtdLinhasCsv);
 				}
 			}),
 			$.ajax({
@@ -110,7 +110,7 @@ $(document).ready(function(){
 					}
 					else
 					{
-						alert(dataSet);
+						//alert(dataSet);
 						var table = $('#consumidor_table').DataTable();
 						table.clear().draw();
 						table.rows.add(JSON.parse(dataSet)).draw();
