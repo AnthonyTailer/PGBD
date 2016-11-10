@@ -63,7 +63,6 @@ $(document).ready(function(){
 
 	myform.on("submit", function(e){
 		e.preventDefault();
-		$.when(
 			$.ajax({
 				url: "../controller/QtdLinesCsv.php",
 				method:"POST",
@@ -74,52 +73,49 @@ $(document).ready(function(){
 				success: function(data) {
 					qtdLinhasCsv = data;
 					console.log("Qtd Linhas do CSV: "+qtdLinhasCsv);
-				}
-			}),
-			$.ajax({
-				url:"../controller/ImportCsv.php",
-				method:"POST",
-				data:new FormData(myform[0]),
-				contentType:false,
-				cache:false,
-				processData:false,
-				xhr: function(){
-					var xhr = new window.XMLHttpRequest;
-					//Upload progress
-					xhr.upload.addEventListener("progress", function(evt){
-						upProgress();
-						//console.log("Chamando a func");
-					}, false);
-					xhr.addEventListener("progress", function(evt) {
-						inputStop.value = "1";
-						console.log("Parando a func");
-						//addProgress(100);
-					}, false);
-					return xhr;
-				},success: function(dataSet){
-					inputStop.value = "1";
-					if(dataSet == 'Error1')
-					{
-						alert("O arquivo selecionado deve ser um .csv");
-						addProgress(completed);
-					}
-					else if(dataSet == "Error2")
-					{
-						alert("Por Favor selecione um arquivo!");
-						addProgress(completed);
-					}
-					else
-					{
-						//alert(dataSet);
-						var table = $('#consumidor_table').DataTable();
-						table.clear().draw();
-						table.rows.add(JSON.parse(dataSet)).draw();
+					$.ajax({
+						url:"../controller/ImportCsv.php",
+						method:"POST",
+						data:new FormData(myform[0]),
+						contentType:false,
+						cache:false,
+						processData:false,
+						xhr: function(){
+							var xhr = new window.XMLHttpRequest;
+							//Upload progress
+							xhr.upload.addEventListener("progress", function(evt){
+								upProgress();
+								//console.log("Chamando a func");
+							}, false);
+							xhr.addEventListener("progress", function(evt) {
+								inputStop.value = "1";
+								console.log("Parando a func");
+								//addProgress(100);
+							}, false);
+							return xhr;
+						},success: function(dataSet){
+							inputStop.value = "1";
+							if(dataSet == 'Error1')
+							{
+								alert("O arquivo selecionado deve ser um .csv");
+								addProgress(completed);
+							}
+							else if(dataSet == "Error2")
+							{
+								alert("Por Favor selecione um arquivo!");
+								addProgress(completed);
+							}
+							else
+							{
+								//alert(dataSet);
+								var table = $('#consumidor_table').DataTable();
+								table.clear().draw();
+								table.rows.add(JSON.parse(dataSet)).draw();
 
-					}
+							}
+						}
+					})
 				}
 			})
-		).then(function(){
-			//alert(qtdLinhasCsv+" Linhas foram inseridas no banco, no máximo 1000 linhas serão exibidas");
-		})
 	});
 });
