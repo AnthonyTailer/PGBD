@@ -36,5 +36,23 @@ if ($request == "desnormalizada") {
           \"data\":".json_encode($output)."
         }";
 
+}elseif ($request == "regiao") {
+  $query = "SELECT * FROM REGIAO LIMIT 1000";
+  $result = $conex->executeQuery($query);
+  while($row = $result->fetch_array(MYSQLI_ASSOC)){
+    array_push(
+      $output, array($row["IDREGIAO"],$row["NOME"])
+    );
+  }
+}elseif ($request == "estado") {
+  $query = "SELECT E.IDESTADO, E.NOME, R.NOME as REGIAO FROM ESTADO E NATURAL JOIN REGIAO R LIMIT 1000";
+  $result = $conex->executeQuery($query);
+  while($row = $result->fetch_array(MYSQLI_ASSOC)){
+    array_push(
+      $output, array($row["IDESTADO"],$row["NOME"], $row["REGIAO"])
+    );
+  }
+}else{
+  
 }
 ?>

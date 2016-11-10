@@ -62,6 +62,7 @@ $(document).ready(function(){
 
 	myform.on("submit", function(e){
 		e.preventDefault();
+		addProgress(0);
 		$.ajax({
 			url: "../controller/QtdLinesCsv.php",
 			method:"POST",
