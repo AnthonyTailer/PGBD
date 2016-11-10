@@ -11,7 +11,7 @@
 	  *@author Anthony Tailer
 	  *@author Lucas Lima
 	  */
-		$redirect = "src/view/insertDesnormalizada.php";
+		$redirect = "src/view/importacao.php";
 		header("location:$redirect");
 	?>
 </body>

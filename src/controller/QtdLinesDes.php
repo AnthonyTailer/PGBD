@@ -1,4 +1,4 @@
-<?
+<?php
 function __autoload($classe){
   include_once "../model/{$classe}.class.php";
 }

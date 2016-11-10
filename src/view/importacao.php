@@ -51,7 +51,7 @@
 							<p class="help-block">Somente arquivos .csv serão suportados!</p>
 						</div>
 						<div class="col-md-2">
-							<p id="enviar-btn" style="margin-top: 30px" align="left">
+							<p id="enviar-btn" style="margin-top: 25px" align="left">
 								<input  class="btn btn-info" id="uploadBtn" name="uploadBtn" type="submit" value="Enviar">
 							</p>
 						</div>

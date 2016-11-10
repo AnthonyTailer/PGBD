@@ -8,15 +8,15 @@
   <div class="menu-list">
     <ul id="menu-content" class="menu-content collapse out">
       <li>
-          <a href="insertDesnormalizada.php"><i class="fa fa-dashboard fa-lg"></i> Importação </a>
+          <a href="importacao.php"><i class="glyphicon glyphicon-import"></i> Importação </a>
       </li>
       <li  data-toggle="collapse" data-target="#normalizacao" class="collapsed">
-          <a href="#"><i class="fa fa-gift fa-lg"></i> Normalização <span class="arrow"></span></a>
+          <a href="normalizacao.php"><i class="glyphicon glyphicon-thumbs-up"></i> Normalização <!--<span class="arrow">--></span></a>
       </li>
-          <ul class="sub-menu collapse" id="normalizacao">
+          <!--<ul class="sub-menu collapse" id="normalizacao">
               <li><a href="#">Normalizar BD</a></li>
               <li><a href="#">Modelo Relacional</a></li>
-          </ul>
+          </ul>-->
     </ul>
   </div>
 </div>

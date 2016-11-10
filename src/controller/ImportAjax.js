@@ -1,15 +1,15 @@
 $(document).ready(function(){
 
-	var inputStop			= $("#inputStop"); // Input hidden
-	var progressbar   = $('#progressBar');// Barra de progresso
-	var statustxt     = $('#statusTxt'); // Barra de Status
-	var submitbutton  = $("#uploadBtn"); // Botao de Enviar
-	var myform        = $("#upload_csv");// Formulario
-	var completed     = '0%';
-	var qtdLinhasCsv  = 0; //qtdLinhas total do arquivo
-	var linhas        = 0;
-	var limitDataTable= 1000;
-	var qtdLinhasDes  = 0;
+	var inputStop		= $("#inputStop"); 	// Input hidden
+	var progressbar   	= $('#progressBar');// Barra de progresso
+	var statustxt     	= $('#statusTxt'); 	// Barra de Status
+	var submitbutton  	= $("#uploadBtn"); 	// Botao de Enviar
+	var myform        	= $("#upload_csv");	// Formulario
+	var completed     	= '0%';
+	var qtdLinhasCsv  	= 0; 				//qtdLinhas total do arquivo
+	var linhas        	= 0;
+	var limitDataTable	= 1000;
+	var qtdLinhasDes  	= 0;
 
 
 	$.ajax({ //Ajax para saber a qtd de linhas atuais do BD Desnormalizado
@@ -36,7 +36,7 @@ $(document).ready(function(){
     },
 	});
 
-	alert(qtdLinhasDes+" Linhas estão inseridas no BD, "+limitDataTable+" é o máximo de linhas visualizaveis");
+	// alert(qtdLinhasDes+" Linhas estão inseridas no BD, "+limitDataTable+" é o máximo de linhas visualizaveis");
 
 	function upProgress(){
 		$.ajax({
