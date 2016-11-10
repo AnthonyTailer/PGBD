@@ -30,7 +30,7 @@
 				<br><br>
 				<form id="normaliza" enctype="multipart/form-data" method="post">
 					<div class="row">
-						<input class=" btn btn-success btn-lg center-block" id="NormalizaBtn" name="NormalizaBtn" type="submit" value="Normalizar Tabela">
+						<input class=" btn btn-success btn-lg center-block" id="NormalizaBtn" name="normalizaBtn" type="submit" value="Normalizar Tabela">
 					</div>
 					<br>
 					<div class="row" id="progress-elems">

@@ -110,6 +110,9 @@
   -ms-transition: all 1s ease;
   transition: all 1s ease;
 }
+.subMenu{
+	background-color: #181b1e;
+}
 @media (max-width: 991px) {
   .nav-side-menu {
     position: relative;
