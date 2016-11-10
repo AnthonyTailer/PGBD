@@ -15,10 +15,11 @@
 	<title>Importação da Base de Dados</title>
 	<!-- Script -->
 	<script src="../utilities/js/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-1.12.3.js"> </script>
+	<script src="../utilities/js/jquery-1.12.3.js"> </script>
 	<script src="../utilities/js/bootstrap.min.js"> </script>
+	<script src="../utilities/js/jquery.dataTables.min.js"></script>
 	<script src="../controller/ImportAjax.js"> </script>
-	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
+	
 </head>
 <body>
 	<div class="container-fluid">

@@ -29,9 +29,8 @@
 				<h3 align="center">Reclamações do consumidor.gov.br</h3>
 				<br><br><br>
 				<form id="normaliza" enctype="multipart/form-data" method="post">
-					<div class="row center-block">
-						<input class="btn btn-success" id="NormalizaBtn" name="NormalizaBtn" type="submit" value="Normalizar Tabela">
-						<p class="help-block">Somente arquivos .csv serão suportados!</p>
+					<div class="row">
+						<input class="btn btn-success center-block" id="NormalizaBtn" name="NormalizaBtn" type="submit" value="Normalizar Tabela">
 					</div>
 
 					<div class="row" id="progress-elems">

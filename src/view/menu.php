@@ -1,12 +1,13 @@
 <link rel="shortcut icon" href="../utilities/img/icon.svg" type="image/png"/>
+<!-- <link href="../utilities/fonts/font-awesome.min.css" rel="stylesheet"> -->
 
 <link rel="stylesheet" href="../utilities/css/style.css" media="all" type="text/css">
 <link rel="stylesheet" href="../utilities/css/bootstrap.min.css">
 <link rel="stylesheet" href="../utilities/css/jquery.dataTables.min.css">
 
-<div class="nav-side-menu">
+<div class="nav-side-menu lado-direito">
   <div class="brand"> consumidor.gov.br </div>
-  <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+  <i class="glyphicon glyphicon-menu-hamburger btn-lg toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
   <div class="menu-list">
     <ul id="menu-content" class="menu-content collapse out">

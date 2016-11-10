@@ -151,6 +151,7 @@ body {
 
 #import-elems, #progress-elems{
   margin-right: 0px !important;
+  margin-top: 10px;
 }
 
 @media (max-width: 991px) {
