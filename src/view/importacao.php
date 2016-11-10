@@ -19,7 +19,7 @@
 	<script src="../utilities/js/bootstrap.min.js"> </script>
 	<script src="../utilities/js/jquery.dataTables.min.js"></script>
 	<script src="../controller/ImportAjax.js"> </script>
-	
+
 </head>
 <body>
 	<div class="container-fluid">
