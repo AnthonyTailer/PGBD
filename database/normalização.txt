@@ -1,10 +1,11 @@
-Original >
+>>>>>>> Tabela Original
+
 RECLAMACAO_DES(Região,UF,Cidade,Sexo,Faixa Etária,Ano Abertura,Mês Abertura,
   Data Abertura,Data Resposta,Data Finalização,Tempo Resposta,Nome Fantasia,
   Segmento de Mercado,Área,Assunto,Grupo Problema,Problema,Como Comprou Contratou,
   Procurou Empresa,Respondida,Situação,Avaliação Reclamação,Nota do Consumidor),
 
-Normalizada >
+>>>>>>> Tabelas Normalizadas
 
   REGIAO(IDREGIAO*, NOME);
   ESTADO(IDESTADO*, NOME, IDREGIAO),
