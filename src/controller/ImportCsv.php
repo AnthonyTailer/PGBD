@@ -74,9 +74,8 @@
               )
             );
           }
-          echo "{
-                  \"data\":".json_encode($output)."
-                }";
+          echo json_encode($output);
+
      }
      else{
           echo 'Error1';

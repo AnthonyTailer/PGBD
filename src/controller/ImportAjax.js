@@ -15,9 +15,9 @@ $(document).ready(function(){
 	$.ajax({ //Ajax para saber a qtd de linhas atuais do BD Desnormalizado
 		url:"../controller/QtdLinesDes.php",
 		dataType : "text",
-		async: false,
+		//async: false,
 		success: function(data) {
-			qtdLinhasDes = data;
+			qtdLinhasDes = eval(data);
 		}
 	});
 
@@ -45,13 +45,13 @@ $(document).ready(function(){
 			success: function(data){
 				linhas = data;
 				var res = eval(data)/qtdLinhasCsv*100;
-				//console.log("Width: "+res+" Linhas: "+linhas+" Data: "+data);
+				console.log("Width: "+res+" CSV Lines: "+qtdLinhasCsv+" Data: "+data);
 				addProgress(res.toPrecision(2));
 			}
 		}).done(function (){
 			if(inputStop.val() == '0' && linhas < qtdLinhasCsv){
 				setTimeout(function(){
-					console.log("Calling function");
+					//console.log("Calling function");
 					upProgress();
 				}, 500);
 			}else{
@@ -66,10 +66,14 @@ $(document).ready(function(){
 		$.when(
 			$.ajax({
 				url: "../controller/QtdLinesCsv.php",
-				dataType: "text",
-				async: false,
+				method:"POST",
+				data: new FormData(myform[0]),
+				contentType:false,
+				cache:false,
+				processData:false,
 				success: function(data) {
 					qtdLinhasCsv = data;
+					//alert("Qtd Linhas do CSV: "+qtdLinhasCsv);
 				}
 			}),
 			$.ajax({
@@ -84,7 +88,7 @@ $(document).ready(function(){
 					//Upload progress
 					xhr.upload.addEventListener("progress", function(evt){
 						upProgress();
-						console.log("Chamando a func");
+						//console.log("Chamando a func");
 					}, false);
 					xhr.addEventListener("progress", function(evt) {
 						inputStop.value = "1";
@@ -106,15 +110,16 @@ $(document).ready(function(){
 					}
 					else
 					{
-						$('#consumidor_div').html();
-						$('#consumidor_table').DataTable({
-							data: dataSet
-						});
+						alert(dataSet);
+						var table = $('#consumidor_table').DataTable();
+						table.clear().draw();
+						table.rows.add(JSON.parse(dataSet)).draw();
+
 					}
 				}
 			})
 		).then(function(){
-			alert(qtdLinhas+" Linhas foram inseridas no banco, somente 1000 linhas foram mostradas");
+			//alert(qtdLinhasCsv+" Linhas foram inseridas no banco, no máximo 1000 linhas serão exibidas");
 		})
 	});
 });
