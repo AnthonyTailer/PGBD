@@ -50,7 +50,8 @@ if ($request == "desnormalizada") {
         }";
 
 }elseif ($request == "estado") {
-  $query = "SELECT E.IDESTADO, E.NOME, R.NOME as REGIAO FROM ESTADO E NATURAL JOIN REGIAO R LIMIT 1000";
+  $query = "SELECT E.IDESTADO, E.NOME, R.NOME as REGIAO  FROM ESTADO E JOIN
+   REGIAO R on E.IDREGIAO = R.IDREGIAO LIMIT 1000";
   $result = $conex->executeQuery($query);
   while($row = $result->fetch_array(MYSQLI_ASSOC)){
     array_push(
@@ -63,11 +64,12 @@ if ($request == "desnormalizada") {
         }";
 
 }elseif ($request == "cidade") {
-  $query = "SELECT C.NOME, E.NOME as ESTADO FROM CIDADE C NATURAL JOIN ESTADO E LIMIT 1000";
+  $query = "SELECT C.IDCIDADE, C.NOME, E.NOME as ESTADO FROM CIDADE C JOIN
+   ESTADO E ON C.IDESTADO = E.IDESTADO";
   $result = $conex->executeQuery($query);
   while($row = $result->fetch_array(MYSQLI_ASSOC)){
     array_push(
-      $output, array($row["NOME"],$row["ESTADO"])
+      $output, array($row["IDCIDADE"], $row["NOME"],$row["ESTADO"])
     );
   }
 
@@ -76,7 +78,8 @@ if ($request == "desnormalizada") {
         }";
 
 }else if ($request == "consumidor"){
-  $query = "SELECT C.SEXO, C.FAIXAETARIA, CI.NOME as NCIDADE FROM CONSUMIDOR C NATURAL JOIN CIDADE CI LIMIT 1000";
+  $query = "SELECT C.SEXO, C.FAIXAETARIA, CI.NOME as NCIDADE FROM CONSUMIDOR C
+  JOIN CIDADE CI ON C.IDCIDADE = CI.IDCIDADE";
   $result = $conex->executeQuery($query);
   while($row = $result->fetch_array(MYSQLI_ASSOC)){
     array_push(
@@ -89,11 +92,11 @@ if ($request == "desnormalizada") {
         }";
 
 }else if ($request == "segmento"){
-  $query = "SELECT S.DESCRICAO, FROM SEGMENTO S LIMIT 1000";
+  $query = "SELECT S.DESCRICAO FROM SEGMENTO S LIMIT 1000";
   $result = $conex->executeQuery($query);
   while($row = $result->fetch_array(MYSQLI_ASSOC)){
     array_push(
-      $output, array($row["SEGMENTO"])
+      $output, array($row["DESCRICAO"])
     );
   }
 
@@ -102,7 +105,8 @@ if ($request == "desnormalizada") {
         }";
 
 }else if ($request == "area"){
-  $query = "SELECT A.DESCRICAO, S.DESCRICAO as SEGDESC FROM AREA A NATURAL JOIN SEGMENTO S LIMIT 1000";
+  $query = "SELECT A.DESCRICAO, S.DESCRICAO as SEGDESC FROM AREA A
+  JOIN SEGMENTO S ON A.IDSEGMENTO = S.IDSEGMENTO ";
   $result = $conex->executeQuery($query);
   while($row = $result->fetch_array(MYSQLI_ASSOC)){
     array_push(
@@ -115,23 +119,25 @@ if ($request == "desnormalizada") {
         }";
 
 }else if ($request == "empresa"){
-  $query = "SELECT E.NOMEFANTASIA, A.DESCRICAO FROM EMPRESA E NATURAL JOIN AREA A LIMIT 1000";
+  $query = "SELECT DISTINCT E.NOMEFATASIA, A.DESCRICAO FROM EMPRESA E
+  JOIN AREA A ON E.IDAREA = A.IDAREA";
   $result = $conex->executeQuery($query);
   while($row = $result->fetch_array(MYSQLI_ASSOC)){
     array_push(
-      $output, array($row["NOMEFANTASIA"],$row["DESCRICAO"])
+      $output, array($row["NOMEFATASIA"],$row["DESCRICAO"])
     );
   }
 
   echo "{
           \"data\":".json_encode($output)."
         }";
+
 }else if ($request == "grupo" ){
-  $query = "SELECT G.DESCRICAO FROM GRUPO G LIMIT 1000";
+  $query = "SELECT * FROM GRUPO G";
   $result = $conex->executeQuery($query);
   while($row = $result->fetch_array(MYSQLI_ASSOC)){
     array_push(
-      $output, array($row["DESCRICAO"])
+      $output, array($row["IDGRUPO"], $row["DESCRICAO"])
     );
   }
 
@@ -140,7 +146,8 @@ if ($request == "desnormalizada") {
         }";
 
 }else if ($request == "problema"){
-  $query = "SELECT P.DESCRICAO, G.DESCRICAO AS GRUPODESC FROM PROBLEMA P NATURAL JOIN GRUPO G LIMIT 1000";
+  $query = "SELECT P.DESCRICAO, G.DESCRICAO AS GRUPODESC FROM PROBLEMA P
+   JOIN GRUPO G ON P.IDGRUPO = G.IDGRUPO";
   $result = $conex->executeQuery($query);
   while($row = $result->fetch_array(MYSQLI_ASSOC)){
     array_push(
@@ -153,7 +160,7 @@ if ($request == "desnormalizada") {
         }";
 
 }else if ($request == "reclamacao"){
-  $query = "SELECT * FROM RECLAMACAO_DES LIMIT 1000";
+  $query = "SELECT * FROM RECLAMACAO_DES";
   $result = $conex->executeQuery($query);
   while($row = $result->fetch_array(MYSQLI_ASSOC)){
     array_push(

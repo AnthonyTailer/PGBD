@@ -20,16 +20,16 @@
           <a href="#"><i class="glyphicon glyphicon-th-list"></i> Tabelas <span class="glyphicon glyphicon-menu-down"></span></a>
       </li>
           <ul class="collapse subMenu" id="tabelas">
-              <li><a href="#"> <i class="glyphicon glyphicon-chevron-right"></i> Região</a></li>
-              <li><a href="#"> <i class="glyphicon glyphicon-chevron-right"></i> Estado</a></li>
-              <li><a href="#"> <i class="glyphicon glyphicon-chevron-right"></i> Cidade</a></li>
-              <li><a href="#"> <i class="glyphicon glyphicon-chevron-right"></i> Consumidor</a></li>
-              <li><a href="#"> <i class="glyphicon glyphicon-chevron-right"></i> Segmento</a></li>
-              <li><a href="#"> <i class="glyphicon glyphicon-chevron-right"></i> Area</a></li>
-              <li><a href="#"> <i class="glyphicon glyphicon-chevron-right"></i> Empresa</a></li>
-              <li><a href="#"> <i class="glyphicon glyphicon-chevron-right"></i> Grupo</a></li>
-              <li><a href="#"> <i class="glyphicon glyphicon-chevron-right"></i> Problema</a></li>
-              <li><a href="#"> <i class="glyphicon glyphicon-chevron-right"></i> Reclamação</a></li>
+              <li id="li0"><a href="tabelas.php#regiao"> <i class="glyphicon glyphicon-chevron-right"></i> Região</a></li>
+              <li id="li1"><a href="tabelas.php#estado"> <i class="glyphicon glyphicon-chevron-right"></i> Estado</a></li>
+              <li id="li2"><a href="tabelas.php#cidade"> <i class="glyphicon glyphicon-chevron-right"></i> Cidade</a></li>
+              <li id="li3"><a href="tabelas.php#consumidor"> <i class="glyphicon glyphicon-chevron-right"></i> Consumidor</a></li>
+              <li id="li4"><a href="tabelas.php#segmento"> <i class="glyphicon glyphicon-chevron-right"></i> Segmento</a></li>
+              <li id="li5"><a href="tabelas.php#area"> <i class="glyphicon glyphicon-chevron-right"></i> Area</a></li>
+              <li id="li6"><a href="tabelas.php#empresa"> <i class="glyphicon glyphicon-chevron-right"></i> Empresa</a></li>
+              <li id="li7"><a href="tabelas.php#grupo"> <i class="glyphicon glyphicon-chevron-right"></i> Grupo</a></li>
+              <li id="li8"><a href="tabelas.php#problema"> <i class="glyphicon glyphicon-chevron-right"></i> Problema</a></li>
+              <li id="li9"><a href="tabelas.php#reclamacao"> <i class="glyphicon glyphicon-chevron-right"></i> Reclamação</a></li>
           </ul>
       <li>
           <a href="#"><i class="glyphicon glyphicon-stats"></i> Gráficos </span></a>
@@ -37,3 +37,13 @@
     </ul>
   </div>
 </div>
+<!-- <script type="text/javascript">
+  $("#li0").click(function(e)
+  {
+   $("#li0").load("tabelas.php #regiao", function() {
+     alert( "Load was performed." );
+  });
+    // css("display", "inline-block");
+  });
+
+</script> -->
