@@ -24,8 +24,8 @@ $(document).ready(function(){
 	console.log("Qtdlinhas BD Desnormalizado: "+qtdLinhasDes);
 
 	function addProgress(percentual){
-		$('#progressBar').width(percentual+'%');
-		$('#statusTxt').html(percentual+'%');
+		progressbar.width(percentual+'%');
+		statustxt.html(percentual+'%');
 	}
 
 	$('#consumidor_table').DataTable({

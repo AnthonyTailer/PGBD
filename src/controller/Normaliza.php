@@ -16,10 +16,10 @@ $porcentagem = 10;
 if ($request == "regiao") {
 
   $query = "INSERT INTO REGIAO (NOME)
-  SELECT DISTINCT REGIAO FROM RECLAMACAO_DES ORDER BY ASC" ;
+  SELECT DISTINCT REGIAO FROM RECLAMACAO_DES ORDER BY 1 ASC" ;
 
   try {
-    $result = $conex->executeQuery($query);
+    $conex->executeQuery($query);
     echo $porcentagem;
   } catch (Exception $e) {
     echo 0;
@@ -32,7 +32,7 @@ if ($request == "regiao") {
     JOIN REGIAO R ON RD.REGIAO = R.NOME" ;
 
   try {
-    $result = $conex->executeQuery($query);
+    $conex->executeQuery($query);
     echo $porcentagem;
   } catch (Exception $e) {
     echo 0;
@@ -41,11 +41,10 @@ if ($request == "regiao") {
 }else if ($request == "cidade"){
 
   $query = "INSERT INTO CIDADE (NOME, IDESTADO)
-    SELECT DISTINCT CIDADE, IDESTADO FROM RECLAMACAO_DES RD
-    JOIN ESTADO E ON RD.ESTADO = E.NOME";
+    SELECT DISTINCT CIDADE, IDESTADO FROM RECLAMACAO_DES RD JOIN ESTADO E ON RD.UF = E.NOME";
 
   try {
-    $result = $conex->executeQuery($query);
+    $conex->executeQuery($query);
     echo $porcentagem;
   } catch (Exception $e) {
     echo 0;
@@ -54,11 +53,10 @@ if ($request == "regiao") {
 }else if ($request == "consumidor"){
 
   $query = "INSERT INTO CONSUMIDOR (SEXO, FAIXAETARIA, IDCIDADE)
-    SELECT DISTINCT SEXO, FAIXAETARIA, IDCIDADE FROM RECLAMACAO_DES RD
-    JOIN CIDADE C ON RD.CIDADE = C.NOME";
+    SELECT DISTINCT SEXO, FAIXAETARIA, IDCIDADE FROM RECLAMACAO_DES RD JOIN CIDADE C ON RD.CIDADE = C.NOME";
 
   try {
-    $result = $conex->executeQuery($query);
+    $conex->executeQuery($query);
     echo $porcentagem;
   } catch (Exception $e) {
     echo 0;
@@ -67,11 +65,10 @@ if ($request == "regiao") {
 }else if ($request == "segmento"){
 
   $query = "INSERT INTO SEGMENTO (DESCRICAO) SELECT DISTINCT
-  SEGMENTOMERCADO FROM RECLAMACAO_DES ORDER BY ASC
-";
+    SEGMENTOMERCADO FROM RECLAMACAO_DES ORDER BY 1 ASC";
 
   try {
-    $result = $conex->executeQuery($query);
+    $conex->executeQuery($query);
     echo $porcentagem;
   } catch (Exception $e) {
     echo 0;
@@ -80,11 +77,10 @@ if ($request == "regiao") {
 }else if ($request == "area"){
 
   $query = "INSERT INTO AREA (DESCRICAO, IDSEGMENTO)
-    SELECT DISTINCT AREA, IDSEGMENTO FROM RECLAMACAO_DES RD
-    JOIN SEGMENTO S ON RD.SEGMENTOMERCADO = S.DESCRICAO";
+    SELECT DISTINCT AREA, IDSEGMENTO FROM RECLAMACAO_DES RD JOIN SEGMENTO S ON RD.SEGMENTOMERCADO = S.DESCRICAO";
 
   try {
-    $result = $conex->executeQuery($query);
+    $conex->executeQuery($query);
     echo $porcentagem;
   } catch (Exception $e) {
     echo 0;
@@ -93,11 +89,10 @@ if ($request == "regiao") {
 }else if ($request == "empresa"){
 
   $query = "INSERT INTO EMPRESA (NOMEFATASIA, IDAREA)
-    SELECT DISTINCT NOMEFATASIA, IDAREA FROM RECLAMACAO_DES RD JOIN
-     AREA A ON RD.AREA = A.DESCRICAO";
+    SELECT DISTINCT NOMEFANTASIA, IDAREA FROM RECLAMACAO_DES RD JOIN AREA A ON RD.AREA = A.DESCRICAO";
 
   try {
-    $result = $conex->executeQuery($query);
+    $conex->executeQuery($query);
     echo $porcentagem;
   } catch (Exception $e) {
     echo 0;
@@ -109,7 +104,7 @@ if ($request == "regiao") {
    GRUPOPROBLEMA FROM RECLAMACAO_DES RD";
 
   try {
-    $result = $conex->executeQuery($query);
+    $conex->executeQuery($query);
     echo $porcentagem;
   } catch (Exception $e) {
     echo 0;
@@ -118,11 +113,10 @@ if ($request == "regiao") {
 }else if ($request == "problema"){
 
   $query = "INSERT INTO PROBLEMA (DESCRICAO, IDGRUPO)
-    SELECT DISTINCT PROBLEMA, IDGRUPO FROM RECLAMACAO_DES RD
-    JOIN GRUPO G ON RD.GRUPOPROBLEMA = G.DESCRICAO";
+    SELECT DISTINCT PROBLEMA, IDGRUPO FROM RECLAMACAO_DES RD JOIN GRUPO G ON RD.GRUPOPROBLEMA = G.DESCRICAO";
 
   try {
-    $result = $conex->executeQuery($query);
+    $conex->executeQuery($query);
     echo $porcentagem;
   } catch (Exception $e) {
     echo 0;
@@ -131,20 +125,19 @@ if ($request == "regiao") {
 }else if ($request == "reclamacao"){
 
   $query =
-  "INSERT INTO RECLAMACAO (IDCONSUMIDOR, ANO, MES, DATAABERTURA, DATARESPOSTA,
-     DATAFINALIZACAO, TEMPORESPOSTA, IDEMPRESA, ASSUNTO, IDPROBLEMA, COMOCOMPROU,
-      PROCUROUEMPRESA, RESPONDIDA, SITUACAO, AVALIACAO, NOTACONSUMIDOR)
-      SELECT IDCONSUMIDOR, ANO, MES, DATAABERTURA, DATARESPOSTA, DATAFINALIZACAO,
-      TEMPORESPOSTA, IDEMPRESA, ASSUNTO, IDPROBLEMA, COMOCOMPROU, PROCUROUEMPRESA,
-       RESPONDIDA, SITUACAO, AVALIACAO, NOTACONSUMIDOR FROM RECLAMACAO_DES RD
-          JOIN CIDADE C ON RD.CIDADE = C.DESCRICAO
+  "INSERT INTO RECLAMACAO (IDCONSUMIDOR, ANO, MES, DATAABERTURA, DATARESPOSTA, DATAFINALIZACAO,
+      TEMPORESPOSTA, IDEMPRESA, ASSUNTO, IDPROBLEMA, COMOCOMPROU, PROCUROUEMPRESA, RESPONDIDA,
+      SITUACAO, AVALIACAO, NOTACONSUMIDOR)
+      SELECT IDCONSUMIDOR, ANOABERTURA, MESABERTURA, DATAABERTURA, DATARESPOSTA, DATAFINALIZACAO,
+      TEMPORESPOSTA, IDEMPRESA, ASSUNTO, IDPROBLEMA, COMOCOMPROU, PROCUROUEMPRESA, RESPONDIDA,
+      SITUACAO, AVALIACAO, NOTACONSUMIDOR FROM RECLAMACAO_DES RD
+          JOIN CIDADE C ON RD.CIDADE = C.NOME
           JOIN CONSUMIDOR CO ON RD.SEXO = CO.SEXO AND RD.FAIXAETARIA = CO.FAIXAETARIA
           JOIN EMPRESA E ON RD.NOMEFATASIA = E.NOMEFATASIA
-          JOIN PROBLEMA P ON RD.PROBLEMA = P.DESCRICAO
-  ";
+          JOIN PROBLEMA P ON RD.PROBLEMA = P.DESCRICAO";
 
   try {
-    $result = $conex->executeQuery($query);
+    $conex->executeQuery($query);
     echo $porcentagem;
   } catch (Exception $e) {
     echo 0;
