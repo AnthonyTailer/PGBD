@@ -35,7 +35,7 @@ $(document).ready(function(){
       regiao.DataTable({
         "processing": true,
         "ajax": {
-            "url": "../controller/InsertDataTable.php?tabela=regiao",
+            "url": "../controller/AdminDataTable.php?tabela=regiao",
             "type": "GET"
         },
       });
@@ -53,7 +53,7 @@ $(document).ready(function(){
       estado.DataTable({
     		"processing": true,
         "ajax": {
-            "url": "../controller/InsertDataTable.php?tabela=estado",
+            "url": "../controller/AdminDataTable.php?tabela=estado",
             "type": "GET"
         },
     	});
@@ -69,7 +69,7 @@ $(document).ready(function(){
       cidade.DataTable({
     		"processing": true,
         "ajax": {
-            "url": "../controller/InsertDataTable.php?tabela=cidade",
+            "url": "../controller/AdminDataTable.php?tabela=cidade",
             "type": "GET"
         },
     	});
@@ -85,7 +85,7 @@ $(document).ready(function(){
       consumidor.DataTable({
         "processing": true,
         "ajax": {
-            "url": "../controller/InsertDataTable.php?tabela=consumidor",
+            "url": "../controller/AdminDataTable.php?tabela=consumidor",
             "type": "GET"
         },
       });
@@ -102,7 +102,7 @@ $(document).ready(function(){
       segmento.DataTable({
     		"processing": true,
         "ajax": {
-            "url": "../controller/InsertDataTable.php?tabela=segmento",
+            "url": "../controller/AdminDataTable.php?tabela=segmento",
             "type": "GET"
         },
     	});
@@ -118,7 +118,7 @@ $(document).ready(function(){
       area.DataTable({
     		"processing": true,
         "ajax": {
-            "url": "../controller/InsertDataTable.php?tabela=area",
+            "url": "../controller/AdminDataTable.php?tabela=area",
             "type": "GET"
         },
     	});
@@ -134,7 +134,7 @@ $(document).ready(function(){
       empresa.DataTable({
         "processing": true,
         "ajax": {
-            "url": "../controller/InsertDataTable.php?tabela=empresa",
+            "url": "../controller/AdminDataTable.php?tabela=empresa",
             "type": "GET"
         },
       });
@@ -150,7 +150,7 @@ $(document).ready(function(){
       grupo.DataTable({
         "processing": true,
         "ajax": {
-            "url": "../controller/InsertDataTable.php?tabela=grupo",
+            "url": "../controller/AdminDataTable.php?tabela=grupo",
             "type": "GET"
         },
       });
@@ -166,7 +166,7 @@ $(document).ready(function(){
       problema.DataTable({
         "processing": true,
         "ajax": {
-            "url": "../controller/InsertDataTable.php?tabela=problema",
+            "url": "../controller/AdminDataTable.php?tabela=problema",
             "type": "GET"
         },
       });
@@ -182,7 +182,7 @@ $(document).ready(function(){
       reclamacao.DataTable({
         "processing": true,
         "ajax": {
-            "url": "../controller/InsertDataTable.php?tabela=reclamacao",
+            "url": "../controller/AdminDataTable.php?tabela=reclamacao",
             "type": "GET"
         },
       });

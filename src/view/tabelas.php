@@ -1,7 +1,7 @@
 <?php
 
 /**
-*
+* View responsável por exibir as tabelas do BD
 * @author Anthony Tailer
 * @author Lucas Lima
 **/
@@ -161,13 +161,13 @@
   						<thead>
   							<tr>
   								<th>NOME FANTASIA</th>
-                  <th>ÁREA</th>
+                  <th>SEGMENTO</th>
   							</tr>
   						</thead>
   						<tfoot>
   							<tr>
                   <th>NOME FANTASIA</th>
-                  <th>ÁREA</th>
+                  <th>SEGMENTO</th>
   							</tr>
   						</tfoot>
   					</table>
@@ -278,6 +278,6 @@
       </div>
     </div>
   </div>
-  <script src="../controller/ReportsTablesAjax.js"> </script>
+  <script src="../controller/TabelasAjax.js"> </script>
 </body>
 </html>

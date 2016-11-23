@@ -31,7 +31,7 @@ $(document).ready(function(){
 	$('#consumidor_table').DataTable({
 		"processing": true,
     "ajax": {
-        "url": "../controller/InsertDataTable.php?tabela=desnormalizada",
+        "url": "../controller/AdminDataTable.php?tabela=desnormalizada",
         "type": "GET"
     },
 	});

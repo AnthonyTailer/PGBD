@@ -36,6 +36,12 @@ class MySQLiConsumidor {
 			return $result;
 		}
 
+  public function executeMultiQuery($query) {
+      $this->conc = $this->getConnection();
+      $result = $this->conc->multi_query($query);
+      return $result;
+    }
+
 }
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Classe responsável por manter métodos de conexão com a base dados
+* View que desponibiliza a opção de normalização do BD
 * @author Anthony Tailer
 * @author Lucas Lima
 **/

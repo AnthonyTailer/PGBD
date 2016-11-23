@@ -1,4 +1,10 @@
 <?php
+/**
+* Arquivo por exibir os dados de cada tabela
+* em seus respectivos DataTables
+* @author Anthony Tailer
+* @author Lucas Lima
+*/
 
 function __autoload($classe){
     include_once "../model/{$classe}.class.php";
@@ -105,12 +111,11 @@ if ($request == "desnormalizada") {
         }";
 
 }else if ($request == "area"){
-  $query = "SELECT A.DESCRICAO, S.DESCRICAO as SEGDESC FROM AREA A
-  JOIN SEGMENTO S ON A.IDSEGMENTO = S.IDSEGMENTO ";
+  $query = "SELECT IDAREA, DESCRICAO FROM AREA A";
   $result = $conex->executeQuery($query);
   while($row = $result->fetch_array(MYSQLI_ASSOC)){
     array_push(
-      $output, array($row["DESCRICAO"],$row["SEGDESC"])
+      $output, array($row["IDAREA"],$row["DESCRICAO"])
     );
   }
 
@@ -119,12 +124,11 @@ if ($request == "desnormalizada") {
         }";
 
 }else if ($request == "empresa"){
-  $query = "SELECT DISTINCT E.NOMEFATASIA, A.DESCRICAO FROM EMPRESA E
-  JOIN AREA A ON E.IDAREA = A.IDAREA";
+  $query = "SELECT DISTINCT E.IDEMPRESA, E.NOMEFATASIA, S.DESCRICAO FROM EMPRESA E NATURAL JOIN SEGMENTO S";
   $result = $conex->executeQuery($query);
   while($row = $result->fetch_array(MYSQLI_ASSOC)){
     array_push(
-      $output, array($row["NOMEFATASIA"],$row["DESCRICAO"])
+      $output, array($row["IDEMPRESA"],$row["NOMEFATASIA"],$row["S.DESCRICAO"])
     );
   }
 

@@ -18,7 +18,7 @@
 	<script src="../utilities/js/jquery-1.12.3.js"> </script>
 	<script src="../utilities/js/bootstrap.min.js"> </script>
 	<script src="../utilities/js/jquery.dataTables.min.js"></script>
-	<script src="../controller/ImportAjax.js"> </script>
+	<script src="../controller/ImportCsvAjax.js"> </script>
 
 </head>
 <body>
