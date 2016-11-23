@@ -41,15 +41,13 @@
 						</div>
 					</div>
 				</div>
-				<div style="display: none" class="alert alert-success" id="alertRegiao" role="alert">Tabela <b>REGIAO</b> criada e populada!</div>
-				<div style="display: none" class="alert alert-success" id="alertEstado" role="alert">Tabela <b>ESTADO</b> criada e populada!</div>
-				<div style="display: none" class="alert alert-success" id="alertCidade" role="alert">Tabela <b>CIDADE</b> criada e populada!</div>
+				<div style="display: none" class="alert alert-success" id="alertRegiao" role="alert">Tabelas <b>REGIAO e ESTADO E CIDADE</b> criadas e populadas!</div>
 				<div style="display: none" class="alert alert-success" id="alertConsumidor" role="alert">Tabela <b>CONSUMIDOR</b> criada e populada!</div>
-				<div style="display: none" class="alert alert-success" id="alertSegmento" role="alert">Tabela <b>SEGMENTO</b> criada e populada!</div>
 				<div style="display: none" class="alert alert-success" id="alertArea" role="alert">Tabela <b>AREA</b> criada e populada!</div>
-				<div style="display: none" class="alert alert-success" id="alertEmpresa" role="alert">Tabela <b>EMPRESA</b> criada e populada!</div>
 				<div style="display: none" class="alert alert-success" id="alertGrupo" role="alert">Tabela <b>GRUPO</b> criada e populada!</div>
 				<div style="display: none" class="alert alert-success" id="alertProblema" role="alert">Tabela <b>PROBLEMA</b> criada e populada!</div>
+				<div style="display: none" class="alert alert-success" id="alertSegmento" role="alert">Tabela <b>SEGMENTO</b> criada e populada!</div>
+				<div style="display: none" class="alert alert-success" id="alertEmpresa" role="alert">Tabela <b>EMPRESA</b> criada e populada!</div>
 				<div style="display: none" class="alert alert-success" id="alertReclamacao" role="alert">Tabela <b>RECLAMACAO</b> criada e populada!</div>
 			</div>
 		</div>

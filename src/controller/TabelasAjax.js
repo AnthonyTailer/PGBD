@@ -26,8 +26,7 @@ $(document).ready(function(){
     $("#reclamacoes").css("display", "none");
   }
 
-  $("#li0").click(function(e)
-  {
+  $("#li0").click(function(e){
     hiddenTables();
     $("#regiao").css("display", "block");
 
@@ -41,11 +40,9 @@ $(document).ready(function(){
       });
       flag[0] = 1;
     }
-
-
   });
-  $("#li1").click(function(e)
-  {
+
+  $("#li1").click(function(e){
     hiddenTables();
     $("#estado").css("display", "block");
 
@@ -60,6 +57,7 @@ $(document).ready(function(){
       flag[1] = 1;
     }
   });
+
   $("#li2").click(function(e)
   {
     hiddenTables();
@@ -157,6 +155,7 @@ $(document).ready(function(){
       flag[7] = 1;
     }
   });
+  
   $("#li8").click(function(e)
   {
     hiddenTables();
@@ -173,6 +172,7 @@ $(document).ready(function(){
       flag[8] = 1;
     }
   });
+
   $("#li9").click(function(e)
   {
     hiddenTables();

@@ -107,7 +107,6 @@ $(document).ready(function(){
 						}
 						else
 						{
-							alert("Dados Importados!");
 							var table = $('#consumidor_table').DataTable();
 							table.clear().draw();
 							table.rows.add(JSON.parse(dataSet)).draw();
