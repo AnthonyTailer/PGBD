@@ -10,8 +10,8 @@ $(document).ready(function(){
    var alertReclamacao = $("#alertReclamacao");
 
    var formNormaliza   = $("#normaliza");
-   var progressbar     = $('#progressBar');  // Barra de progresso
-   var statustxt       = $('#statusTxt');    // Barra de Status
+   var progressbar     = $("#progressBar");  // Barra de progresso
+   var statustxt       = $("#statusTxt");    // Barra de Status
    var submitbutton    = $("#normalizaBtn"); // Botao de Enviar
 
    var progresso       = 0;
@@ -20,7 +20,25 @@ $(document).ready(function(){
       progresso += percentual;
       progressbar.width(progresso+'%');
       statustxt.html(progresso+'%');
-   }        
+   }
+
+   $.ajax({
+      url: "../controller/Normaliza.php?tabela=ini",
+      data: "text",
+      success: function(data) {
+         console.log(data);
+         if(eval(data) > 45000){
+            alertRegiao.css("display", "block");
+            alertConsumidor.css("display", "block");
+            alertArea.css("display", "block");
+            alertGrupo.css("display", "block");
+            alertProblema.css("display", "block");
+            alertSegmento.css("display", "block");
+            alertEmpresa.css("display", "block");
+            alertReclamacao.css("display", "block");
+         }
+      }
+   });
 
    submitbutton.click(function(e){
       $.ajax({
