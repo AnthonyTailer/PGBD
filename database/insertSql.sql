@@ -1,5 +1,9 @@
 USE RECLAMACAO_DES;
 
+truncate area; truncate cidade; truncate consumidor; truncate empresa; truncate estado; truncate grupo; truncate problema; truncate regiao; truncate segmento;
+truncate reclamacao;
+truncate reclamacao_des;
+
 INSERT INTO REGIAO (NOME) SELECT DISTINCT REGIAO FROM RECLAMACAO_DES ORDER BY 1 ASC;
 
   INSERT INTO ESTADO (NOME, IDREGIAO)
