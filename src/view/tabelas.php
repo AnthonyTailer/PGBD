@@ -26,7 +26,7 @@
 				<?php include_once "menu.php" ?>
 			</div>
 			<div class="col-md-9">
-				<h2 align="center">Tabelas Normalizadas</h2>
+				<h1 align="center">Tabelas Normalizadas</h1>
 				<h3 align="center">Reclamações do consumidor.gov.br</h3>
 				<br><br>
 		        <div class="row" style="display:none"id="regiao">

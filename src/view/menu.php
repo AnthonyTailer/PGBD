@@ -11,10 +11,10 @@
   <div class="menu-list">
     <ul id="menu-content" class="menu-content collapse out ">
       <li>
-          <a href="importacao.php"><i class="glyphicon glyphicon-import"></i> Importação </a>
+          <a href="importacao.php"><i class="glyphicon glyphicon-import"></i> Importação do CSV</a>
       </li>
       <li>
-          <a href="normalizacao.php"><i class="glyphicon glyphicon-thumbs-up"></i> Normalização </span></a>
+          <a href="normalizacao.php"><i class="glyphicon glyphicon-thumbs-up"></i> Normalização do DB </span></a>
       </li>
       <li data-toggle="collapse" data-target="#tabelas" class="collapsed">
           <a href="#"><i class="glyphicon glyphicon-th-list"></i> Tabelas <span class="glyphicon glyphicon-menu-down"></span></a>
@@ -32,7 +32,7 @@
               <li id="li9"><a href="tabelas.php#reclamacao"> <i class="glyphicon glyphicon-chevron-right"></i> Reclamação</a></li>
           </ul>
       <li>
-          <a href="#"><i class="glyphicon glyphicon-stats"></i> Gráficos </span></a>
+          <a href="grafico.php"><i class="glyphicon glyphicon-stats"></i> Gráficos e Consultas </span></a>
       </li>
     </ul>
   </div>

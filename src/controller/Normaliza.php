@@ -145,8 +145,8 @@ if ($request == "regiao") {
            JOIN AREA A ON RD.AREA = A.DESCRICAO
            JOIN PROBLEMA P ON RD.PROBLEMA = P.DESCRICAO;";
 
-    // $query .= "ALTER TABLE RECLAMACAO_DES DROP COLUMN IDCONSUMIDOR;";
-    // $query .= "ALTER TABLE RECLAMACAO_DES DROP COLUMN IDEMPRESA;";
+    $query .= "ALTER TABLE RECLAMACAO_DES DROP COLUMN IDCONSUMIDOR;";
+    $query .= "ALTER TABLE RECLAMACAO_DES DROP COLUMN IDEMPRESA;";
 
   try {
     $conex->executeMultiQuery($query);

@@ -28,7 +28,7 @@
 				<?php include_once "menu.php" ?>
 			</div>
 			<div class="col-md-9">
-				<h2 align="center">Importando da Base de Dados</h2>
+				<h1 align="center">Importando da Base de Dados</h1>
 				<h3 align="center">Reclamações do consumidor.gov.br</h3>
 				<br><br><br>
 				<form id="upload_csv" enctype="multipart/form-data" method="post">
