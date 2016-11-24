@@ -26,7 +26,7 @@
 				<?php include_once "menu.php" ?>
 			</div>
 			<div class="col-md-9">
-				<h2 align="center">Normalização da Base de Dados</h2>
+				<h1 align="center">Normalização da Base de Dados</h1>
 				<h3 align="center">Reclamações do consumidor.gov.br</h3>
 				<br>
 				<div class="row">
