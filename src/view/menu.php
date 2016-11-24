@@ -6,7 +6,9 @@
 <link rel="stylesheet" href="../utilities/css/jquery.dataTables.min.css">
 
 <div class="nav-side-menu lado-direito">
-  <div class="brand"> consumidor.gov.br </div>
+  <div class="brand">
+    <a href="https://github.com/AnthonyTailer/consumidor.gov.br" target="_blank"><b>CONSUMIDOR.GOV.BR</b></a>
+  </div>
   <i class="glyphicon glyphicon-menu-hamburger btn-lg toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
   <article>
     <div class="menu-list">
@@ -40,15 +42,11 @@
   </article>
   <footer>
     <p>Copyright © 
-      <a href="http://github.com/limalucas" target="_blank">LimaLucas</a> e 
+      <a href="http://github.com/limalucas" target="_blank">LimaLucas</a> •
       <a href="https://github.com/AnthonyTailer" target="_blank">AnthonyTailer</a>
-      • <a href="http://ufsm.br" target="_blank">UFSM</a>
     </p>
   </footer>
 </div>
-
-
-
 <!-- <script type="text/javascript">
   $("#li0").click(function(e)
   {
