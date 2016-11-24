@@ -149,6 +149,19 @@ body {
   margin: 0px;
   padding: 0px;
 }
+html {
+    position: relative;
+}
+article {
+    padding: 5px;
+    margin: 0 auto;
+}
+footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+}
 
 /* >>>>>>>> IMPORTAÇÃO <<<<<<<< */
 
