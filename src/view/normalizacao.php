@@ -26,29 +26,32 @@
 				<?php include_once "menu.php" ?>
 			</div>
 			<div class="col-md-9">
-				<h1 align="center">Normalização da Base de Dados</h1>
-				<h3 align="center">Reclamações do consumidor.gov.br</h3>
-				<br>
-				<div class="row">
-					<button class=" btn btn-success btn-lg center-block" id="normalizaBtn" name="normalizaBtn">Normalizar Tabela</button>
-				</div>
-				<br>
-				<div class="row" id="progress-elems">
-					<div class="progress" id="progress" >
-						<div class="progress-bar progress-bar-striped active" id="progressBar" role="progressbar"
-						aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" >
-							<p id="statusTxt">0%</p>
+				<header class="cabecalho">
+					<h1>Normalização da Base de Dados</h1>
+					<h3>Reclamações do consumidor.gov.br</h3>
+				</header>
+				<article>
+					<br>
+					<div class="row">
+						<button class=" btn btn-success btn-lg center-block" id="normalizaBtn" name="normalizaBtn">Normalizar Tabela</button>
+					</div>
+					<br>
+					<div class="row" id="progress-elems">
+						<div class="progress" id="progress" >
+							<div class="progress-bar progress-bar-striped active" id="progressBar" role="progressbar"
+							aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" >
+								<p id="statusTxt">0%</p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div style="display: none" class="alert alert-success" id="alertRegiao" role="alert">Tabelas <b>REGIAO e ESTADO E CIDADE</b> criadas e populadas!</div>
-				<div style="display: none" class="alert alert-success" id="alertConsumidor" role="alert">Tabela <b>CONSUMIDOR</b> criada e populada!</div>
-				<div style="display: none" class="alert alert-success" id="alertArea" role="alert">Tabela <b>AREA</b> criada e populada!</div>
-				<div style="display: none" class="alert alert-success" id="alertGrupo" role="alert">Tabela <b>GRUPO</b> criada e populada!</div>
-				<div style="display: none" class="alert alert-success" id="alertProblema" role="alert">Tabela <b>PROBLEMA</b> criada e populada!</div>
-				<div style="display: none" class="alert alert-success" id="alertSegmento" role="alert">Tabela <b>SEGMENTO</b> criada e populada!</div>
-				<div style="display: none" class="alert alert-success" id="alertEmpresa" role="alert">Tabela <b>EMPRESA</b> criada e populada!</div>
-				<div style="display: none" class="alert alert-success" id="alertReclamacao" role="alert">Tabela <b>RECLAMACAO</b> criada e populada!</div>
+					<div style="display: none" class="alert alert-success" id="alertRegiao" role="alert">Tabelas <b>REGIAO e ESTADO e CIDADE</b> foram criadas e populadas!</div>
+					<div style="display: none" class="alert alert-success" id="alertConsumidor" role="alert">Tabela <b>CONSUMIDOR</b> foi criada e populada!</div>
+					<div style="display: none" class="alert alert-success" id="alertArea" role="alert">Tabela <b>AREA</b> foi criada e populada!</div>
+					<div style="display: none" class="alert alert-success" id="alertGrupo" role="alert">Tabelas <b>GRUPO e PROBLEMA</b> foram criadas e populadas!</div>
+					<div style="display: none" class="alert alert-success" id="alertSegmento" role="alert">Tabela <b>SEGMENTO</b> foi criada e populada!</div>
+					<div style="display: none" class="alert alert-success" id="alertEmpresa" role="alert">Tabela <b>EMPRESA</b> foi criada e populada!</div>
+					<div style="display: none" class="alert alert-success" id="alertReclamacao" role="alert">Tabela <b>RECLAMACAO</b> foi criada e populada!</div>
+				</article>
 			</div>
 		</div>
 	</div>

@@ -18,8 +18,17 @@ $DAODesnormalizada = new DAODesnormalizada();
 $request = $_GET['tabela'];
 $porcentagem = 10;
 
+if($request == "ini"){
+  $query = "SELECT COUNT(*) AS QTDE from RECLAMACAO";
 
-if ($request == "regiao") {
+  try {
+    $qtde = $conex->executeQuery($query);
+    echo $qtde->fetch_array(MYSQLI_ASSOC)["QTDE"];
+  } catch (Exception $e) {
+    echo 0;
+  }
+
+}else if ($request == "regiao") {
 
   $query = "INSERT INTO REGIAO (NOME) SELECT DISTINCT REGIAO FROM RECLAMACAO_DES ORDER BY 1 ASC" ;
 
