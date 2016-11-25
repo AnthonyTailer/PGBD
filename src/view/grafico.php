@@ -27,7 +27,7 @@
       }
       #map {
         height: 500px;
-				width: ;
+				padding: 0px;
       }
     </style>
 
@@ -104,6 +104,7 @@
 	var map;
 	var infoWindow;
 	var queryReturn;
+	var i = true;
 
 
 	$.ajax({
@@ -116,40 +117,46 @@
 	  }
 	});
 
-	// GEOMAPA - RELAÇÃO DA QUANTIDADE DE RECLAMAÇÕES POR ESTADO
-		function initMap() {
+		$('#collapseOne').on('shown.bs.collapse', function () {
+			// GEOMAPA - RELAÇÃO DA QUANTIDADE DE RECLAMAÇÕES POR ESTADO
+			if (i == true) {
+					i = false;
+				function initMap() {
 
-			geocoder = new google.maps.Geocoder();
-			map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 4,
-				center: {lat: -14.235004, lng: -51.92527999999999},
-				mapTypeId: google.maps.MapTypeId.VIEWPORT
-			});
-			var i = 0;
-
-			  var interval = setInterval(function(){
-					if (i < queryReturn.length){
-						converteEndereco(queryReturn[i][0], queryReturn[i][1]);
-						i++;
-					}else
-						clearInterval(interval);
-				}, 1900);
-		}
-
-		function converteEndereco(endereco, reclamacoes) {
-			geocoder.geocode( { 'address': endereco+', Brazil'} , function(resultado, status) {
-				if (status == google.maps.GeocoderStatus.OK) {
-					var cityCircle = new google.maps.Marker({
-						map: map,
-						position: resultado[0].geometry.location,
-						title: endereco+" "+reclamacoes
+					geocoder = new google.maps.Geocoder();
+					map = new google.maps.Map(document.getElementById('map'), {
+						zoom: 4,
+						center: {lat: -14.235004, lng: -58.92528},
+						mapTypeId: google.maps.MapTypeId.VIEWPORT
 					});
-				} else {
-					//alert('Erro ao converter endereço: ' + status);
-				}
-			});
-		}
+					var i = 0;
 
+					  var interval = setInterval(function(){
+							if (i < queryReturn.length){
+								converteEndereco(queryReturn[i][0], queryReturn[i][1]);
+								i++;
+							}else
+								clearInterval(interval);
+						}, 1000);
+				}
+
+				function converteEndereco(endereco, reclamacoes) {
+					geocoder.geocode( { 'address': endereco+', Brazil'} , function(resultado, status) {
+						if (status == google.maps.GeocoderStatus.OK) {
+							var cityCircle = new google.maps.Marker({
+								map: map,
+								position: resultado[0].geometry.location,
+								title: endereco+" "+reclamacoes
+							});
+						} else {
+							//alert('Erro ao converter endereço: ' + status);
+						}
+					});
+				}
+
+				initMap();
+			}
+	})
 
 	</script>
 	<script async defer
