@@ -12,12 +12,14 @@ function __autoload($classe){
 
 $conex = new MySQLiConsumidor();
 $mysqli = $conex->getConnection();
+$desnormalizada = new MagicDesnormalizada();
+$DAODesnormalizada = new DAODesnormalizada();
 
 $output  = array();
 $request = $_GET['query'];
 
 if ($request == "geomap") {
-  $query = "SELECT E.NOME AS UF, COUNT(*) AS QTDRECLAMACOES FROM RECLAMACOES R
+  $query = "SELECT E.NOME AS UF, COUNT(*) AS QTDRECLAMACOES FROM RECLAMACAO R
               JOIN CONSUMIDOR CO ON CO.IDCONSUMIDOR = R.IDCONSUMIDOR
               JOIN CIDADE CI ON CI.IDCIDADE = CO.IDCIDADE
               JOIN ESTADO E ON E.IDESTADO = CI.IDESTADO
