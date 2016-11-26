@@ -29,6 +29,22 @@
         height: 500px;
 				padding: 0px;
       }
+
+			#legend{
+			font-family: Arial, sans-serif;
+			 background: #fff;
+			  padding: 10px;
+				 margin: 10px;
+				  border: 3px solid #000;
+			}
+
+			#legend h3 {
+				margin-top: 0;
+			}
+
+			#legend img {
+				vertical-align: middle;
+			}
     </style>
 
 </head>
@@ -54,9 +70,8 @@
 					    </div>
 
 					    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-					      <div class="card-block" id="map">
-
-					      </div>
+					      <div class="card-block" id="map"></div>
+								<div id="legend"><h3>Legenda</h3></div>
 					    </div>
 					  </div>
 					  <div class="card">
@@ -99,66 +114,8 @@
 		</div>
 	</div>
 
-	<script>
-
-	var map;
-	var infoWindow;
-	var queryReturn;
-	var i = true;
-
-
-	$.ajax({
-	  url: "../controller/Graficos.php?query=geomap",
-	  dataType: "json",
-	  type: 'GET',
-	  success: function(msg){
-	    queryReturn = msg;
-	    //console.log(queryReturn);
-	  }
-	});
-
-		$('#collapseOne').on('shown.bs.collapse', function () {
-			// GEOMAPA - RELAÇÃO DA QUANTIDADE DE RECLAMAÇÕES POR ESTADO
-			if (i == true) {
-					i = false;
-				function initMap() {
-
-					geocoder = new google.maps.Geocoder();
-					map = new google.maps.Map(document.getElementById('map'), {
-						zoom: 4,
-						center: {lat: -14.235004, lng: -58.92528},
-						mapTypeId: google.maps.MapTypeId.VIEWPORT
-					});
-					var i = 0;
-
-					  var interval = setInterval(function(){
-							if (i < queryReturn.length){
-								converteEndereco(queryReturn[i][0], queryReturn[i][1]);
-								i++;
-							}else
-								clearInterval(interval);
-						}, 1000);
-				}
-
-				function converteEndereco(endereco, reclamacoes) {
-					geocoder.geocode( { 'address': endereco+', Brazil'} , function(resultado, status) {
-						if (status == google.maps.GeocoderStatus.OK) {
-							var cityCircle = new google.maps.Marker({
-								map: map,
-								position: resultado[0].geometry.location,
-								title: endereco+" "+reclamacoes
-							});
-						} else {
-							//alert('Erro ao converter endereço: ' + status);
-						}
-					});
-				}
-
-				initMap();
-			}
-	})
-
-	</script>
+	<script src="../controller/GraficosAjax.js"></script>
+	<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 	<script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADS0fKiiywkMiPxF6nbfpfpHosf8SEAdI&signed_in=true&callback=initMap"></script>
 </body>
