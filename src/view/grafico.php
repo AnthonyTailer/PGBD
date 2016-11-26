@@ -32,6 +32,7 @@
 
 			#legend{
 			font-family: Arial, sans-serif;
+			font-size: 14px;
 			 background: #fff;
 			  padding: 10px;
 				 margin: 10px;
@@ -43,7 +44,7 @@
 			}
 
 			#legend img {
-				vertical-align: middle;
+				vertical-align: bottom;
 			}
     </style>
 

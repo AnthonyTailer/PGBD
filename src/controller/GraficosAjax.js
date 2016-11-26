@@ -2,6 +2,7 @@ $(document).ready(function(){
   var map;
   var dot;
   var markers = [];
+  var markerCluster;
 	var infoWindow;
 	var queryReturn;
 	var i = true;
@@ -26,35 +27,31 @@ $(document).ready(function(){
 					var icons = {
 					          group0: {
 					            icon: iconBase + 'group-0.png',
-											desc: "13 a 610"
+											desc: "< 700"
 					          },
 										group1: {
 					            icon: iconBase + 'group-1.png',
-											desc: "610 a 1220"
+											desc: "700 a 1399"
 					          },
 										group2: {
 					            icon: iconBase + 'group-2.png',
-											desc: "1220 a 1830"
+											desc: "1400 a 2099"
 					          },
 										group3: {
 					            icon: iconBase + 'group-3.png',
-											desc: "1830 a 2440"
+											desc: "2100 a 2799"
 					          },
 										group4: {
 					            icon: iconBase + 'group-4.png',
-											desc: "2440 a 3050"
+											desc: "2800 a 3599"
 					          },
 										group5: {
 					            icon: iconBase + 'group-5.png',
-											desc: "3050 a 3660"
+											desc: "3600 a 4299"
 					          },
 										group6: {
 					            icon: iconBase + 'group-6.png',
-											desc: "3660 a 4270"
-					          },
-										group7: {
-					            icon: iconBase + 'group-7.png',
-											desc: "4270 a 4880"
+											desc: ">= 4300 "
 					          }
 					};
 
@@ -76,7 +73,7 @@ $(document).ready(function(){
 							}else
 								clearInterval(interval);
                 //console.log("Qtd de Markers: "+markers);
-                var markerCluster = new MarkerClusterer(map, markers,
+                markerCluster = new MarkerClusterer(map, markers,
                 {imagePath: iconBase+'/m'});
 						}, 1000);
 
@@ -91,67 +88,66 @@ $(document).ready(function(){
 					}
 					map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
 
+          map.addListener('zoom_changed', function() {
+            markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: iconBase+'/m'});
+          });
+
+
 				}
 
 				function converteEndereco(endereco, reclamacoes) {
 					geocoder.geocode( { 'address': endereco+', Brazil'} , function(resultado, status) {
 						if (status == google.maps.GeocoderStatus.OK) {
               cont += 1;
-							if (reclamacoes < 610) {
+							if (reclamacoes < 700) {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
 									title: endereco+", "+reclamacoes+"Reclamações",
 									icon: icons['group0'].icon
 								});
-							}else if (reclamacoes >= 610 & reclamacoes < 1220) {
+							}else if (reclamacoes >= 700 & reclamacoes < 1400) {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
 									title: endereco+", "+reclamacoes+"Reclamações",
 									icon: icons['group1'].icon
 								});
-							}else if (reclamacoes >= 1220 & reclamacoes < 1830) {
+							}else if (reclamacoes >= 1400 & reclamacoes < 2100) {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
 									title: endereco+", "+reclamacoes+"Reclamações",
 									icon: icons['group2'].icon
 								});
-							}else if (reclamacoes >= 1830 & reclamacoes < 2440) {
+							}else if (reclamacoes >= 2100 & reclamacoes < 2800) {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
 									title: endereco+", "+reclamacoes+"Reclamações",
 									icon: icons['group3'].icon
 								});
-							}else if (reclamacoes >= 2440 & reclamacoes < 3050) {
+							}else if (reclamacoes >= 2800 & reclamacoes < 3600) {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
 									title: endereco+", "+reclamacoes+"Reclamações",
 									icon: icons['group4'].icon
 								});
-							}else if (reclamacoes >= 3050 & reclamacoes < 3660) {
+							}else if (reclamacoes >= 3600 & reclamacoes < 4300) {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
 									title: endereco+", "+reclamacoes+"Reclamações",
 									icon: icons['group5'].icon
 								});
-							}else if (reclamacoes >= 3660 & reclamacoes < 4270) {
-								dot = new google.maps.Marker({
-									map: map,
-									position: resultado[0].geometry.location,
-									title: endereco+", "+reclamacoes+"Reclamações",
-									icon: icons['group6'].icon
-								});
 							}else {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
 									title: endereco+", "+reclamacoes+"Reclamações",
-									icon: icons['group7'].icon
+									icon: icons['group6'].icon
 								});
 							}
               markers.push(dot);
@@ -162,6 +158,7 @@ $(document).ready(function(){
 				}
 
 				initMap();
+
 			}
 	})
 
