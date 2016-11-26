@@ -104,58 +104,83 @@ $(document).ready(function(){
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
-									title: endereco+", "+reclamacoes+"Reclamações",
+									title: endereco+", "+reclamacoes+" Reclamações",
 									icon: icons['group0'].icon
 								});
 							}else if (reclamacoes >= 700 & reclamacoes < 1400) {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
-									title: endereco+", "+reclamacoes+"Reclamações",
+									title: endereco+", "+reclamacoes+" Reclamações",
 									icon: icons['group1'].icon
 								});
 							}else if (reclamacoes >= 1400 & reclamacoes < 2100) {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
-									title: endereco+", "+reclamacoes+"Reclamações",
+									title: endereco+", "+reclamacoes+" Reclamações",
 									icon: icons['group2'].icon
 								});
 							}else if (reclamacoes >= 2100 & reclamacoes < 2800) {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
-									title: endereco+", "+reclamacoes+"Reclamações",
+									title: endereco+", "+reclamacoes+" Reclamações",
 									icon: icons['group3'].icon
 								});
 							}else if (reclamacoes >= 2800 & reclamacoes < 3600) {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
-									title: endereco+", "+reclamacoes+"Reclamações",
+									title: endereco+", "+reclamacoes+" Reclamações",
 									icon: icons['group4'].icon
 								});
 							}else if (reclamacoes >= 3600 & reclamacoes < 4300) {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
-									title: endereco+", "+reclamacoes+"Reclamações",
+									title: endereco+", "+reclamacoes+" Reclamações",
 									icon: icons['group5'].icon
 								});
 							}else {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
-									title: endereco+", "+reclamacoes+"Reclamações",
+									title: endereco+", "+reclamacoes+" Reclamações",
 									icon: icons['group6'].icon
 								});
 							}
               markers.push(dot);
+              janelaInformacoes(dot, endereco, reclamacoes);
 						}else {
 							console.log('Erro ao converter endereço: ' + status);
 						}
 					});
 				}
+
+        function janelaInformacoes(dot, endereco, reclamacoes){
+          var contentString = '<div class="container">'+
+          '<h1 id="reclamacoesTitle">N° de Reclamações</h1>'+
+          '<div id="reclamacoesInfo">'+
+          '<h3>'+reclamacoes+'</h3>'+
+          '</div>'+
+          '<h1 id="estadoTitle">Estado</h1>'+
+          '<div id="estadoInfo">'+
+          '<h3>'+endereco+'</h3>'+
+          '</div>'+
+          '</div>';
+
+          var infowindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+
+          google.maps.event.addListener(dot, 'click', function(event) {
+            infowindow.open(map,dot);
+          });
+          google.maps.event.addListener(dot, 'mouseout', function(event) {
+            infowindow.close(map,dot);
+          });
+        }
 
 				initMap();
 
