@@ -43,12 +43,12 @@
 			  							<th>NOME</th>
 			  						</tr>
 			  					</thead>
-			  					<!-- <tfoot>
+			  					<tfoot>
 			  						<tr>
 			                  			<th>ID</th>
 			  							<th>NOME</th>
 			  						</tr>
-			  					</tfoot> -->
+			  					</tfoot>
 			  				</table>
 						</div>
 			        </div>
@@ -224,11 +224,11 @@
 				            </table>
 			          	</div>
 			        </div>
-			        <div class="row" style="display:none" id="reclamacoes">
+			        <div class="row" style="display:none" id="reclamacao">
 			          	<h3 align="left">Reclamações</h3>
 			          	<hr>
-			          	<div class="table-responsive" id="reclamacoes_div">
-			            	<table class="display" id="reclamacoes_table" width="100%" cellspacing="0">
+			          	<div class="table-responsive" id="reclamacao_div">
+			            	<table class="display" id="reclamacao_table" width="100%" cellspacing="0" title="">
 			              		<thead>
 				                	<tr>
 					                    <th>ID</th>

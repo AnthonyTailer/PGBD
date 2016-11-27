@@ -8,7 +8,7 @@ $(document).ready(function(){
   var empresa    = $("#empresa_table");
   var grupo      = $("#grupo_table");
   var problema   = $("#problema_table");
-  var reclamacao = $("#reclamacoes_table");
+  var reclamacao = $("#reclamacao_table");
   var formnormaliza   = $("#normaliza_table");
 
   var flag = new Array(0,0,0,0,0,0,0,0,0,0);
@@ -23,170 +23,40 @@ $(document).ready(function(){
     $("#empresa").css("display", "none");
     $("#grupo").css("display", "none");
     $("#problema").css("display", "none");
-    $("#reclamacoes").css("display", "none");
+    $("#reclamacao").css("display", "none");
   }
 
-  $("#li0").click(function(e){
+  function chamaTable(i, table, request){
     hiddenTables();
-    $("#regiao").css("display", "block");
-
-    if (flag[0] == 0) {
-      regiao.DataTable({
-        "processing": true,
+    $("#"+request).css("display", "block");
+    if (flag[i] == 0) {
+      var oTable = table.DataTable({
         "ajax": {
-            "url": "../controller/AdminDataTable.php?tabela=regiao",
+            "url": "../controller/AdminDataTable.php?tabela="+request,
             "type": "GET"
         },
       });
-      flag[0] = 1;
+      flag[i] = 1;
     }
-  });
+  }
 
-  $("#li1").click(function(e){
-    hiddenTables();
-    $("#estado").css("display", "block");
+  $("#li0").click(function(e){ chamaTable(0, regiao, "regiao"); });
 
-    if (flag[1] == 0) {
-      estado.DataTable({
-    		"processing": true,
-        "ajax": {
-            "url": "../controller/AdminDataTable.php?tabela=estado",
-            "type": "GET"
-        },
-    	});
-      flag[1] = 1;
-    }
-  });
+  $("#li1").click(function(e){ chamaTable(1, estado, "estado"); });
 
-  $("#li2").click(function(e)
-  {
-    hiddenTables();
-    $("#cidade").css("display", "block");
+  $("#li2").click(function(e){ chamaTable(2, cidade, "cidade"); });
 
-    if (flag[2] == 0) {
-      cidade.DataTable({
-    		"processing": true,
-        "ajax": {
-            "url": "../controller/AdminDataTable.php?tabela=cidade",
-            "type": "GET"
-        },
-    	});
-      flag[2] = 1;
-    }
-  });
-  $("#li3").click(function(e)
-  {
-    hiddenTables();
-    $("#consumidor").css("display", "block");
+  $("#li3").click(function(e){ chamaTable(3, consumidor, "consumidor"); });
 
-    if (flag[3] == 0) {
-      consumidor.DataTable({
-        "processing": true,
-        "ajax": {
-            "url": "../controller/AdminDataTable.php?tabela=consumidor",
-            "type": "GET"
-        },
-      });
-      flag[3] = 1;
-    }
+  $("#li4").click(function(e){ chamaTable(4, segmento, "segmento"); });
 
-  });
-  $("#li4").click(function(e)
-  {
-    hiddenTables();
-    $("#segmento").css("display", "block");
+  $("#li5").click(function(e){ chamaTable(5, area, "area"); });
 
-    if (flag[4] == 0) {
-      segmento.DataTable({
-    		"processing": true,
-        "ajax": {
-            "url": "../controller/AdminDataTable.php?tabela=segmento",
-            "type": "GET"
-        },
-    	});
-      flag[4] = 1;
-    }
-  });
-  $("#li5").click(function(e)
-  {
-    hiddenTables();
-    $("#area").css("display", "block");
+  $("#li6").click(function(e){ chamaTable(6, empresa, "empresa"); });
 
-    if (flag[5] == 0) {
-      area.DataTable({
-    		"processing": true,
-        "ajax": {
-            "url": "../controller/AdminDataTable.php?tabela=area",
-            "type": "GET"
-        },
-    	});
-      flag[5] = 1;
-    }
-  });
-  $("#li6").click(function(e)
-  {
-    hiddenTables();
-    $("#empresa").css("display", "block");
+  $("#li7").click(function(e){ chamaTable(7, grupo, "grupo"); });
 
-    if (flag[6] == 0) {
-      empresa.DataTable({
-        "processing": true,
-        "ajax": {
-            "url": "../controller/AdminDataTable.php?tabela=empresa",
-            "type": "GET"
-        },
-      });
-      flag[6] = 1;
-    }
-  });
-  $("#li7").click(function(e)
-  {
-    hiddenTables();
-    $("#grupo").css("display", "block");
+  $("#li8").click(function(e){ chamaTable(8, problema, "problema"); });
 
-    if (flag[7] == 0) {
-      grupo.DataTable({
-        "processing": true,
-        "ajax": {
-            "url": "../controller/AdminDataTable.php?tabela=grupo",
-            "type": "GET"
-        },
-      });
-      flag[7] = 1;
-    }
-  });
-  
-  $("#li8").click(function(e)
-  {
-    hiddenTables();
-    $("#problema").css("display", "block");
-
-    if (flag[8] == 0) {
-      problema.DataTable({
-        "processing": true,
-        "ajax": {
-            "url": "../controller/AdminDataTable.php?tabela=problema",
-            "type": "GET"
-        },
-      });
-      flag[8] = 1;
-    }
-  });
-
-  $("#li9").click(function(e)
-  {
-    hiddenTables();
-    $("#reclamacoes").css("display", "block");
-
-    if (flag[9] == 0) {
-      reclamacao.DataTable({
-        "processing": true,
-        "ajax": {
-            "url": "../controller/AdminDataTable.php?tabela=reclamacao",
-            "type": "GET"
-        },
-      });
-      flag[9] = 1;
-    }
-  });
+  $("#li9").click(function(e){ chamaTable(9, reclamacao, "reclamacao"); });
 });
