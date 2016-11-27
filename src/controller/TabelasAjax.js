@@ -40,23 +40,23 @@ $(document).ready(function(){
     }
   }
 
-  $("#li0").click(function(e){ chamaTable(0, regiao, "regiao"); });
+  $('#collapseOne').on('shown.bs.collapse', function(e){ chamaTable(0, regiao, "regiao")});
 
-  $("#li1").click(function(e){ chamaTable(1, estado, "estado"); });
+  $('#collapseTwo').on('shown.bs.collapse', function(e){ chamaTable(1, estado, "estado")});
 
-  $("#li2").click(function(e){ chamaTable(2, cidade, "cidade"); });
+  $('#collapseThree').on('shown.bs.collapse',function(e){ chamaTable(2, cidade, "cidade")});
 
-  $("#li3").click(function(e){ chamaTable(3, consumidor, "consumidor"); });
+  $('#collapseFour').on('shown.bs.collapse', function(e){ chamaTable(3, consumidor, "consumidor")});
 
-  $("#li4").click(function(e){ chamaTable(4, segmento, "segmento"); });
+  $('#collapseFive').on('shown.bs.collapse', function(e){ chamaTable(4, segmento, "segmento")});
 
-  $("#li5").click(function(e){ chamaTable(5, area, "area"); });
+  $('#collapseSix').on('shown.bs.collapse',  function(e){ chamaTable(5, empresa, "empresa")});
 
-  $("#li6").click(function(e){ chamaTable(6, empresa, "empresa"); });
+  $('#collapseSeven').on('shown.bs.collapse', function(e){ chamaTable(6, area, "area")});
 
-  $("#li7").click(function(e){ chamaTable(7, grupo, "grupo"); });
+  $('#collapseEight').on('shown.bs.collapse', function(e){ chamaTable(7, grupo, "grupo")});
 
-  $("#li8").click(function(e){ chamaTable(8, problema, "problema"); });
+  $('#collapseNine').on('shown.bs.collapse', function(e){ chamaTable(8, problema, "problema")});
 
-  $("#li9").click(function(e){ chamaTable(9, reclamacao, "reclamacao"); });
+  $('#collapseTen').on('shown.bs.collapse', function(e){ chamaTable(9, reclamacao, "reclamacao")});
 });

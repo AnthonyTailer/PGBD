@@ -13,6 +13,7 @@
 <head>
 	<meta http-equiv=”content-language” content=”pt-br” charset="utf-8">
 	<title>Tabelas Normalizadas</title>
+	<link rel="stylesheet" href="../utilities/css/bootstrap-flex.min.css">
 	<!-- Script -->
 	<script src="../utilities/js/jquery.min.js"></script>
 	<script src="../utilities/js/jquery-1.12.3.js"> </script>
@@ -32,180 +33,187 @@
 				</header>
 				<article>
 					<br><br>
-			        <div class="row" style="display:none"id="regiao">
-			          	<h3 align="left">Região</h3>
-			          	<hr>
-			          	<div class="table-responsive" id="regiao_div">
-							<table class="display" id="regiao_table" width="100%" cellspacing="0">
-			  					<thead>
-			  						<tr>
-			                  			<th>ID</th>
-			  							<th>NOME</th>
-			  						</tr>
-			  					</thead>
-			  					<tfoot>
-			  						<tr>
-			                  			<th>ID</th>
-			  							<th>NOME</th>
-			  						</tr>
-			  					</tfoot>
-			  				</table>
-						</div>
-			        </div>
-			        <div class="row" style="display:none" id="estado">
-			          	<h3 align="left">Estado</h3>
-			          	<hr>
-			          	<div class="table-responsive"  id="estado_div">
-							<table class="display" id="estado_table" width="100%" cellspacing="0">
-								<thead>
-									<tr>
-			                  			<th>ID</th>
-			  							<th>NOME</th>
-			                  			<th>REGIÃO</th>
-									</tr>
-								</thead>
-								<!-- <tfoot>
-									<tr>
-			                  			<th>ID</th>
-			  							<th>NOME</th>
-			              				<th>REGIÃO</th>
-			  						</tr>
-			  						</tfoot> -->
-			  					</table>
-			  				</div>
-			        </div>
-			        <div class="row" id="cidade" style="display:none">
-						<h3 align="left">Cidade</h3>
-						<hr>
-						<div class="table-responsive"  id="cidade_div">
-							<table class="display" id="cidade_table" width="100%" cellspacing="0">
-								<thead>
-									<tr>
-			                  			<th>ID</th>
-										<th>NOME</th>
-			                  			<th>ESTADO</th>
-									</tr>
-								</thead>
-								<!-- <tfoot>
-									<tr>
-			                  			<th>ID</th>
-										<th>NOME</th>
-			              				<th>ESTADO</th>
-									</tr>
-								</tfoot> -->
-							</table>
-						</div>
-			        </div>
-			        <div class="row" style="display:none" id="consumidor">
-			          	<h3 align="left">Consumidor</h3>
-			          	<hr>
-			          	<div class="table-responsive" id="consumidor_div">
-							<table class="display" id="consumidor_table" width="100%" cellspacing="0">
-								<thead>
-									<tr>
-										<th>ID</th>
-			                  			<th>SEXO</th>
-			                  			<th>FAIXA ETÁRIA</th>
-			                  			<th>CIDADE</th>
-									</tr>
-								</thead>
-								<!-- <tfoot>
-									<tr>
-					                  	<th>ID</th>
-					                  	<th>SEXO</th>
-					                  	<th>FAIXA ETÁRIA</th>
-					                	<th>CIDADE</th>
-			  						</tr>
-			  					</tfoot> -->
-			  				</table>
-			  			</div>
-			        </div>
-			        <div class="row"  style="display:none" id="segmento">
-			         	 <h3 align="left">Segmento</h3>
-			         	 <hr>
-			         	 <div class="table-responsive" id="segmento_div">
-							<table class="display" id="segmento_table" width="100%" cellspacing="0">
-								<thead>
-									<tr>
-			                  			<th>ID</th>
-										<th>DESCRIÇÃO</th>
-									</tr>
-								</thead>
-								<!-- <tfoot>
-									<tr>
-			                  			<th>ID</th>
-			                 		 	<th>DESCRIÇÃO</th>
-									</tr>
-			  					</tfoot> -->
-			  				</table>
-			  			</div>
-			        </div>
-			        <div class="row" style="display:none" id="area">
-			         	 <h3 align="left">Area</h3>
-			         	 <hr>
-			         	 <div class="table-responsive" id="area_div">
-			  				<table class="display" id="area_table" width="100%" cellspacing="0">
-			  					<thead>
-			  						<tr>
-			  							<th>ID</th>
-			                  			<th>DESCRIÇÃO</th>
-			  						</tr>
-			  					</thead>
-			  					<!-- <tfoot>
-			  						<tr>
-					                  	<th>ID</th>
-			                  			<th>DESCRIÇÃO</th>
-			  						</tr>
-			  					</tfoot> -->
-			  				</table>
-			  			</div>
-			        </div>
-			        <div class="row"  style="display:none" id="empresa">
-			          	<h3 align="left">Empresa</h3>
-			          	<hr>
-			          	<div class="table-responsive" id="empresa_div">
-			  				<table class="display" id="empresa_table" width="100%" cellspacing="0">
-			  					<thead>
-			  						<tr>
-			        		          	<th>ID</th>
-			  							<th>NOME FANTASIA</th>
-			                  			<th>SEGMENTO</th>
-			  						</tr>
-			  					</thead>
-			  					<!-- <tfoot>
-			  						<tr>
-			                  			<th>ID</th>
-			                  			<th>NOME FANTASIA</th>
-			                  			<th>SEGMENTO</th>
-									</tr>
-								</tfoot> -->
-			  				</table>
-			  			</div>
-			        </div>
-			        <div class="row"  style="display:none" id="grupo">
-			          	<h3 align="left">Grupo</h3>
-			          	<hr>
-			          	<div class="table-responsive" id="grupo_div">
-			  				<table class="display" id="grupo_table" width="100%" cellspacing="0">
-			  					<thead>
-			  						<tr>
-			                  			<th>ID</th>
-			  							<th>DESCRIÇÃO</th>
-			  						</tr>
-			  					</thead>
-			  					<!-- <tfoot>
-			  						<tr>
-			                  			<th>ID</th>
-			                  			<th>DESCRIÇÃO</th>
-			  						</tr>
-			  					</tfoot> -->
-			  				</table>
-			  			</div>
-			        </div>
-			        <div class="row"  style="display:none" id="problema">
-			          	<h3 align="left">Problema</h3>
-			          	<hr>
-			          	<div class="table-responsive" id="problema_div">
+					<div id="accordion" role="tablist" aria-multiselectable="true">
+					  <div class="card">
+					    <div class="card-header" role="tab" id="headingOne">
+					      <h4 class="mb-0">
+					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">#1 Região</a>
+					      </h4>
+					    </div>
+					    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+					      <div class="card-block" id="regiao_dion"></div>
+			          	<div class="table-responsive" style="display:none"id="regiao">
+											<table class="display" id="regiao_table" width="100%" cellspacing="0">
+							  					<thead>
+							  						<tr>
+							                <th>ID</th>
+							  							<th>NOME</th>
+							  						</tr>
+							  					</thead>
+							  				</table>
+									</div>
+					    </div>
+					  </div>
+					  <div class="card">
+					    <div class="card-header" role="tab" id="headingTwo">
+					      <h4 class="mb-0">
+					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">#2 Estado</a>
+					      </h5>
+					    </div>
+					    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+					      <div class="card-block" id="estado_dion"></div>
+				          	<div class="table-responsive" style="display:none" id="estado">
+										<table class="display" id="estado_table" width="100%" cellspacing="0">
+												<thead>
+													<tr>
+					                  <th>ID</th>
+					  								<th>NOME</th>
+					                  <th>REGIÃO</th>
+													</tr>
+												</thead>
+					  				</table>
+				        	</div>
+					    </div>
+					  </div>
+					  <div class="card">
+					    <div class="card-header" role="tab" id="headingThree">
+					      <h4 class="mb-0">
+					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">#3 Cidade</a>
+					      </h4>
+					    </div>
+					    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+					      <div class="card-block" id="cidade_dion">
+									<div class="table-responsive"  id="cidade" style="display:none">
+										<table class="display" id="cidade_table" width="100%" cellspacing="0">
+											<thead>
+												<tr>
+						              <th>ID</th>
+													<th>NOME</th>
+						              <th>ESTADO</th>
+												</tr>
+											</thead>
+										</table>
+					    		</div>
+					      </div>
+					    </div>
+					  </div>
+						<div class="card">
+					    <div class="card-header" role="tab" id="headingFour">
+					      <h4 class="mb-0">
+					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">#4 Consumidor</a>
+					      </h4>
+					    </div>
+					    <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+					      <div class="card-block" id="consumidor_dion">
+									<div class="table-responsive" style="display:none" id="consumidor">
+									<table class="display" id="consumidor_table" width="100%" cellspacing="0">
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th>SEXO</th>
+												<th>FAIXA ETÁRIA</th>
+												<th>CIDADE</th>
+											</tr>
+										</thead>
+										</table>
+									</div>
+					      </div>
+					    </div>
+					  </div>
+						<div class="card">
+					    <div class="card-header" role="tab" id="headingFive">
+					      <h4 class="mb-0">
+					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">#5 Segmento</a>
+					      </h4>
+					    </div>
+					    <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+					      <div class="card-block" id="segmento_dion">
+									<div class="table-responsive" id="segmento" style="display: none;">
+									 <table class="display" id="segmento_table" width="100%" cellspacing="0">
+										 <thead>
+											 <tr>
+												 <th>ID</th>
+												 <th>DESCRIÇÃO</th>
+											 </tr>
+										 </thead>
+										 </table>
+									 </div>
+					      </div>
+					    </div>
+					  </div>
+						<div class="card">
+					    <div class="card-header" role="tab" id="headingSix">
+					      <h4 class="mb-0">
+					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">#6 Empresa</a>
+					      </h4>
+					    </div>
+					    <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
+					      <div class="card-block" id="empresa_dion">
+									<div class="table-responsive" id="empresa" style="display: none;">
+					  				<table class="display" id="empresa_table" width="100%" cellspacing="0">
+					  					<thead>
+					  						<tr>
+	        		          	<th>ID</th>
+					  							<th>NOME FANTASIA</th>
+	                  			<th>SEGMENTO</th>
+					  						</tr>
+					  					</thead>
+					  				</table>
+			        	</div>
+					    </div>
+					  </div>
+					</div>
+						<div class="card">
+					    <div class="card-header" role="tab" id="headingSeven">
+					      <h4 class="mb-0">
+					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">#7 Area</a>
+					      </h4>
+					    </div>
+					    <div id="collapseSeven" class="collapse" role="tabpanel" aria-labelledby="headingSeven">
+					      <div class="card-block" id="area_dion">
+									<div class="table-responsive" id="area" style="display: none;">
+		 			  				<table class="display" id="area_table" width="100%" cellspacing="0">
+		 			  					<thead>
+		 			  						<tr>
+		 			  							<th>ID</th>
+	                  			<th>DESCRIÇÃO</th>
+		 			  						</tr>
+		 			  					</thead>
+		 			  				</table>
+ 			        		</div>
+					      </div>
+					      </div>
+					    </div>
+						<div class="card">
+					    <div class="card-header" role="tab" id="headingSeven">
+					      <h4 class="mb-0">
+					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">#8 Grupo</a>
+					      </h4>
+					    </div>
+					    <div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="headingEight">
+					      <div class="card-block" id="grupo_dion">
+									<div class="table-responsive" id="grupo" style="display: none;">
+										<table class="display" id="grupo_table" width="100%" cellspacing="0">
+											<thead>
+												<tr>
+													<th>ID</th>
+													<th>DESCRIÇÃO</th>
+												</tr>
+											</thead>
+										</table>
+									</div>
+					      </div>
+					    </div>
+					  </div>
+						<div class="card">
+					    <div class="card-header" role="tab" id="headingNine">
+					      <h4 class="mb-0">
+					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">#9 Problema</a>
+					      </h4>
+					    </div>
+					    <div id="collapseNine" class="collapse" role="tabpanel" aria-labelledby="headingNine">
+					      <div class="card-block" id="problema_dion">
+									<div class="table-responsive" id="problema" style="display: none;">
 				            <table class="display" id="problema_table" width="100%" cellspacing="0">
 				              	<thead>
 				                	<tr>
@@ -214,70 +222,50 @@
 				                  		<th>GRUPO</th>
 				                	</tr>
 				              	</thead>
-				              	<!-- <tfoot>
-					                <tr>
-				    	              	<th>ID</th>
-				                  		<th>DESCRIÇÃO</th>
-				                  		<th>GRUPO</th>
-				                	</tr>
-				              	</tfoot> -->
 				            </table>
-			          	</div>
-			        </div>
-			        <div class="row" style="display:none" id="reclamacao">
-			          	<h3 align="left">Reclamações</h3>
-			          	<hr>
-			          	<div class="table-responsive" id="reclamacao_div">
+			        		</div>
+					      </div>
+					    </div>
+					  </div>
+						<div class="card">
+					    <div class="card-header" role="tab" id="headingTen">
+					      <h4 class="mb-0">
+					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen">#10 Reclamação</a>
+					      </h4>
+					    </div>
+					    <div id="collapseTen" class="collapse" role="tabpanel" aria-labelledby="headingTen">
+					      <div class="card-block" id="reclamacao_dion">
+									<div class="table-responsive" id="reclamacao" style="display: none;">
 			            	<table class="display" id="reclamacao_table" width="100%" cellspacing="0" title="">
 			              		<thead>
 				                	<tr>
 					                    <th>ID</th>
-										<th>SEXO</th>
-										<th>FAIXA ETÁRIA</th>
-										<th>ANO ABERT.</th>
-										<th>MÊS ABERT.</th>
-										<th>DATA ABERT.</th>
-										<th>DATA RESP.</th>
-										<th>DATA FINAL.</th>
-										<th>TEMPO RESP.</th>
-										<th>EMPRESA</th>
-										<th>ÁREA</th>
-										<th>ASSUNTO</th>
-										<th>PROBLEMA</th>
-										<th>COMO COMPROU</th>
-										<th>PROCUR. EMP.</th>
-										<th>RESPONDIDA</th>
-										<th>SITUAÇÃO</th>
-										<th>AVALIAÇÃO</th>
-										<th>NOTA CONS.</th>
+															<th>SEXO</th>
+															<th>FAIXA ETÁRIA</th>
+															<th>ANO ABERT.</th>
+															<th>MÊS ABERT.</th>
+															<th>DATA ABERT.</th>
+															<th>DATA RESP.</th>
+															<th>DATA FINAL.</th>
+															<th>TEMPO RESP.</th>
+															<th>EMPRESA</th>
+															<th>ÁREA</th>
+															<th>ASSUNTO</th>
+															<th>PROBLEMA</th>
+															<th>COMO COMPROU</th>
+															<th>PROCUR. EMP.</th>
+															<th>RESPONDIDA</th>
+															<th>SITUAÇÃO</th>
+															<th>AVALIAÇÃO</th>
+															<th>NOTA CONS.</th>
 				                	</tr>
 				              	</thead>
-				              	<!-- <tfoot>
-				                	<tr>
-					                  	<th>ID</th>
-										<th>SEXO</th>
-										<th>FAIXA ETÁRIA</th>
-										<th>ANO ABERT.</th>
-										<th>MÊS ABERT.</th>
-										<th>DATA ABERT.</th>
-										<th>DATA RESP.</th>
-										<th>DATA FINAL.</th>
-										<th>TEMPO RESP.</th>
-										<th>EMPRESA</th>
-										<th>ÁREA</th>
-										<th>ASSUNTO</th>
-										<th>PROBLEMA</th>
-										<th>COMO COMPROU</th>
-										<th>PROCUR. EMP.</th>
-										<th>RESPONDIDA</th>
-										<th>SITUAÇÃO</th>
-										<th>AVALIAÇÃO</th>
-										<th>NOTA CONS.</th>
-				                	</tr>
-				              	</tfoot> -->
 				            </table>
 			          	</div>
-			        </div>
+					      </div>
+					    </div>
+					  </div>
+					</div>
 			    </article>
       		</div>
     	</div>
