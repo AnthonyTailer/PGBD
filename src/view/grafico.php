@@ -30,6 +30,11 @@
 				padding: 0px;
       }
 
+			#map2 {
+				height: 500px;
+				padding: 0px;
+			}
+
 			#legend{
 			font-family: Arial, sans-serif;
 			font-size: 14px;
@@ -39,11 +44,33 @@
 				  border: 3px solid #000;
 			}
 
+			#legend2 {
+				font-family: Arial, sans-serif;
+				font-size: 14px;
+				 background: #fff;
+				  padding: 10px;
+					 margin: 10px;
+					  border: 3px solid #000;
+			}
+
 			#legend h3 {
 				margin-top: 0;
 			}
 
+			#legend2 h3 {
+				margin-top: 0;
+			}
+
+			#legend2 h4 {
+				font-size: 14px;
+				font-weight: bold;
+			}
+
 			#legend img {
+				vertical-align: bottom;
+			}
+
+			#legend2 img {
 				vertical-align: bottom;
 			}
     </style>
@@ -78,18 +105,12 @@
 					  <div class="card">
 					    <div class="card-header" role="tab" id="headingTwo">
 					      <h4 class="mb-0">
-					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">#2 Relação da Quantidade de Reclamações por Estado</a>
+					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">#2 Relação da Quantidade de Reclamações no RS</a>
 					      </h5>
 					    </div>
 					    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-					      <div class="card-block">
-					        SELECT E.NOME AS UF, COUNT(*) <br>
-					    	FROM RECLAMACOES R <br>
-					    	JOIN CONSUMIDOR CO ON CO.IDCONSUMIDOR = R.IDCONSUMIDOR <br>
-					    	JOIN CIDADE CI ON CI.IDCIDADE = CO.IDCIDADE <br>
-					    	JOIN ESTADO E ON E.IDESTADO = CI.IDESTADO <br>
-					    	GROUP BY UF;
-					      </div>
+					      <div class="card-block" id="map2"></div>
+								<div id="legend2"><h3>Legenda</h3></div>
 					    </div>
 					  </div>
 					  <div class="card">
@@ -116,8 +137,8 @@
 	</div>
 
 	<script src="../controller/GraficosAjax.js"></script>
-	<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+	<script src="../utilities/js/markerclusterer.js"></script>
 	<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADS0fKiiywkMiPxF6nbfpfpHosf8SEAdI&signed_in=true&callback=initMap"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADS0fKiiywkMiPxF6nbfpfpHosf8SEAdI"></script>
 </body>
 </html>
