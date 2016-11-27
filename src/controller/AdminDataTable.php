@@ -16,6 +16,7 @@ $desnormalizada = new MagicDesnormalizada();
 $DAODesnormalizada = new DAODesnormalizada();
 
 $output  = array();
+$data = [];
 $request = $_GET['tabela'];
 
 if ($request == "desnormalizada") {
@@ -82,7 +83,7 @@ if ($request == "desnormalizada") {
     }";
 
 }else if ($request == "consumidor"){
-    $query = "SELECT C.IDCONSUMIDOR, C.SEXO, C.FAIXAETARIA, CI.NOME as NCIDADE FROM CONSUMIDOR C 
+    $query = "SELECT C.IDCONSUMIDOR, C.SEXO, C.FAIXAETARIA, CI.NOME as NCIDADE FROM CONSUMIDOR C
                 JOIN CIDADE CI ON C.IDCIDADE = CI.IDCIDADE";
     $result = $conex->executeQuery($query);
     while($row = $result->fetch_array(MYSQLI_ASSOC)){
@@ -148,7 +149,7 @@ if ($request == "desnormalizada") {
     }";
 
 }else if ($request == "problema"){
-    $query = "SELECT P.IDPROBLEMA, P.DESCRICAO, G.DESCRICAO AS GRUPODESC FROM PROBLEMA P 
+    $query = "SELECT P.IDPROBLEMA, P.DESCRICAO, G.DESCRICAO AS GRUPODESC FROM PROBLEMA P
                 JOIN GRUPO G ON P.IDGRUPO = G.IDGRUPO";
     $result = $conex->executeQuery($query);
     while($row = $result->fetch_array(MYSQLI_ASSOC)){
@@ -162,23 +163,19 @@ if ($request == "desnormalizada") {
     }";
 
 }else if ($request == "reclamacao"){
-    $query = "SELECT IDRECLAMACAO, C.SEXO, C.FAIXAETARIA, ANO, MES, DATAABERTURA, DATARESPOSTA, DATAFINALIZACAO,
+    $query = "SELECT IDRECLAMACAO, CI.NOME AS CIDADE, ES.NOME AS UF, RG.NOME AS REGIAO, C.SEXO, C.FAIXAETARIA, ANO, MES, DATAABERTURA, DATARESPOSTA, DATAFINALIZACAO,
                 TEMPORESPOSTA, E.NOMEFANTASIA, A.DESCRICAO AS AREA, ASSUNTO, P.DESCRICAO AS PROBLEMA, COMOCOMPROU,
                 PROCUROUEMPRESA, RESPONDIDA, SITUACAO, AVALIACAO, NOTACONSUMIDOR FROM RECLAMACAO R
                 JOIN AREA A ON A.IDAREA = R.IDAREA JOIN CONSUMIDOR C ON C.IDCONSUMIDOR = R.IDCONSUMIDOR
-                JOIN EMPRESA E ON E.IDEMPRESA = R.IDEMPRESA JOIN PROBLEMA P ON P.IDPROBLEMA = R.IDPROBLEMA;";
+                JOIN CIDADE CI ON C.IDCIDADE = CI.IDCIDADE JOIN ESTADO ES ON CI.IDESTADO = ES.IDESTADO JOIN REGIAO RG ON ES.IDREGIAO = RG.IDREGIAO
+                JOIN EMPRESA E ON E.IDEMPRESA = R.IDEMPRESA JOIN PROBLEMA P ON P.IDPROBLEMA = R.IDPROBLEMA LIMIT 10;";
     $result = $conex->executeQuery($query);
     while($row = $result->fetch_array(MYSQLI_ASSOC)){
-        array_push(
-            $output, array($row["IDRECLAMACAO"], $row["SEXO"], $row["FAIXAETARIA"], $row["ANO"], $row["MES"], 
-                $row["DATAABERTURA"], $row["DATARESPOSTA"], $row["DATAFINALIZACAO"], $row["TEMPORESPOSTA"], 
-                $row["NOMEFANTASIA"], $row["AREA"], $row["ASSUNTO"], $row["PROBLEMA"], $row["COMOCOMPROU"], 
-                $row["PROCUROUEMPRESA"], $row["RESPONDIDA"], $row["SITUACAO"], $row["AVALIACAO"], $row["NOTACONSUMIDOR"])
-        );
+        array_push($data, $row);
     }
 
     echo "{
-        \"data\":".json_encode($output)."
+        \"data\":".json_encode($data)."
     }";
 
 }else {

@@ -14,6 +14,15 @@
 	<meta http-equiv=”content-language” content=”pt-br” charset="utf-8">
 	<title>Tabelas Normalizadas</title>
 	<link rel="stylesheet" href="../utilities/css/bootstrap-flex.min.css">
+	<style media="screen">
+		td.details-control {
+		    background: url('../utilities/img/details_open.png') no-repeat center center;
+		    cursor: pointer;
+		}
+		tr.details td.details-control {
+		    background: url('../utilities/img/details_close.png') no-repeat center center;
+		}
+	</style>
 	<!-- Script -->
 	<script src="../utilities/js/jquery.min.js"></script>
 	<script src="../utilities/js/jquery-1.12.3.js"> </script>
@@ -239,7 +248,11 @@
 			            	<table class="display" id="reclamacao_table" width="100%" cellspacing="0" title="">
 			              		<thead>
 				                	<tr>
+															<th></th>
 					                    <th>ID</th>
+					                    <th>CIDADE</th>
+					                    <th>ESTADO</th>
+					                    <th>REGIÃO</th>
 															<th>SEXO</th>
 															<th>FAIXA ETÁRIA</th>
 															<th>ANO ABERT.</th>
@@ -260,6 +273,33 @@
 															<th>NOTA CONS.</th>
 				                	</tr>
 				              	</thead>
+												<tfoot>
+				                	<tr>
+														<th></th>
+														<th>ID</th>
+														<th>CIDADE</th>
+														<th>ESTADO</th>
+														<th>REGIÃO</th>
+														<th>SEXO</th>
+														<th>FAIXA ETÁRIA</th>
+														<th>ANO ABERT.</th>
+														<th>MÊS ABERT.</th>
+														<th>DATA ABERT.</th>
+														<th>DATA RESP.</th>
+														<th>DATA FINAL.</th>
+														<th>TEMPO RESP.</th>
+														<th>EMPRESA</th>
+														<th>ÁREA</th>
+														<th>ASSUNTO</th>
+														<th>PROBLEMA</th>
+														<th>COMO COMPROU</th>
+														<th>PROCUR. EMP.</th>
+														<th>RESPONDIDA</th>
+														<th>SITUAÇÃO</th>
+														<th>AVALIAÇÃO</th>
+														<th>NOTA CONS.</th>
+				                	</tr>
+				              	</tfoot>
 				            </table>
 			          	</div>
 					      </div>
