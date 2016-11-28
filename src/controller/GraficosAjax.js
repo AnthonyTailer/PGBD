@@ -393,7 +393,7 @@ $(document).ready(function(){
               text: 'Quantidade de reclamacoes por empresa'
           },
           subtitle: {
-              text: 'Separadas por total de reclamações e com notas 0'
+              text: 'Empresas selecionadas e ordenadas pelo maior número de reclamações com Nota = 0'
           },
           xAxis: {
               categories: empresas,
@@ -507,6 +507,9 @@ $(document).ready(function(){
         },
         title: {
             text: 'Percentual de reclamações por Perfil de Consumidor'
+        },
+        subtitle: {
+            text: 'Perfis selecionados e ordenados pelo número de reclamações'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

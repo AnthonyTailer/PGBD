@@ -61,11 +61,11 @@
 							<div id="legend2"><h3>Legenda</h3></div>
 					    </div>
 					  </div>
-					  <!-- .................. GRAFICO 2 .................. -->
+					  <!-- .................. GRAFICO 3 .................. -->
 					  <div class="card">
 					    <div class="card-header" role="tab" id="headingThree">
 					      <h4 class="mb-0">
-					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">#3 Empresas com maior número de reclamações nota 0</a>
+					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">#3 Quantidade de reclamacoes por empresa</a>
 					      </h4>
 					    </div>
 					    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
@@ -80,7 +80,7 @@
 					  <div class="card">
 					    <div class="card-header" role="tab" id="headingFour">
 					      <h4 class="mb-0">
-					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">#4 Perfil de consumidor que mais reclama</a>
+					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">#4 Percentual de reclamações por Perfil de Consumidor</a>
 					      </h4>
 					    </div>
 					    <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
