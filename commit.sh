@@ -14,6 +14,6 @@ if (( (( "$answer" == "y" )) || (( "$answer" == "yes" )) )); then
 	git commit -a -m "$str"
 	git push origin master
 else
-	echo "Nothing was COMIITED!!."
+	echo -e "\n|----> Nothing was COMIITED!!."
 fi
 
