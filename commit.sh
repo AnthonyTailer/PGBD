@@ -1,7 +1,6 @@
 #!/bin/bash
 
-str="'$*'"
-echo "$str"
+str="$*"
 
 git status
 git add *
