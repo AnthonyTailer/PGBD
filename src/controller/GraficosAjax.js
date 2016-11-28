@@ -394,7 +394,7 @@ $(document).ready(function(){
               type: 'bar'
           },
           title: {
-              text: 'Quantidade de reclamacoes por empresa'
+              text: 'Quantidade de reclamações por empresa'
           },
           subtitle: {
               text: 'Empresas selecionadas e ordenadas pelo maior número de reclamações com Nota = 0'
