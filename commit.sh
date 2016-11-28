@@ -13,7 +13,9 @@ if (( (( "$answer" == "y" )) || (( "$answer" == "yes" )) )); then
 	git add *
 	git commit -a -m "$str"
 	git push origin master
+elif (( (( "$answer" == "n" )) || (( "$answer" == "no" )) )); then
+	echo -e "\n|----> Nothing was COMMITED!!."
 else
-	echo -e "\n|----> Nothing was COMIITED!!."
+	echo -e "\n|----> Invalid Input!!."
 fi
 
