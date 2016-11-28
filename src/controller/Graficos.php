@@ -54,12 +54,24 @@ if ($request == "geomap1") {
               WHERE R.NOTACONSUMIDOR = 0
               GROUP BY 1, 3
               ORDER BY 2 DESC
-              LIMIT 10 # OFFSET 10;";
+              LIMIT 7 # OFFSET 10;";
     $result = $conex->executeQuery($query);
     while($row = $result->fetch_array(MYSQLI_ASSOC)){
         array_push(
             $output, array($row["EMPRESA"], $row["QTDE_0"], $row["QTDE_TOTAL"])
         );
+    }
+    echo json_encode($output);
+}else if($request == "grafico4"){
+    $query = "SELECT C.SEXO, C.FAIXAETARIA, COUNT(*) AS QTDE, (SELECT COUNT(*) FROM RECLAMACAO RE) AS TOTAL
+              FROM RECLAMACAO R
+              JOIN CONSUMIDOR C ON R.IDCONSUMIDOR = C.IDCONSUMIDOR
+              GROUP BY 1, 2
+              ORDER BY 3 DESC
+              LIMIT 9 #OFFSET 10;";
+    $result = $conex->executeQuery($query);
+    while($row = $result->fetch_array(MYSQLI_ASSOC)){
+        array_push($output, $row);
     }
     echo json_encode($output);
 }else{

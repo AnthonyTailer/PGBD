@@ -8,52 +8,29 @@ $(document).ready(function(){
 	var infoWindow;
 	var queryReturn1;
 	var queryReturn2;
-	var i = true;
-  var j = true;
+	var flag1 = true;
+  var flag2 = true;
+  var flag3 = true;
+  var flag4 = true;
   var cont = 0;
   var cont2 = 0;
   var totalReclamacoesRS = 0;
   var porcentagemRS = 0;
 
-  var queryReturn3;
-  var empresas = [];
-  var qtde0 = [];
-  var qtdeTotal = [];
-
-  // Executa consulta SQL para o mapa 1
-	$.ajax({
+  /* ----------------- GRAFICO 1 ----------------- */
+	$.ajax({ // Executa consulta SQL para o mapa
 	  url: "../controller/Graficos.php?query=geomap1",
 	  dataType: "json",
 	  type: 'GET',
 	  success: function(msg){
 	    queryReturn1 = msg;
-	    // console.log(queryReturn);
 	  }
 	});
 
-  // Executa consulta SQL para o mapa 2
-  $.ajax({
-	  url: "../controller/Graficos.php?query=geomap2",
-	  dataType: "json",
-	  type: 'GET',
-	  success: function(msg){
-	    queryReturn2 = msg;
-      for (var i = 0; i < queryReturn2.length; i++) {
-        totalReclamacoesRS += eval(queryReturn2[i][2]);
-        //console.log("totalReclamacoesRS = "+totalReclamacoesRS);
-      }
-
-      porcentagemRS = (totalReclamacoesRS/eval(queryReturn2[0][3]))*100;
-      //console.log("porcentagemRS = "+porcentagemRS);
-	  }
-	});
-
-  // Processa o mapa 1
-	$('#collapseOne').on('shown.bs.collapse', function () {
-			// GEOMAPA - RELAÇÃO DA QUANTIDADE DE RECLAMAÇÕES POR ESTADO
-
-			if (i == true) {
-					i = false;
+	$('#collapseOne').on('shown.bs.collapse', function () { // Processa o mapa
+      // GEOMAPA - RELAÇÃO DA QUANTIDADE DE RECLAMAÇÕES POR ESTADO
+			if (flag1) {
+					flag1 = false;
 					var iconBase = "../utilities/img/maps/";
 					var icons = {
 					          group0: {
@@ -217,11 +194,24 @@ $(document).ready(function(){
 
 			}
 	})
+
+  /* ----------------- GRAFICO 2 ----------------- */
+  $.ajax({ // Executa consulta SQL para o mapa
+    url: "../controller/Graficos.php?query=geomap2",
+    dataType: "json",
+    type: 'GET',
+    success: function(msg){
+      queryReturn2 = msg;
+      for (var i = 0; i < queryReturn2.length; i++) {
+        totalReclamacoesRS += eval(queryReturn2[i][2]);
+      }
+      porcentagemRS = (totalReclamacoesRS/eval(queryReturn2[0][3]))*100;
+    }
+  });
   
-  // Processa o mapa 2
-  $('#collapseTwo').on('shown.bs.collapse', function(){
-    	if (j == true) {
-        j = false;
+  $('#collapseTwo').on('shown.bs.collapse', function(){ // Processa o mapa
+    	if (flag2) {
+        flag2 = false;
         var iconBase = "../utilities/img/maps/";
         var iconsRS = {
                   group0: {
@@ -379,35 +369,36 @@ $(document).ready(function(){
       }
   })
 
-  // Processa o grafico 3
-  $('#collapseThree').on('shown.bs.collapse', function(emp){
-      requestData();
+  /* ----------------- GRAFICO 3 ----------------- */
+  $('#collapseThree').on('shown.bs.collapse', function(emp){ // Processa o grafico
+      if(flag3){
+        flag3 = false;
+        requestData3();
+      }
   })
 
-  // Executa consulta SQL para o gráfico 3
-  function requestData(){
+  function requestData3(){ // Executa consulta SQL para o gráfico
     $.ajax({
       url: "../controller/Graficos.php?query=grafico3",
       dataType: "json",
       type: 'GET',
       success: function(msg){
-        queryReturn3 = msg;
 
-        for(a=0; a<queryReturn3.length; a++){
-          empresas.push(queryReturn3[a][0]);
-          // console.log(empresas[a]);
-          qtde0.push(eval(queryReturn3[a][1]));
-          // console.log(qtde0[a]);
-          qtdeTotal.push(eval(queryReturn3[a][2]));
-          // console.log(qtdeTotal[a]);
+        var empresas = [];
+        var qtde0 = [];
+        var qtdeTotal = [];
+
+        for(i=0; i<msg.length; i++){
+          empresas.push(msg[i][0]); // console.log(empresas[i]);
+          qtde0.push(eval(msg[i][1])); // console.log(qtde0[i]);
+          qtdeTotal.push(eval(msg[i][2])); // console.log(qtdeTotal[i]);
         }
-        Grafico3();
+        Grafico3(empresas, qtde0, qtdeTotal);
       }
     });
   }
 
-  // Processa o gráfico 3
-  function Grafico3() {
+  function Grafico3(empresas, qtde0, qtdeTotal) { // Processa o gráfico
       Highcharts.chart('map3', {
           chart: {
               type: 'bar'
@@ -447,9 +438,9 @@ $(document).ready(function(){
           legend: {
               layout: 'vertical',
               align: 'right',
-              verticalAlign: 'top',
+              verticalAlign: 'bottom',
               x: -40,
-              y: 200,
+              y: -90,
               floating: true,
               borderWidth: 1,
               backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
@@ -467,6 +458,103 @@ $(document).ready(function(){
           
           }]
       });
+  }
+
+  /* ----------------- GRAFICO 4 ----------------- */
+  $('#collapseFour').on('shown.bs.collapse', function(emp){ // Processa o grafico
+      if(flag4){
+        flag4 = false;
+        requestData4();
+      }
+  })
+
+  function requestData4(){ // Executa consulta SQL para o gráfico
+    $.ajax({
+      url: "../controller/Graficos.php?query=grafico4",
+      dataType: "json",
+      type: 'GET',
+      success: function(msg){
+
+        var perfil = [];
+        var porcento = [];
+        var total = eval(msg[0]["TOTAL"]);
+        var soma = 0;
+
+        for(i=0; i<msg.length; i++){
+          perfil.push(msg[i]["SEXO"]+" - "+msg[i]["FAIXAETARIA"]);  console.log(perfil[i]);
+          
+          porcento.push(((eval(msg[i]["QTDE"])/total)*100).toPrecision(2));  console.log(porcento[i]);
+          
+          soma += eval(msg[i]["QTDE"]);
+        }
+        perfil.push("Outros");
+        porcento.push((((total-soma)/total)*100).toPrecision(2));
+
+        Grafico4(perfil, porcento);
+      }
+    });
+  }
+
+  function Grafico4(perfil, porcento) { // Processa o gráfico
+    // Radialize the colors
+    Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function (color) {
+        return {
+            radialGradient: {
+                cx: 0.5,
+                cy: 0.3,
+                r: 0.7
+            },
+            stops: [
+                [0, color],
+                [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+            ]
+        };
+    });
+
+    // Build the chart
+    Highcharts.chart('map4', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Percentual de reclamações por Perfil de Consumidor'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    },
+                    connectorColor: 'silver'
+                }
+            }
+        },
+        series: [{
+            name: 'Brands',
+            data: [
+                { name: perfil[0], y: eval(porcento[0]), sliced: true, selected: true},
+                { name: perfil[1], y: eval(porcento[1]) },
+                { name: perfil[2], y: eval(porcento[2]) },
+                { name: perfil[3], y: eval(porcento[3]) },
+                { name: perfil[4], y: eval(porcento[4]) },
+                { name: perfil[5], y: eval(porcento[5]) },
+                { name: perfil[6], y: eval(porcento[6]) },
+                { name: perfil[7], y: eval(porcento[7]) },
+                { name: perfil[8], y: eval(porcento[8]) },
+                { name: perfil[9], y: eval(porcento[9]) }
+            ]
+        }]
+    });
   }
 
 });

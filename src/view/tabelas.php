@@ -69,6 +69,7 @@
 													<th>DATA FINAL.</th>
 													<th>TEMPO RESP.</th>
 													<th>EMPRESA</th>
+													<th>SEGMENTO</th>
 													<th>ÁREA</th>
 													<th>ASSUNTO</th>
 													<th>PROBLEMA</th>
@@ -96,6 +97,7 @@
 													<th>DATA FINAL.</th>
 													<th>TEMPO RESP.</th>
 													<th>EMPRESA</th>
+													<th>SEGMENTO</th>
 													<th>ÁREA</th>
 													<th>ASSUNTO</th>
 													<th>PROBLEMA</th>

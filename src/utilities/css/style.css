@@ -232,6 +232,11 @@ box-shadow: 0px 2px 5px 0px rgba(207,207,207,1);
   padding: 0px;
 }
 
+#map4 {
+  height: 500px;
+  padding: 0px;
+}
+
 #legend{
   font-family: Arial, sans-serif;
   font-size: 14px;

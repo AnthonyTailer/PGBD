@@ -88,18 +88,19 @@ $(document).ready(function(){
               {"data": "DATAFINALIZACAO"}, // 11
               {"data": "TEMPORESPOSTA"}, // 12
               {"data": "NOMEFANTASIA"}, // 13
-              {"data": "AREA"}, // 14
-              {"data": "ASSUNTO"}, // 15
-              {"data": "PROBLEMA"}, // 16
-              {"data": "COMOCOMPROU"}, // 17
-              {"data": "PROCUROUEMPRESA"}, // 18
-              {"data": "RESPONDIDA"}, // 19
-              {"data": "SITUACAO"}, // 20
-              {"data": "AVALIACAO"}, // 21
-              {"data": "NOTACONSUMIDOR"} // 22
+              {"data": "SEGMENTO"}, // 14
+              {"data": "AREA"}, // 15
+              {"data": "ASSUNTO"}, // 16
+              {"data": "PROBLEMA"}, // 17
+              {"data": "COMOCOMPROU"}, // 18
+              {"data": "PROCUROUEMPRESA"}, // 19
+              {"data": "RESPONDIDA"}, // 20
+              {"data": "SITUACAO"}, // 21
+              {"data": "AVALIACAO"}, // 22
+              {"data": "NOTACONSUMIDOR"} // 23
           ],
           "columnDefs": [{
-                        "targets": [2, 3, 4, 5, 6,7, 8, 13, 14, 15, 16,17,18,19],
+                        "targets": [2, 3, 4, 5, 6,7, 8, 13, 14, 15, 16,17,18,19,20],
                         "visible": false
                     }],
           "order": [[1, 'asc']]
@@ -126,16 +127,16 @@ $(document).ready(function(){
                   data  = "<div class='content'>";
                   data += "<div class='row'><div class='col-lg-12'><table class='table table-striped table-bordered' width='100%'>";
 
-                  data += "<td colspan='4' style='background-color: #B3B3B3; color: white'><h4><i class='glyphicon glyphicon-comment'></i> Reclamação</h4></td>";
-                  data += "<tr><td><b>Código: </b>"+d.IDRECLAMACAO+"</td><td colspan='2'><b>Problema: </b> "+d.PROBLEMA+"</td><td><b>Assunto: </b>"+d.ASSUNTO+"</td></tr>";
+                  data += "<td colspan='4' style='background-color: #B3B3B3; color: white; padding: 0px 0px 0px 10px'><h4><i class='glyphicon glyphicon-comment'></i> Reclamação</h4></td>";
+                  data += "<tr><td><b>Área: </b>"+d.AREA+"</td><td colspan='2'><b>Problema: </b> "+d.PROBLEMA+"</td><td><b>Assunto: </b>"+d.ASSUNTO+"</td></tr>";
 
-                  data += "<td colspan='4' style='background-color: #B3B3B3; color: white'><h4><i class='glyphicon glyphicon-user'></i> Consumidor</h4></td>";
+                  data += "<td colspan='4' style='background-color: #B3B3B3; color: white; padding: 0px 0px 0px 10px'><h4><i class='glyphicon glyphicon-user'></i> Consumidor</h4></td>";
                   data += "<tr><td colspan='2'><b>Cidade: </b>"+d.CIDADE+"</td><td><b>UF: </b>"+d.UF+"</td><td><b>Região: </b>"+d.REGIAO+"</td></tr>";
-                  data += "<tr><td colspan='2'><b>Faixa Etária: </b>"+d.FAIXAETARIA+"</td><td colspan='2'><b>Sexo: </b> "+d.SEXO+"</td></tr>";
+                  data += "<tr><td colspan='3'><b>Faixa Etária: </b>"+d.FAIXAETARIA+"</td><td colspan='2'><b>Sexo: </b> "+d.SEXO+"</td></tr>";
 
-                  data += "<td colspan='4' style='background-color: #B3B3B3; color: white'><h4><i class='glyphicon glyphicon-briefcase'></i> Empresa</h4></td>";
-                  data += "<tr><td colspan='2'><b>Nome da Empresa: </b> "+d.NOMEFANTASIA+"</td><td><b>Área: </b> "+d.AREA+"</td></tr>";
-                  data += "<tr><td colspan='2'><b>Como Comprou: </b> "+d.COMOCOMPROU+"</td><td><b>Procurou Empresa: </b>"+d.PROCUROUEMPRESA+"</td><td><b>Respondida: </b>"+d.RESPONDIDA+"</td></tr>";
+                  data += "<td colspan='4' style='background-color: #B3B3B3; color: white; padding: 0px 0px 0px 10px'><h4><i class='glyphicon glyphicon-briefcase'></i> Empresa</h4></td>";
+                  data += "<tr><td colspan='2'><b>Nome da Empresa: </b> "+d.NOMEFANTASIA+"</td><td colspan='2'><b>Como Comprou: </b> "+d.COMOCOMPROU+"</td></tr>";
+                  data += "<tr><td colspan='2'><b>Segmento: </b> "+d.SEGMENTO+"</td><td><b>Procurou Empresa: </b>"+d.PROCUROUEMPRESA+"</td><td><b>Respondida: </b>"+d.RESPONDIDA+"</td></tr>";
 
                   data += "</table></div></div></div>";
 

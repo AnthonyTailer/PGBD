@@ -14,15 +14,14 @@
 	<meta http-equiv=”content-language” content=”pt-br” charset="utf-8">
 	<title>Gráficos e Consultas</title>
 	<link rel="stylesheet" href="../utilities/css/bootstrap-flex.min.css">
-	<!-- Script -->
+	<!-- Scripts Gerais -->
 	<script src="../utilities/js/jquery.min.js"></script>
 	<script src="../utilities/js/jquery-1.12.3.js"> </script>
 	<script src="../utilities/js/bootstrap.min.js"> </script>
 	<script src="../utilities/js/jquery.dataTables.min.js"></script>
-	<!-- Ini do Script Para o gráfico 3 -->
+	<!-- Scripts Para os gráficos 3 e 4 -->
 	<script src="../utilities/js/highcharts.js"></script>
 	<script src="../utilities/js/exporting.js"></script>
-	<!-- Fim do Script para o grafico 3 -->
 </head>
 <body>
 	<div class="container-fluid">
@@ -38,7 +37,7 @@
 				<article>
 					<br><br>
 					<div id="accordion" role="tablist" aria-multiselectable="true">
-					  
+					  <!-- .................. GRAFICO 1 .................. -->
 					  <div class="card">
 					    <div class="card-header" role="tab" id="headingOne">
 					      <h4 class="mb-0">
@@ -50,7 +49,7 @@
 							<div id="legend"><h3>Legenda</h3></div>
 					    </div>
 					  </div>
-					  
+					  <!-- .................. GRAFICO 2 .................. -->
 					  <div class="card">
 					    <div class="card-header" role="tab" id="headingTwo">
 					      <h4 class="mb-0">
@@ -62,7 +61,7 @@
 							<div id="legend2"><h3>Legenda</h3></div>
 					    </div>
 					  </div>
-					  
+					  <!-- .................. GRAFICO 2 .................. -->
 					  <div class="card">
 					    <div class="card-header" role="tab" id="headingThree">
 					      <h4 class="mb-0">
@@ -77,7 +76,7 @@
 					      </div>
 					    </div>
 					  </div>
-
+					  <!-- .................. GRAFICO 4 .................. -->
 					  <div class="card">
 					    <div class="card-header" role="tab" id="headingFour">
 					      <h4 class="mb-0">
@@ -86,22 +85,18 @@
 					    </div>
 					    <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
 					      <div class="card-block">
-					        SELECT C.SEXO, C.FAIXAETARIA, COUNT(*) AS QTDE <br>
-							FROM RECLAMACAO R <br>
-							JOIN CONSUMIDOR C ON R.IDCONSUMIDOR = C.IDCONSUMIDOR <br>
-							GROUP BY 1, 2 <br>
-							ORDER BY 3 DESC <br>
-							LIMIT 10 #OFFSET 10; <br>
+					      		<div id="map4" style="width: 900px; margin: 0 auto">
+					      			<img src="../utilities/img/loading.gif" class="img-responsive center-block" width=100 style="padding-top: 150px">
+					      		</div>
 					      </div>
 					    </div>
 					  </div>
-
 					</div>
 				</article>
 			</div>
 		</div>
 	</div>
-
+	<!-- Scripts Para os gráficos 1 e 2 -->
 	<script src="../controller/GraficosAjax.js"></script>
 	<script src="../utilities/js/markerclusterer.js"></script>
 	<script async defer src="../utilities/js/googleapi.js"></script>
