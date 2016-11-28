@@ -20,105 +20,9 @@
 	<script src="../utilities/js/bootstrap.min.js"> </script>
 	<script src="../utilities/js/jquery.dataTables.min.js"></script>
 	<!-- Ini do Script Para o gráfico 3 -->
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawStuff);
-
-      function drawStuff() {
-        var data = new google.visualization.arrayToDataTable([
-          ['Galaxy', 'Distance', 'Brightness'],
-          ['Canis Major Dwarf', 8000, 23.3],
-          ['Sagittarius Dwarf', 24000, 4.5],
-          ['Ursa Major II Dwarf', 30000, 14.3],
-          ['Lg. Magellanic Cloud', 50000, 0.9],
-          ['Bootes I', 60000, 13.1]
-        ]);
-
-        var options = {
-          width: 800,
-          chart: {
-            title: 'Nearby galaxies',
-            subtitle: 'distance on the left, brightness on the right'
-          },
-          bars: 'horizontal', // Required for Material Bar Charts.
-          series: {
-            0: { axis: 'distance' }, // Bind series 0 to an axis named 'distance'.
-            1: { axis: 'brightness' } // Bind series 1 to an axis named 'brightness'.
-          },
-          axes: {
-            x: {
-              distance: {label: 'parsecs'}, // Bottom x-axis.
-              brightness: {side: 'top', label: 'apparent magnitude'} // Top x-axis.
-            }
-          }
-        };
-
-      var chart = new google.charts.Bar(document.getElementById('map3'));
-      chart.draw(data, options);
-    };
-    </script>
+	<script src="../utilities/js/highcharts.js"></script>
+	<script src="../utilities/js/exporting.js"></script>
 	<!-- Fim do Script para o grafico 3 -->
-	<style>
-	    html, body {
-	        height: 100%;
-	        margin: 0;
-	        padding: 0;
-	    }
-	    #map {
-	    	height: 500px;
-			padding: 0px;
-	    }
-
-		#map2 {
-			height: 500px;
-			padding: 0px;
-		}
-
-		#map3 {
-			height: 500px;
-			padding: 0px;
-		}
-
-		#legend{
-			font-family: Arial, sans-serif;
-			font-size: 14px;
-		 	background: #fff;
-		 	padding: 10px;
-			margin: 10px;
-			border: 3px solid #000;
-		}
-
-		#legend2 {
-			font-family: Arial, sans-serif;
-			font-size: 14px;
-			background: #fff;
-			padding: 10px;
-			margin: 10px;
-			border: 3px solid #000;
-		}
-
-		#legend h3 {
-			margin-top: 0;
-		}
-
-		#legend2 h3 {
-			margin-top: 0;
-		}
-
-		#legend2 h4 {
-			font-size: 14px;
-			font-weight: bold;
-		}
-
-		#legend img {
-			vertical-align: bottom;
-		}
-
-		#legend2 img {
-			vertical-align: bottom;
-		}
-    </style>
 </head>
 <body>
 	<div class="container-fluid">
@@ -167,7 +71,9 @@
 					    </div>
 					    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
 					      <div class="card-block">
-					        	<!-- <div  id="map3" style="width: 900px;"></div> -->
+					        	<div  id="map3" style="width: 900px; margin: 0 auto">
+				        			<img src="../utilities/img/loading.gif" class="img-responsive center-block" width=100 style="padding-top: 150px">
+					        	</div>
 					      </div>
 					    </div>
 					  </div>
@@ -191,7 +97,6 @@
 					  </div>
 
 					</div>
-					<!-- <div  id="map3" style="width: 900px;"></div> -->
 				</article>
 			</div>
 		</div>
