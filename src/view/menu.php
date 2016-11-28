@@ -16,7 +16,7 @@
           <a href="importacao.php" style="text-decoration: none; color: #e1ffff; "><li style="padding-left: 10px;"><i class="glyphicon glyphicon-import"></i> Importação do CSV</li></a>
           <a href="normalizacao.php" style="text-decoration: none; color: #e1ffff; "><li style="padding-left: 10px;"><i class="glyphicon glyphicon-thumbs-up"></i> Normalização do DB</li></a>
           <a href="tabelas.php" style="text-decoration: none; color: #e1ffff; "><li style="padding-left: 10px;"><i class="glyphicon glyphicon-th-list"></i> Tabelas</li></a>
-          <a href="grafico.php" style="text-decoration: none; color: #e1ffff; "><li style="padding-left: 10px;"><i class="glyphicon glyphicon-stats"></i> Gráficos e Consultas</li></a>
+          <a href="graficos.php" style="text-decoration: none; color: #e1ffff; "><li style="padding-left: 10px;"><i class="glyphicon glyphicon-stats"></i> Gráficos e Consultas</li></a>
       </ul>
     </div>
   </article>

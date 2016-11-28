@@ -8,6 +8,7 @@ $(document).ready(function(){
 	var infoWindow;
 	var queryReturn1;
 	var queryReturn2;
+  var queryReturn3;
 	var i = true;
   var j = true;
   var cont = 0;
@@ -22,7 +23,7 @@ $(document).ready(function(){
 	  type: 'GET',
 	  success: function(msg){
 	    queryReturn1 = msg;
-	    //console.log(queryReturn);
+	    // console.log(queryReturn);
 	  }
 	});
 
@@ -42,6 +43,15 @@ $(document).ready(function(){
 	  }
 	});
 
+  $.ajax({
+    url: "../controller/Graficos.php?query=grafico3",
+    dataType: "json",
+    type: 'GET',
+    success: function(msg){
+      queryReturn3 = msg;
+      // console.log(queryReturn);
+    }
+  });
 
 	$('#collapseOne').on('shown.bs.collapse', function () {
 			// GEOMAPA - RELAÇÃO DA QUANTIDADE DE RECLAMAÇÕES POR ESTADO
@@ -378,7 +388,7 @@ $(document).ready(function(){
   })
 
   $('#collapseThree').on('shown.bs.collapse', function(){
-    alert("Not yet Biatch!");
+    
   })
 
 });

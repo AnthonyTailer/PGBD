@@ -99,10 +99,10 @@ $(document).ready(function(){
               {"data": "NOTACONSUMIDOR"} // 22
           ],
           "columnDefs": [{
-                        "targets": [1, 2, 3, 4, 5, 6,7, 8, 13, 14, 15, 16,17,18,19],
+                        "targets": [2, 3, 4, 5, 6,7, 8, 13, 14, 15, 16,17,18,19],
                         "visible": false
                     }],
-          "order": [[9, 'asc']]
+          "order": [[1, 'asc']]
       });
 
           var detailRows = [];
