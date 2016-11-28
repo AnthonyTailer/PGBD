@@ -61,6 +61,7 @@ $(document).ready(function(){
 					geocoder = new google.maps.Geocoder();
 					map = new google.maps.Map(document.getElementById('map'), {
 						zoom: 4,
+            scrollwheel: false,
 						center: {lat: -14.235004, lng: -58.92528},
 						mapTypeId: google.maps.MapTypeId.VIEWPORT
 					});
@@ -87,7 +88,7 @@ $(document).ready(function(){
 					}
 
          var div = document.createElement('div');
-         div.innerHTML = 'Total de Reclamações: ' + queryReturn1[0][2];
+         div.innerHTML = '<h4><b>Total: '+queryReturn1[0][2]+'</b></h4>';
          legend.appendChild(div);
 
 				  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
@@ -150,22 +151,23 @@ $(document).ready(function(){
           
           var porcento = ((reclamacoes/eval(totalReclamacoes))*100).toPrecision(2);
           var contentString = '<div class="container">'+
-          '<h3 id="reclamacoesTitle">N° de Reclamações</h3>'+
+          '<h4 id="reclamacoesTitle">N° de Reclamações</h4>'+
           '<div id="reclamacoesInfo">'+
-          '<h4>'+reclamacoes+'</h4>'+
+          '<h5>'+reclamacoes+'</h5>'+
           '</div>'+
-          '<h3 id="porcentoTitle">porcentagem do Total</h3>'+
+          '<h4 id="porcentoTitle">Porcentagem do Total</h4>'+
           '<div id="porcentoInfo">'+
-          '<h4>'+porcento+'%'+'</h4>'+
+          '<h5>'+porcento+'%'+'</h5>'+
           '</div>'+
-          '<h3 id="estadoTitle">Estado</h3>'+
+          '<h4 id="estadoTitle">Estado</h4>'+
           '<div id="estadoInfo">'+
-          '<h4>'+endereco+'</h4>'+
+          '<h5>'+endereco+'</h5>'+
           '</div>'+
           '</div>';
 
           var infowindow = new google.maps.InfoWindow({
-            content: contentString
+            content: contentString,
+            maxWidth: 200
           });
 
           google.maps.event.addListener(dot, 'click', function(event) {
@@ -202,23 +204,23 @@ $(document).ready(function(){
         var iconsRS = {
                   group0: {
                     icon: iconBase + 'group-0.png',
-                    desc: "< 102"
+                    desc: "< 100"
                   },
                   group1: {
                     icon: iconBase + 'group-1.png',
-                    desc: "102 a 203"
+                    desc: "100 a 200"
                   },
                   group2: {
                     icon: iconBase + 'group-2.png',
-                    desc: "204 a 305"
+                    desc: "200 a 300"
                   },
                   group3: {
                     icon: iconBase + 'group-3.png',
-                    desc: "306 a 407"
+                    desc: "300 a 400"
                   },
                   group4: {
                     icon: iconBase + 'group-4.png',
-                    desc: ">= 408"
+                    desc: "> 400"
                   }
         };
 
@@ -227,6 +229,7 @@ $(document).ready(function(){
           geocoder = new google.maps.Geocoder();
           map = new google.maps.Map(document.getElementById('map2'), {
             zoom: 7,
+            scrollwheel: false,
             center: {lat: -30.034632, lng: -51.217699},
             mapTypeId: google.maps.MapTypeId.HYBRID
           });
@@ -239,8 +242,8 @@ $(document).ready(function(){
               }else
                 clearInterval(interval);
                 //console.log("Qtd de Markers: "+markers);
-                markerCluster = new MarkerClusterer(map, markers_rs,
-                {imagePath: iconBase+'/m'});
+                // markerCluster = new MarkerClusterer(map, markers_rs,
+                // {imagePath: iconBase+'/m'});
             }, 1000);
 
           var legend2 = document.getElementById('legend2');
@@ -249,55 +252,55 @@ $(document).ready(function(){
              var name = type.desc;
              var icon = type.icon;
              var div = document.createElement('div');
-             div.innerHTML = '<img src="' + icon + '"> ' + name;
+             div.innerHTML = '<img src="' + icon + '" width="40px"> ' + name;
               legend2.appendChild(div);
           }
           var infoDiv = document.createElement('div');
-          infoDiv.innerHTML = '</br><h4> Total no Brasil: '+ queryReturn2[0][3] + '</h4>';
+          infoDiv.innerHTML = '<h5><b> Total no Brasil: '+ queryReturn2[0][3] + '</b></h5>';
           legend2.appendChild(infoDiv);
 
           var infoDiv2 = document.createElement('div');
-          infoDiv2.innerHTML = '<h4> Total no RS: '+ totalReclamacoesRS + '</h4>';
+          infoDiv2.innerHTML = '<h5><b> Total no RS: '+ totalReclamacoesRS + '</b></h5>';
           legend2.appendChild(infoDiv2);
 
           var infoDiv3 = document.createElement('div');
-          infoDiv3.innerHTML = '<h4> Porcentagem: '+ porcentagemRS.toPrecision(2) +'%'+'</h4>';
+          infoDiv3.innerHTML = '<h5><b>Porcentagem: '+ porcentagemRS.toPrecision(2) +'%'+'</b></h5>';
           legend2.appendChild(infoDiv3);
 
           map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend2);
 
-          map.addListener('zoom_changed', function() {
-            markerCluster = new MarkerClusterer(map, markers_rs,
-            {imagePath: iconBase+'/m'});
-          });
+          // map.addListener('zoom_changed', function() {
+          //   markerCluster = new MarkerClusterer(map, markers_rs,
+          //   {imagePath: iconBase+'/m'});
+          // });
         }
 
         function converteEndereco2(cidade, uf, reclamacoes) {
           geocoder.geocode( { 'address': cidade+', '+uf+', Brazil'} , function(resultado, status) {
             if (status == google.maps.GeocoderStatus.OK) {
               cont2 += 1;
-              if (reclamacoes < 102) {
+              if (reclamacoes < 100) {
                 dot_rs = new google.maps.Marker({
                   map: map,
                   position: resultado[0].geometry.location,
                   title: cidade+", "+reclamacoes+" Reclamações",
                   icon: iconsRS['group0'].icon
                 });
-              }else if (reclamacoes >= 102 & reclamacoes < 204) {
+              }else if (reclamacoes >= 100 & reclamacoes < 200) {
                 dot_rs = new google.maps.Marker({
                   map: map,
                   position: resultado[0].geometry.location,
                   title: cidade+", "+reclamacoes+" Reclamações",
                   icon: iconsRS['group1'].icon
                 });
-              }else if (reclamacoes >= 204 & reclamacoes < 306) {
+              }else if (reclamacoes >= 200 & reclamacoes < 300) {
                 dot_rs = new google.maps.Marker({
                   map: map,
                   position: resultado[0].geometry.location,
                   title: cidade+", "+reclamacoes+" Reclamações",
                   icon: iconsRS['group2'].icon
                 });
-              }else if (reclamacoes >= 306 & reclamacoes < 408) {
+              }else if (reclamacoes >= 300 & reclamacoes < 400) {
                 dot_rs = new google.maps.Marker({
                   map: map,
                   position: resultado[0].geometry.location,
@@ -322,26 +325,27 @@ $(document).ready(function(){
 
         function janelaInformacoes2(dot_rs, cidade, reclamacoes, totalReclamacoesRS){
           var contentString = '<div class="container">'+
-          '<h3 id="reclamacoesTitle">N° de Reclamações</h3>'+
+          '<h4 id="reclamacoesTitle">N° de Reclamações</h4>'+
           '<div id="reclamacoesInfo">'+
-          '<h4>'+reclamacoes+'</h4>'+
+          '<h5>'+reclamacoes+'</h5>'+
           '</div>'+
-          '<h3 id="cidadeTitle">Cidade</h3>'+
+          '<h4 id="cidadeTitle">Cidade</h4>'+
           '<div id="cidadeInfo">'+
-          '<h4>'+cidade+'</h4>'+
+          '<h5>'+cidade+'</h5>'+
           '</div>'+
-          '<h3 id="totalTitle">Total de Reclamações RS</h3>'+
+          '<h4 id="totalTitle">Total de Reclamações RS</h4>'+
           '<div id="totalInfo">'+
-          '<h4>'+totalReclamacoesRS+'</h4>'+
+          '<h5>'+totalReclamacoesRS+'</h5>'+
           '</div>'+
-          '<h3 id="porcentagemTitle">Porcentagem do Total</h3>'+
+          '<h4 id="porcentagemTitle">Porcentagem do Total</h4>'+
           '<div id="porcentagemInfo">'+
-          '<h4>'+((reclamacoes/totalReclamacoesRS)*100).toPrecision(2)+'%'+'</h4>'+
+          '<h5>'+((reclamacoes/totalReclamacoesRS)*100).toPrecision(2)+'%'+'</h5>'+
           '</div>'+
           '</div>';
 
           var infowindow = new google.maps.InfoWindow({
-            content: contentString
+            content: contentString,
+            maxWidth: 250
           });
 
           google.maps.event.addListener(dot_rs, 'click', function(event) {
