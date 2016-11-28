@@ -128,7 +128,7 @@ $(document).ready(function(){
                   data += "<div class='row'><div class='col-lg-12'><table class='table table-striped table-bordered' width='100%'>";
 
                   data += "<td colspan='4' style='background-color: #B3B3B3; color: white; padding: 0px 0px 0px 10px'><h4><i class='glyphicon glyphicon-comment'></i> Reclamação</h4></td>";
-                  data += "<tr><td><b>Área: </b>"+d.AREA+"</td><td colspan='2'><b>Problema: </b> "+d.PROBLEMA+"</td><td><b>Assunto: </b>"+d.ASSUNTO+"</td></tr>";
+                  data += "<tr><td><b>Assunto: </b>"+d.PROBLEMA+"</td><td colspan='2'><b>Problema: </b> "+d.AREA+"</td><td><b>Área: </b>"+d.ASSUNTO+"</td></tr>";
 
                   data += "<td colspan='4' style='background-color: #B3B3B3; color: white; padding: 0px 0px 0px 10px'><h4><i class='glyphicon glyphicon-user'></i> Consumidor</h4></td>";
                   data += "<tr><td colspan='2'><b>Cidade: </b>"+d.CIDADE+"</td><td><b>UF: </b>"+d.UF+"</td><td><b>Região: </b>"+d.REGIAO+"</td></tr>";
