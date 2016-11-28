@@ -4,7 +4,7 @@ $(document).ready(function(){
   var dot_rs;
   var markers = [];
   var markers_rs = [];
-  var markerCluster;
+  // var markerCluster;
 	var infoWindow;
 	var queryReturn1;
 	var queryReturn2;
@@ -35,31 +35,23 @@ $(document).ready(function(){
 					var icons = {
 					          group0: {
 					            icon: iconBase + 'group-0.png',
-											desc: "< 700"
+											desc: "< 1.000"
 					          },
 										group1: {
 					            icon: iconBase + 'group-1.png',
-											desc: "700 a 1399"
+											desc: "1.000 a 2.000"
 					          },
 										group2: {
 					            icon: iconBase + 'group-2.png',
-											desc: "1400 a 2099"
+											desc: "2.000 a 3.000"
 					          },
 										group3: {
 					            icon: iconBase + 'group-3.png',
-											desc: "2100 a 2799"
+											desc: "3.000 a 4.000"
 					          },
 										group4: {
 					            icon: iconBase + 'group-4.png',
-											desc: "2800 a 3599"
-					          },
-										group5: {
-					            icon: iconBase + 'group-5.png',
-											desc: "3600 a 4299"
-					          },
-										group6: {
-					            icon: iconBase + 'group-6.png',
-											desc: ">= 4300 "
+											desc: "> 4.000"
 					          }
 					};
 
@@ -80,9 +72,8 @@ $(document).ready(function(){
 								i++;
 							}else
 								clearInterval(interval);
-                //console.log("Qtd de Markers: "+markers);
-                markerCluster = new MarkerClusterer(map, markers,
-                {imagePath: iconBase+'/m'});
+                // markerCluster = new MarkerClusterer(map, markers,
+                // {imagePath: iconBase+'/m'});
 						}, 1000);
 
 					var legend = document.getElementById('legend');
@@ -91,90 +82,85 @@ $(document).ready(function(){
 						 var name = type.desc;
 						 var icon = type.icon;
 						 var div = document.createElement('div');
-						 div.innerHTML = '<img src="' + icon + '"> ' + name;
+						 div.innerHTML = '<img src="' + icon + '" width="53px"> ' + name;
 						  legend.appendChild(div);
 					}
-					map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
 
-          map.addListener('zoom_changed', function() {
-            markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: iconBase+'/m'});
-          });
+         var div = document.createElement('div');
+         div.innerHTML = 'Total de Reclamações: ' + queryReturn1[0][2];
+         legend.appendChild(div);
 
+				  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
 
+          // map.addListener('zoom_changed', function() {
+          //   markerCluster = new MarkerClusterer(map, markers,
+          //   {imagePath: iconBase+'/m'});
+          // });
 				}
 
 				function converteEndereco(endereco, reclamacoes) {
 					geocoder.geocode( { 'address': endereco+', Brazil'} , function(resultado, status) {
 						if (status == google.maps.GeocoderStatus.OK) {
               cont += 1;
-							if (reclamacoes < 700) {
+							if (reclamacoes < 1000) {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
 									title: endereco+", "+reclamacoes+" Reclamações",
 									icon: icons['group0'].icon
 								});
-							}else if (reclamacoes >= 700 & reclamacoes < 1400) {
+							}else if (reclamacoes >= 1000 & reclamacoes < 2000) {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
 									title: endereco+", "+reclamacoes+" Reclamações",
 									icon: icons['group1'].icon
 								});
-							}else if (reclamacoes >= 1400 & reclamacoes < 2100) {
+							}else if (reclamacoes >= 2000 & reclamacoes < 3000) {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
 									title: endereco+", "+reclamacoes+" Reclamações",
 									icon: icons['group2'].icon
 								});
-							}else if (reclamacoes >= 2100 & reclamacoes < 2800) {
+							}else if (reclamacoes >= 3000 & reclamacoes < 4000) {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
 									title: endereco+", "+reclamacoes+" Reclamações",
 									icon: icons['group3'].icon
 								});
-							}else if (reclamacoes >= 2800 & reclamacoes < 3600) {
+							}else {
 								dot = new google.maps.Marker({
 									map: map,
 									position: resultado[0].geometry.location,
 									title: endereco+", "+reclamacoes+" Reclamações",
 									icon: icons['group4'].icon
 								});
-							}else if (reclamacoes >= 3600 & reclamacoes < 4300) {
-								dot = new google.maps.Marker({
-									map: map,
-									position: resultado[0].geometry.location,
-									title: endereco+", "+reclamacoes+" Reclamações",
-									icon: icons['group5'].icon
-								});
-							}else {
-								dot = new google.maps.Marker({
-									map: map,
-									position: resultado[0].geometry.location,
-									title: endereco+", "+reclamacoes+" Reclamações",
-									icon: icons['group6'].icon
-								});
 							}
               markers.push(dot);
-              janelaInformacoes(dot, endereco, reclamacoes);
+              janelaInformacoes(dot, endereco, reclamacoes, queryReturn1[0][2]);
 						}else {
 							console.log('Erro ao converter endereço: ' + status);
 						}
 					});
 				}
 
-        function janelaInformacoes(dot, endereco, reclamacoes){
+        function janelaInformacoes(dot, endereco, reclamacoes, totalReclamacoes){
+          
+          var porcento = ((reclamacoes/eval(totalReclamacoes))*100).toPrecision(2);
           var contentString = '<div class="container">'+
-          '<h1 id="reclamacoesTitle">N° de Reclamações</h1>'+
+          '<h3 id="reclamacoesTitle">N° de Reclamações</h3>'+
           '<div id="reclamacoesInfo">'+
-          '<h3>'+reclamacoes+'</h3>'+
+          '<h4>'+reclamacoes+'</h4>'+
           '</div>'+
-          '<h1 id="estadoTitle">Estado</h1>'+
+          '<h3 id="porcentoTitle">porcentagem do Total</h3>'+
+          '<div id="porcentoInfo">'+
+          '<h4>'+porcento+'%'+'</h4>'+
+          '</div>'+
+          '<h3 id="estadoTitle">Estado</h3>'+
           '<div id="estadoInfo">'+
-          '<h3>'+endereco+'</h3>'+
+          '<h4>'+endereco+'</h4>'+
           '</div>'+
           '</div>';
 
