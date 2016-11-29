@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	var flag		= 0; 	// flag de parada
+	var flag			= 0; 				// flag de parada
 	var progressbar   	= $('#progressBar');// Barra de progresso
 	var statustxt     	= $('#statusTxt'); 	// Barra de Status
 	var submitbutton  	= $("#uploadBtn"); 	// Botao de Enviar
@@ -52,7 +52,7 @@ $(document).ready(function(){
 						//console.log("Calling function");
 						upProgress();
 					}, 500);
-				}else{
+				}else if(flag == 1){
 					addProgress(100);
 					//$('#normalizarBtn').css("display", "inline-block");
 				}
@@ -98,12 +98,14 @@ $(document).ready(function(){
 						if(dataSet == 'Error1')
 						{
 							alert("O arquivo selecionado deve ser um .csv");
-							addProgress(completed);
+							flag = 2;
+							addProgress(0);
 						}
 						else if(dataSet == "Error2")
 						{
 							alert("Por Favor selecione um arquivo!");
-							addProgress(completed);
+							flag = 2;
+							addProgress(0);
 						}
 						else
 						{

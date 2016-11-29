@@ -25,7 +25,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-3">
-				<?php include_once "menu.php" ?>
+				<?php include_once "menu.html" ?>
 			</div>
 			<div class="col-md-9">
 				<header class="cabecalho">
@@ -36,15 +36,16 @@
 					<br><br><br>
 					<form id="upload_csv" enctype="multipart/form-data" method="post">
 						<div class="row" id="import-elems">
-							<div class="col-md-8">
+							<div class="col-md-7">
 								<label for="fileInput">Selecione o Arquivo para a importação</label>
 							</div>
-							<div class="col-md-8">
+							<div class="col-md-7">
 								<input id="fileInput" class="form-control" type="file" name="consumidor_csv">
 								<p class="help-block">Somente arquivos .csv serão suportados!</p>
 							</div>
-							<div class="col-md-2">
+							<div class="col-md-4">
 								<input class="btn btn-primary" id="uploadBtn" name="uploadBtn" type="submit" value="Enviar">
+								<input class="btn btn-warning" id="clearBtn" name="clearBtn" type="button" value="Zerar Base de Dados">
 							</div>
 						</div>
 
@@ -59,7 +60,7 @@
 						<input type="hidden" id="inputStop" value="0">
 						<div style="clear:both"></div>
 					</form>
-					<br><br>
+					<br>
 					<div class="table-responsive" id="consumidor_div">
 						<table class="display" id="consumidor_table" width="100%" cellspacing="0">
 							<thead>

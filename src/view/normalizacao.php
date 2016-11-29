@@ -23,7 +23,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-3"> 
-				<?php include_once "menu.php" ?>
+				<?php include_once "menu.html" ?>
 			</div>
 			<div class="col-md-9">
 				<header class="cabecalho">
@@ -35,7 +35,7 @@
 					<div class="row">
 						<button class=" btn btn-success btn-lg center-block" id="normalizaBtn" name="normalizaBtn">Normalizar Tabela</button>
 					</div>
-					<br>
+					<!-- <br> -->
 					<div class="row" id="progress-elems">
 						<div class="progress" id="progress" >
 							<div class="progress-bar progress-bar-striped active" id="progressBar" role="progressbar"

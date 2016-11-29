@@ -33,7 +33,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-3">
-				<?php include_once "menu.php" ?>
+				<?php include_once "menu.html" ?>
 			</div>
 			<div class="col-md-9">
 				<header class="cabecalho">
