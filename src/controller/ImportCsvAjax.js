@@ -11,32 +11,31 @@ $(document).ready(function(){
 	var limitDataTable	= 1000;
 	var qtdLinhasDes  	= 0;
 
-
-	$.ajax({ //Ajax para saber a qtd de linhas atuais do BD Desnormalizado
-		url:"../controller/QtdLinesDes.php",
-		dataType : "text",
-		//async: false,
-		success: function(data) {
-			qtdLinhasDes = eval(data);
+	function showMenuItem(haveItems, li2, li3, li4){
+		if(haveItems != 0){
+			if (li2) $('#li2').css("display", "block");
+			if (li3) $('#li3').css("display", "block");
+			if (li4) $('#li4').css("display", "block"); 
 		}
-	});
+	}
 
-	console.log("Qtdlinhas BD Desnormalizado: "+qtdLinhasDes);
+	function liberaMenu(li2, li3, li4){
+		$.ajax({ //Ajax para saber a qtd de linhas atuais do BD Desnormalizado
+			url:"../controller/QtdLinesDes.php",
+			dataType : "text",
+			//async: false,
+			success: function(data) {
+				qtdLinhasDes = eval(data);
+				console.log("Qtdlinhas BD Desnormalizado: "+qtdLinhasDes);
+				showMenuItem(qtdLinhasDes, li2, li3, li4);
+			}
+		});
+	}
 
 	function addProgress(percentual){
 		progressbar.width(percentual+'%');
 		statustxt.html(percentual+'%');
 	}
-
-	$('#consumidor_table').DataTable({
-		"processing": true,
-    "ajax": {
-        "url": "../controller/AdminDataTable.php?tabela=desnormalizada",
-        "type": "GET"
-    },
-	});
-
-	// alert(qtdLinhasDes+" Linhas estão inseridas no BD, "+limitDataTable+" é o máximo de linhas visualizaveis");
 
 	function upProgress(){
 		$.ajax({
@@ -59,6 +58,16 @@ $(document).ready(function(){
 			}
 		});
 	}
+
+	liberaMenu(true, true, true); //Pesquisa qtd de linhas na desnormalizada e libera o menu
+
+	$('#consumidor_table').DataTable({
+		"processing": true,
+	    "ajax": {
+	        "url": "../controller/AdminDataTable.php?tabela=desnormalizada",
+	        "type": "GET"
+	    },
+	});
 
 	myform.on("submit", function(e){
 		e.preventDefault();
@@ -112,7 +121,7 @@ $(document).ready(function(){
 							var table = $('#consumidor_table').DataTable();
 							table.clear().draw();
 							table.rows.add(JSON.parse(dataSet)).draw();
-
+							liberaMenu(true, false, false);
 						}
 					}
 				})

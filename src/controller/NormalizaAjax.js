@@ -16,6 +16,14 @@ $(document).ready(function(){
 
    var progresso       = 0;
 
+   function showMenuItem(haveItems){
+      if(haveItems > 0){
+         $('#li2').css("display", "block");
+         $('#li3').css("display", "block");
+         $('#li4').css("display", "block");
+      }
+   }
+
    function addProgress(percentual){
       progresso += percentual;
       progressbar.width(progresso+'%');
@@ -36,6 +44,7 @@ $(document).ready(function(){
             alertSegmento.css("display", "block");
             alertEmpresa.css("display", "block");
             alertReclamacao.css("display", "block");
+            showMenuItem(eval(data));
          }
       }
    });
@@ -99,6 +108,7 @@ $(document).ready(function(){
                                                                success: function(data) {
                                                                   addProgress(eval(data));
                                                                   alertReclamacao.css("display", "block");
+                                                                  showMenuItem(true);
                                                                }
                                                             });
                                                          }

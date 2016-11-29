@@ -1,4 +1,4 @@
--- DROP DATABASE IF EXISTS reclamacoes_consumidor;
+DROP DATABASE IF EXISTS reclamacoes_consumidor;
 CREATE DATABASE IF NOT EXISTS reclamacoes_consumidor;
 USE reclamacoes_consumidor;
 

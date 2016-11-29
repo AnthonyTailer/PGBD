@@ -39,10 +39,8 @@
 					<div id="accordion" role="tablist" aria-multiselectable="true">
 					  <!-- .................. GRAFICO 1 .................. -->
 					  <div class="card">
-					    <div class="card-header" role="tab" id="headingOne">
-					      <h4 class="mb-0">
-					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">#1 Relação da Quantidade de Reclamações por Estado</a>
-					      </h4>
+					    <div class="card-header collapsed" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+					        <h4><i class="glyphicon glyphicon-plus"></i>  Relação da Quantidade de Reclamações por Estado</h4>
 					    </div>
 					    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
 					      	<div class="card-block" id="map"></div>
@@ -51,10 +49,8 @@
 					  </div>
 					  <!-- .................. GRAFICO 2 .................. -->
 					  <div class="card">
-					    <div class="card-header" role="tab" id="headingTwo">
-					      <h4 class="mb-0">
-					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">#2 Relação da Quantidade de Reclamações no RS</a>
-					      </h5>
+					    <div class="card-header collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+					        <h4><i class="glyphicon glyphicon-plus"></i>  Relação da Quantidade de Reclamações no RS</h4>
 					    </div>
 					    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
 					      	<div class="card-block" id="map2"></div>
@@ -63,9 +59,9 @@
 					  </div>
 					  <!-- .................. GRAFICO 3 .................. -->
 					  <div class="card">
-					    <div class="card-header" role="tab" id="headingThree">
-					      <h4 class="mb-0">
-					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">#3 Quantidade de reclamacoes por empresa</a>
+					    <div class="card-header collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+					      <h4>
+					       <i class="glyphicon glyphicon-plus"></i>  Quantidade de Reclamações por Empresa
 					      </h4>
 					    </div>
 					    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
@@ -78,9 +74,8 @@
 					  </div>
 					  <!-- .................. GRAFICO 4 .................. -->
 					  <div class="card">
-					    <div class="card-header" role="tab" id="headingFour">
-					      <h4 class="mb-0">
-					        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">#4 Percentual de reclamações por Perfil de Consumidor</a>
+					    <div class="card-header collapsed" role="tab" id="headingFour" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+					      <h4><i class="glyphicon glyphicon-plus"></i>Percentual de Reclamações por Perfil de Consumidor
 					      </h4>
 					    </div>
 					    <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">

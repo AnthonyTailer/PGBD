@@ -44,9 +44,9 @@
 					<br><br>
 					<div id="accordion" role="tablist" aria-multiselectable="true">
 						<div class="card">
-							<div class="card-header" role="tab" id="headingTen">
-								<h4 class="mb-0">
-									<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen">#10 Reclamação</a>
+							<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen" role="tab" id="headingTen">
+								<h4>
+									<i class="glyphicon glyphicon-plus">   Reclamação</i>
 								</h4>
 							</div>
 							<div id="collapseTen" class="collapse" role="tabpanel" aria-labelledby="headingTen">
@@ -115,9 +115,9 @@
 							</div>
 						</div>
 						<div class="card">
-							<div class="card-header" role="tab" id="headingNine">
-								<h4 class="mb-0">
-									<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">#9 Problema</a>
+							<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine" role="tab" id="headingNine">
+								<h4>
+									<i class="glyphicon glyphicon-plus">   Problema</i>
 								</h4>
 							</div>
 							<div id="collapseNine" class="collapse" role="tabpanel" aria-labelledby="headingNine">
@@ -137,9 +137,9 @@
 							</div>
 						</div>
 						<div class="card">
-							<div class="card-header" role="tab" id="headingSeven">
-								<h4 class="mb-0">
-									<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">#8 Grupo</a>
+							<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight" role="tab" id="headingSeven">
+								<h4>
+									<i class="glyphicon glyphicon-plus">  Grupo</i>
 								</h4>
 							</div>
 							<div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="headingEight">
@@ -158,9 +158,9 @@
 							</div>
 						</div>
 						<div class="card">
-							<div class="card-header" role="tab" id="headingSeven">
-								<h4 class="mb-0">
-									<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">#7 Area</a>
+							<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven" role="tab" id="headingSeven">
+								<h4>
+									<i class="glyphicon glyphicon-plus">  Area</i>
 								</h4>
 							</div>
 							<div id="collapseSeven" class="collapse" role="tabpanel" aria-labelledby="headingSeven">
@@ -179,9 +179,9 @@
 							</div>
 						</div>
 						<div class="card">
-							<div class="card-header" role="tab" id="headingSix">
-								<h4 class="mb-0">
-									<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">#6 Empresa</a>
+							<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix" role="tab" id="headingSix">
+								<h4>
+									<i class="glyphicon glyphicon-plus">  Empresa</i>
 								</h4>
 							</div>
 							<div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
@@ -201,9 +201,9 @@
 							</div>
 						</div>
 						<div class="card">
-							<div class="card-header" role="tab" id="headingFive">
+							<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive" role="tab" id="headingFive">
 								<h4 class="mb-0">
-									<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">#5 Segmento</a>
+									<i class="glyphicon glyphicon-plus">  Segmento</i>
 								</h4>
 							</div>
 							<div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
@@ -222,9 +222,9 @@
 							</div>
 						</div>
 						<div class="card">
-							<div class="card-header" role="tab" id="headingFour">
-								<h4 class="mb-0">
-									<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">#4 Consumidor</a>
+							<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour" role="tab" id="headingFour">
+								<h4>
+									<i class="glyphicon glyphicon-plus">  Consumidor</i>
 								</h4>
 							</div>
 							<div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
@@ -245,9 +245,9 @@
 							</div>
 						</div>
 						<div class="card">
-							<div class="card-header" role="tab" id="headingThree">
+							<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" role="tab" id="headingThree">
 								<h4 class="mb-0">
-									<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">#3 Cidade</a>
+									<i class="glyphicon glyphicon-plus">  Cidade</i>
 								</h4>
 							</div>
 							<div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
@@ -267,9 +267,9 @@
 							</div>
 						</div>
 						<div class="card">
-							<div class="card-header" role="tab" id="headingTwo">
+							<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" role="tab" id="headingTwo">
 								<h4 class="mb-0">
-									<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">#2 Estado</a>
+									<i class="glyphicon glyphicon-plus">  Estado</i>
 								</h5>
 							</div>
 							<div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
@@ -288,9 +288,9 @@
 							</div>
 						</div>
 						<div class="card">
-							<div class="card-header" role="tab" id="headingOne">
-								<h4 class="mb-0">
-									<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">#1 Região</a>
+							<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" role="tab" id="headingOne">
+								<h4>
+									<i class="glyphicon glyphicon-plus">  Região</i>
 								</h4>
 							</div>
 							<div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">

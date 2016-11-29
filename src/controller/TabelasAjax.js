@@ -10,20 +10,14 @@ $(document).ready(function(){
   var problema   = $("#problema_table");
   var reclamacao = $("#reclamacao_table");
   var formnormaliza   = $("#normaliza_table");
-
   var flag = new Array(0,0,0,0,0,0,0,0,0,0);
 
-  function hiddenTables(){
-    $("#regiao").css("display", "none");
-    $("#estado").css("display", "none");
-    $("#cidade").css("display", "none");
-    $("#consumidor").css("display", "none");
-    $("#segmento").css("display", "none");
-    $("#area").css("display", "none");
-    $("#empresa").css("display", "none");
-    $("#grupo").css("display", "none");
-    $("#problema").css("display", "none");
-    $("#reclamacao").css("display", "none");
+  function showMenuItem(haveItems){
+      if(haveItems > 0){
+         $('#li2').css("display", "block");
+         $('#li3').css("display", "block");
+         $('#li4').css("display", "block");
+      }
   }
 
   function chamaTable(i, table, request){
@@ -40,28 +34,39 @@ $(document).ready(function(){
     }
   }
 
-  $('#collapseOne').on('shown.bs.collapse', function(e){ chamaTable(0, regiao, "regiao")});
+  showMenuItem(true);
 
-  $('#collapseTwo').on('shown.bs.collapse', function(e){ chamaTable(1, estado, "estado")});
+  $('#collapseOne').on('shown.bs.collapse', function(e){ chamaTable(0, regiao, "regiao"); $('#headingOne > h4 > i').addClass("glyphicon-minus")});
+  $('#collapseOne').on('hidden.bs.collapse', function(e){ $('#headingOne > h4 > i').removeClass("glyphicon-minus") });
 
-  $('#collapseThree').on('shown.bs.collapse',function(e){ chamaTable(2, cidade, "cidade")});
+  $('#collapseTwo').on('shown.bs.collapse', function(e){ chamaTable(1, estado, "estado") ; $('#headingTwo > h4 > i').addClass("glyphicon-minus")});
+  $('#collapseTwo').on('hidden.bs.collapse', function(e){ $('#headingTwo > h4 > i').removeClass("glyphicon-minus") });
 
-  $('#collapseFour').on('shown.bs.collapse', function(e){ chamaTable(3, consumidor, "consumidor")});
+  $('#collapseThree').on('shown.bs.collapse',function(e){ chamaTable(2, cidade, "cidade") ; $('#headingThree > h4 > i').addClass("glyphicon-minus")});
+  $('#collapseThree').on('hidden.bs.collapse', function(e){ $('#headingThree > h4 > i').removeClass("glyphicon-minus") });
 
-  $('#collapseFive').on('shown.bs.collapse', function(e){ chamaTable(4, segmento, "segmento")});
+  $('#collapseFour').on('shown.bs.collapse', function(e){ chamaTable(3, consumidor, "consumidor") ; $('#headingFour > h4 > i').addClass("glyphicon-minus")});
+  $('#collapseFour').on('hidden.bs.collapse', function(e){ $('#headingFour > h4 > i').removeClass("glyphicon-minus") });
 
-  $('#collapseSix').on('shown.bs.collapse',  function(e){ chamaTable(5, empresa, "empresa")});
+  $('#collapseFive').on('shown.bs.collapse', function(e){ chamaTable(4, segmento, "segmento") ; $('#headingFive > h4 > i').addClass("glyphicon-minus")});
+  $('#collapseFive').on('hidden.bs.collapse', function(e){ $('#headingFive > h4 > i').removeClass("glyphicon-minus") });
 
-  $('#collapseSeven').on('shown.bs.collapse', function(e){ chamaTable(6, area, "area")});
+  $('#collapseSix').on('shown.bs.collapse',  function(e){ chamaTable(5, empresa, "empresa") ; $('#headingSix > h4 > i').addClass("glyphicon-minus")});
+  $('#collapseSix').on('hidden.bs.collapse', function(e){ $('#headingSix > h4 > i').removeClass("glyphicon-minus") });
 
-  $('#collapseEight').on('shown.bs.collapse', function(e){ chamaTable(7, grupo, "grupo")});
+  $('#collapseSeven').on('shown.bs.collapse', function(e){ chamaTable(6, area, "area") ; $('#headingSeven > h4 > i').addClass("glyphicon-minus")});
+  $('#collapseSeven').on('hidden.bs.collapse', function(e){ $('#headingSeven > h4 > i').removeClass("glyphicon-minus") });
 
-  $('#collapseNine').on('shown.bs.collapse', function(e){ chamaTable(8, problema, "problema")});
+  $('#collapseEight').on('shown.bs.collapse', function(e){ chamaTable(7, grupo, "grupo") ; $('#headingEight > h4 > i').addClass("glyphicon-minus")});
+  $('#collapseeight').on('hidden.bs.collapse', function(e){ $('#headingEight > h4 > i').removeClass("glyphicon-minus") });
+
+  $('#collapseNine').on('shown.bs.collapse', function(e){ chamaTable(8, problema, "problema") ; $('#headingNine > h4 > i').addClass("glyphicon-minus")});
+  $('#collapseNine').on('hidden.bs.collapse', function(e){ $('#headingNine > h4 > i').removeClass("glyphicon-minus") });
 
   $('#collapseTen').on('shown.bs.collapse', function(e){
     //chamaTable(9, reclamacao, "reclamacao")
-
     $("#reclamacao").css("display", "block");
+    $('#headingTen > h4 > i').addClass("glyphicon-minus");
     if (flag[9] == 0) {
       var reclamacao_DT = reclamacao.DataTable({
           "ajax": {
@@ -154,5 +159,6 @@ $(document).ready(function(){
         });
       }
       flag[9] = 1;
-    });
+  });
+  $('#collapseTen').on('hidden.bs.collapse', function(e){ $('#headingTen > h4 > i').removeClass("glyphicon-minus") });
 });
