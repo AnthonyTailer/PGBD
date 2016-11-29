@@ -75,7 +75,7 @@ $(document).ready(function(){
 								clearInterval(interval);
                 // markerCluster = new MarkerClusterer(map, markers,
                 // {imagePath: iconBase+'/m'});
-						}, 1000);
+						}, 650);
 
 					var legend = document.getElementById('legend');
 					for (var key in icons) {
@@ -244,7 +244,7 @@ $(document).ready(function(){
                 //console.log("Qtd de Markers: "+markers);
                 // markerCluster = new MarkerClusterer(map, markers_rs,
                 // {imagePath: iconBase+'/m'});
-            }, 1000);
+            }, 800);
 
           var legend2 = document.getElementById('legend2');
           for (var key in iconsRS) {
