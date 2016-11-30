@@ -15,6 +15,7 @@ $(document).ready(function(){
    var submitbutton    = $("#normalizaBtn"); // Botao de Enviar
 
    var progresso       = 0;
+   var tabelas         = ["regiao", "estado", "cidade", "consumidor", "area", "grupo", "problema", "segmento", "empresa", "reclamacao" ];
 
    function showMenuItem(haveItems){
       if(haveItems != 0){
@@ -28,6 +29,34 @@ $(document).ready(function(){
       progresso += percentual;
       progressbar.width(progresso+'%');
       statustxt.html(progresso+'%');
+   }
+
+   function requestData(nomeTabela){
+      var proxTable = tabelas.indexOf(nomeTabela) + 1;
+      $.ajax({
+         url: "../controller/Normaliza.php?tabela="+nomeTabela,
+         data: "text",
+         xhr: function(){
+            var xhr = new window.XMLHttpRequest;
+            //Upload progress
+            xhr.upload.addEventListener("progress", function(evt){
+              //console.log("Chamando a func");
+            }, false);
+            xhr.addEventListener("progress", function(evt) {
+                if(proxTable < 10){
+                  setTimeout(function(){
+                    requestData(tabelas[proxTable]);
+                  }, 1500);
+                }
+            }, false);
+            return xhr;
+          },
+         success: function(data) {
+            addProgress(eval(data));
+            console.log(nomeTabela+" foi!"+"proxTable = "+tabelas[proxTable]);
+         }});
+      
+        return proxTable;
    }
 
    $.ajax({
@@ -49,85 +78,9 @@ $(document).ready(function(){
       }
    });
 
-   submitbutton.click(function(e){
-      $.ajax({
-         url: "../controller/Normaliza.php?tabela=regiao",
-         data: "text",
-         success: function(data) {
-            addProgress(eval(data));
-            $.ajax({
-               url: "../controller/Normaliza.php?tabela=estado",
-               data: "text",
-               success: function(data) {
-                  addProgress(eval(data));
-                  $.ajax({
-                     url: "../controller/Normaliza.php?tabela=cidade",
-                     data: "text",
-                     success: function(data) {
-                        addProgress(eval(data));
-                        alertRegiao.css("display", "block");
-                        $.ajax({
-                           url: "../controller/Normaliza.php?tabela=consumidor",
-                           data: "text",
-                           success: function(data) {
-                              addProgress(eval(data));
-                              alertConsumidor.css("display", "block");
-                              $.ajax({
-                                 url: "../controller/Normaliza.php?tabela=area",
-                                 data: "text",
-                                 success: function(data) {
-                                    addProgress(eval(data));
-                                    alertArea.css("display", "block");
-                                    $.ajax({
-                                       url: "../controller/Normaliza.php?tabela=grupo",
-                                       data: "text",
-                                       success: function(data) {
-                                          addProgress(eval(data));
-                                          alertGrupo.css("display", "block");
-                                          $.ajax({
-                                             url: "../controller/Normaliza.php?tabela=problema",
-                                             data: "text",
-                                             success: function(data) {
-                                                addProgress(eval(data));
-                                                alertProblema.css("display", "block");
-                                                $.ajax({
-                                                   url: "../controller/Normaliza.php?tabela=segmento",
-                                                   data: "text",
-                                                   success: function(data) {
-                                                      addProgress(eval(data));
-                                                      alertSegmento.css("display", "block");
-                                                      $.ajax({
-                                                         url: "../controller/Normaliza.php?tabela=empresa",
-                                                         data: "text",
-                                                         success: function(data) {
-                                                            addProgress(eval(data));
-                                                            alertEmpresa.css("display", "block");
-                                                            $.ajax({
-                                                               url: "../controller/Normaliza.php?tabela=reclamacao",
-                                                               data: "text",
-                                                               success: function(data) {
-                                                                  addProgress(eval(data));
-                                                                  alertReclamacao.css("display", "block");
-                                                                  showMenuItem(true);
-                                                               }
-                                                            });
-                                                         }
-                                                      });
-                                                   }
-                                                });
-                                             }
-                                          });
-                                       }
-                                    });
-                                 }
-                              });
-                           }
-                        });  
-                     }
-                  });
-               }
-            });
-         }
-      });
-   });
+   var flag2 = 0;
+   submitbutton.click(function(e){  
+     flag2 = requestData(tabelas[0]); //regiao
+     showMenuItem(flag2);
+   });     
 });
