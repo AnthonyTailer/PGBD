@@ -17,7 +17,7 @@ $(document).ready(function(){
    var progresso       = 0;
 
    function showMenuItem(haveItems){
-      if(haveItems > 0){
+      if(haveItems != 0){
          $('#li2').css("display", "block");
          $('#li3').css("display", "block");
          $('#li4').css("display", "block");
@@ -35,7 +35,7 @@ $(document).ready(function(){
       data: "text",
       success: function(data) {
          console.log(data);
-         if(eval(data) > 45000){
+         if(eval(data) > 0){
             alertRegiao.css("display", "block");
             alertConsumidor.css("display", "block");
             alertArea.css("display", "block");

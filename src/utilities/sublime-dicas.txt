@@ -8,7 +8,16 @@
 	+ Botão Direito + "Revel in Side Bar"
 
 * Mover Linhas de lugar
-	+ Ctrl+Cima/Baixo
+	+ Ctrl+Shift+Cima/Baixo
 
 * Copiar linhas sem selecionar toda ela
 	+ Ctrl+C sem selecionar caracteres
+
+* Navegar por arquivos grandes
+	+ Add Bookmark Ctrl+F2
+	+ Navergar pelos Bookmarks F2
+
+# http://sublimetextdicas.com.br/sublime-colorpicker-plugin-para-escolha-de-cores/
+# http://sublimetextdicas.com.br/10-motivos-para-usar-o-sublime-text/
+# http://sublimetextdicas.com.br/workspaces-projeto-sublime-text/
+# http://sublimetextdicas.com.br/verificacao-ortografica-em-portugues/

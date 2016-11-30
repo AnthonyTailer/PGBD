@@ -15,7 +15,7 @@ $(document).ready(function(){
 		if(haveItems != 0){
 			if (li2) $('#li2').css("display", "block");
 			if (li3) $('#li3').css("display", "block");
-			if (li4) $('#li4').css("display", "block"); 
+			if (li4) $('#li4').css("display", "block");
 		}
 	}
 
@@ -26,7 +26,7 @@ $(document).ready(function(){
 			//async: false,
 			success: function(data) {
 				qtdLinhasDes = eval(data);
-				console.log("Qtdlinhas BD Desnormalizado: "+qtdLinhasDes);
+				// console.log("Qtdlinhas BD Desnormalizado: "+qtdLinhasDes);
 				showMenuItem(qtdLinhasDes, li2, li3, li4);
 			}
 		});
@@ -44,7 +44,7 @@ $(document).ready(function(){
 			success: function(data){
 				linhas = data;
 				var res = eval(data)/qtdLinhasCsv*100;
-				console.log("Width: "+res+" CSV Lines: "+qtdLinhasCsv+" Data: "+data);
+				// console.log("Width: "+res+" CSV Lines: "+qtdLinhasCsv+" Data: "+data);
 				addProgress(res.toPrecision(2));
 				if(flag == 0){
 					setTimeout(function(){
@@ -54,6 +54,8 @@ $(document).ready(function(){
 				}else if(flag == 1){
 					addProgress(100);
 					//$('#normalizarBtn').css("display", "inline-block");
+				}else{
+					addProgress(0);
 				}
 			}
 		});
@@ -81,7 +83,7 @@ $(document).ready(function(){
 			processData:false,
 			success: function(data) {
 				qtdLinhasCsv = data;
-				console.log("Qtd Linhas do CSV: "+qtdLinhasCsv);
+				// console.log("Qtd Linhas do CSV: "+qtdLinhasCsv);
 				$.ajax({
 					url:"../controller/ImportCsv.php",
 					method:"POST",
@@ -98,8 +100,8 @@ $(document).ready(function(){
 						}, false);
 						xhr.addEventListener("progress", function(evt) {
 							flag = 1;
-							console.log("Parando a func");
-							//upProgress();
+							// console.log("Parando a func");
+							upProgress();
 						}, false);
 						return xhr;
 					},success: function(dataSet){
