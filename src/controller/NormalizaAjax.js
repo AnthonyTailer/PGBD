@@ -25,6 +25,28 @@ $(document).ready(function(){
       }
    }
 
+   function showAlerts(alert){
+      if (alert == "cidade") {
+        alertRegiao.css("display", "block");
+      }else if(alert == "consumidor"){
+        alertConsumidor.css("display", "block");
+      }else if(alert == "segmento"){
+        alertSegmento.css("display", "block");
+      }else if(alert == "area"){
+        alertArea.css("display", "block");
+      }else if(alert == "empresa"){
+        alertEmpresa.css("display", "block");
+      }else if(alert == "grupo"){
+        alertGrupo.css("display", "block");
+      }else if(alert == "problema"){
+        alertProblema.css("display", "block");
+      }else if(alert == "reclamacao"){
+        alertReclamacao.css("display", "block");
+      }else{
+        ;
+      }
+   }
+
    function addProgress(percentual){
       progresso += percentual;
       progressbar.width(progresso+'%');
@@ -46,7 +68,7 @@ $(document).ready(function(){
                 if(proxTable < 10){
                   setTimeout(function(){
                     requestData(tabelas[proxTable]);
-                  }, 1500);
+                  }, 1300);
                 }
             }, false);
             return xhr;
@@ -54,6 +76,7 @@ $(document).ready(function(){
          success: function(data) {
             addProgress(eval(data));
             console.log(nomeTabela+" foi!"+"proxTable = "+tabelas[proxTable]);
+            showAlerts(nomeTabela);
          }});
       
         return proxTable;
@@ -74,6 +97,7 @@ $(document).ready(function(){
             alertEmpresa.css("display", "block");
             alertReclamacao.css("display", "block");
             showMenuItem(eval(data));
+            submitbutton.css("display", "none");
          }
       }
    });
@@ -82,5 +106,6 @@ $(document).ready(function(){
    submitbutton.click(function(e){  
      flag2 = requestData(tabelas[0]); //regiao
      showMenuItem(flag2);
+     submitbutton.css("display", "none");
    });     
 });
