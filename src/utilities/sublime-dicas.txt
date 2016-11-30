@@ -1,0 +1,14 @@
+* Posisionar o cursor em várias linhas de uma vez:
+	+ Selecionar tas as linhas e + (Ctrl+Shift+L)
+
+* Histórico de Ctrl+C
+	+ Ctrl+K, Ctrl+V
+
+* Encontrar arquivo aberto na arvore de arquivos
+	+ Botão Direito + "Revel in Side Bar"
+
+* Mover Linhas de lugar
+	+ Ctrl+Cima/Baixo
+
+* Copiar linhas sem selecionar toda ela
+	+ Ctrl+C sem selecionar caracteres
