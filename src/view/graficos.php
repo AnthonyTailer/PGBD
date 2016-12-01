@@ -75,7 +75,7 @@
 					  <!-- .................. GRAFICO 4 .................. -->
 					  <div class="card">
 					    <div class="card-header collapsed" role="tab" id="headingFour" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-					      <h4><i class="glyphicon glyphicon-plus"></i>Percentual de Reclamações por Perfil de Consumidor
+					      <h4><i class="glyphicon glyphicon-plus"></i> Percentual de Reclamações por Perfil de Consumidor
 					      </h4>
 					    </div>
 					    <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
