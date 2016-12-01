@@ -52,6 +52,20 @@ footer {
   text-align: center;
   font-size: 14px;
 }
+
+.brand a {
+  color: #e1ffff !important;
+}
+
+.menu-content a {
+  text-decoration: none !important;
+  color: #e1ffff !important;
+}
+
+.menu-content a li {
+  padding-left: 10px;
+}
+
 .nav-side-menu .toggle-btn {
   display: none;
 }
@@ -203,6 +217,10 @@ footer {
   #enviar-btn{
     margin-top: 5px !important;
   }
+}
+
+.btn {
+  min-width: 160px;
 }
 
 /* >>>>>>> TÍTULO <<<<<<< */

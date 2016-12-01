@@ -36,16 +36,17 @@
 					<br><br><br>
 					<form id="upload_csv" enctype="multipart/form-data" method="post">
 						<div class="row" id="import-elems">
-							<div class="col-md-7">
+							<div class="col-md-9">
 								<label for="fileInput">Selecione o Arquivo para a importação</label>
 							</div>
-							<div class="col-md-7">
+							<div class="col-md-5">
 								<input id="fileInput" class="form-control" type="file" name="consumidor_csv">
 								<p class="help-block">Somente arquivos .csv serão suportados!</p>
 							</div>
-							<div class="col-md-4">
-								<input class="btn btn-primary" id="uploadBtn" name="uploadBtn" type="submit" value="Enviar">
-								<input class="btn btn-warning" id="clearBtn" name="clearBtn" type="button" value="Zerar Base de Dados">
+							<div class="col-md-7">
+								<input class="btn btn-primary" id="uploadBtn" name="uploadBtn" type="submit" value="Importar Arquivo">
+								<!-- <input class="btn btn-success" id="initBtn" name="initBtn" type="button" value="Criar Base de Dados"> -->
+								<input class="btn btn-danger" id="clearBtn" name="clearBtn" type="button" value="Zerar Base de Dados">
 							</div>
 						</div>
 

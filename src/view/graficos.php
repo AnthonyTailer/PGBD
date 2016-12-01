@@ -36,7 +36,8 @@
 				</header>
 				<article>
 					<br><br>
-					<div id="accordion" role="tablist" aria-multiselectable="true">
+					<div class="alert alert-info" id="mensagem" style="display: none;" role="alert"><strong>Nenhum registro normalizado na base!</strong></div>
+					<div id="accordion" role="tablist" aria-multiselectable="true" style="display: block;">
 					  <!-- .................. GRAFICO 1 .................. -->
 					  <div class="card">
 					    <div class="card-header collapsed" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -94,7 +95,9 @@
 	<!-- Scripts Para os gráficos 1 e 2 -->
 	<script src="../controller/GraficosAjax.js"></script>
 	<script src="../utilities/js/markerclusterer.js"></script>
-	<script async defer src="../utilities/js/googleapi.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAfbe1wJDPGiXpVKGvmWVb2ehiKoVRv60"></script>
 	<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADS0fKiiywkMiPxF6nbfpfpHosf8SEAdI"></script> -->
+	<!-- <script async defer src="../utilities/js/googleapi.js"></script> -->
 </body>
 </html>
+W

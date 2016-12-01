@@ -18,9 +18,20 @@ $(document).ready(function(){
     // var markerCluster;
 
     //exibi os itens do menu lateral
-    $('#li2').css("display", "block");
-    $('#li3').css("display", "block");
-    $('#li4').css("display", "block");
+    // $('#li2').css("display", "block");
+    // $('#li3').css("display", "block");
+    // $('#li4').css("display", "block");
+
+    $.ajax({
+      url: "../controller/Graficos.php?query=init",
+      data: "text",
+      success: function(data) {
+         if(eval(data) == 0){
+            $("#accordion").css("display", "none");
+            $("#mensagem").css("display", "block");
+         }
+      }
+   });
 
     /* ----------------- GRAFICO 1 ----------------- */
     // GEOMAPA - RELAÇÃO DA QUANTIDADE DE RECLAMAÇÕES POR ESTADO     
@@ -31,6 +42,7 @@ $(document).ready(function(){
             requestData1();
 		}
 	})
+    
     $('#collapseOne').on('hidden.bs.collapse', function () {
         $('#headingOne > h4 > i').removeClass("glyphicon-minus");
     })

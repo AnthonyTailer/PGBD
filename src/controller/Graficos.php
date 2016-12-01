@@ -1,7 +1,5 @@
 <?php
 /**
-* Arquivo por exibir os dados de cada tabela
-* em seus respectivos DataTables
 * @author Anthony Tailer
 * @author Lucas Lima
 */
@@ -18,7 +16,18 @@ $DAODesnormalizada = new DAODesnormalizada();
 $output  = array();
 $request = $_GET['query'];
 
-if ($request == "geomap1") {
+if($request == "init"){
+  $query = "SELECT COUNT(*) AS QTDE from RECLAMACAO";
+
+  try {
+    $qtde = $conex->executeQuery($query);
+    echo $qtde->fetch_array(MYSQLI_ASSOC)["QTDE"];
+    
+  } catch (Exception $e) {
+    echo 0;
+  }
+
+}else if ($request == "geomap1") {
   $query = "SELECT E.NOME AS UF, COUNT(*) AS QTDRECLAMACOES, (SELECT COUNT(*) FROM RECLAMACAO) AS TOTAL FROM RECLAMACAO R
               JOIN CONSUMIDOR CO ON CO.IDCONSUMIDOR = R.IDCONSUMIDOR
               JOIN CIDADE CI ON CI.IDCIDADE = CO.IDCIDADE
@@ -31,6 +40,7 @@ if ($request == "geomap1") {
       );
   }
   echo json_encode($output);
+
 }elseif ($request == "geomap2") {
   $query = "SELECT CI.NOME AS CIDADE, E.NOME AS UF, COUNT(*) AS QTDRECLAMACOES,
             (SELECT COUNT(*) FROM RECLAMACAO) AS TOTALRECLAMACOES FROM RECLAMACAO R
@@ -46,6 +56,7 @@ if ($request == "geomap1") {
       );
   }
   echo json_encode($output);
+
 }else if($request == "grafico3"){
     $query = "SELECT E.NOMEFANTASIA AS EMPRESA, COUNT(*) AS QTDE_0,
                   (SELECT COUNT(*) FROM RECLAMACAO R2 WHERE R2.IDEMPRESA = E.IDEMPRESA GROUP BY R2.IDEMPRESA) AS QTDE_TOTAL
@@ -62,6 +73,7 @@ if ($request == "geomap1") {
         );
     }
     echo json_encode($output);
+
 }else if($request == "grafico4"){
     $query = "SELECT C.SEXO, C.FAIXAETARIA, COUNT(*) AS QTDE, (SELECT COUNT(*) FROM RECLAMACAO RE) AS TOTAL
               FROM RECLAMACAO R
@@ -74,6 +86,7 @@ if ($request == "geomap1") {
         array_push($output, $row);
     }
     echo json_encode($output);
+
 }else{
   echo 'Error';
 }

@@ -33,7 +33,7 @@
 				<article>
 					<br>
 					<div class="row">
-						<button class=" btn btn-success btn-lg center-block" id="normalizaBtn" name="normalizaBtn">Normalizar Tabela</button>
+						<button class=" btn btn-success btn-lg center-block" id="normalizaBtn" name="normalizaBtn" style="display: block;">Normalizar Tabela</button>
 					</div>
 					<!-- <br> -->
 					<div class="row" id="progress-elems">

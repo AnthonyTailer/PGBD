@@ -11,26 +11,26 @@ $(document).ready(function(){
 	var limitDataTable	= 1000;
 	var qtdLinhasDes  	= 0;
 
-	function showMenuItem(haveItems, li2, li3, li4){
-		if(haveItems != 0){
-			if (li2) $('#li2').css("display", "block");
-			if (li3) $('#li3').css("display", "block");
-			if (li4) $('#li4').css("display", "block");
-		}
-	}
+	//  function showMenuItem(haveItems, li2, li3, li4){
+	// 	if(haveItems != 0){
+	// 		if (li2) $('#li2').css("display", "block");
+	// 		if (li3) $('#li3').css("display", "block");
+	// 		if (li4) $('#li4').css("display", "block");
+	// 	}
+	// }
 
-	function liberaMenu(li2, li3, li4){
-		$.ajax({ //Ajax para saber a qtd de linhas atuais do BD Desnormalizado
-			url:"../controller/QtdLinesDes.php",
-			dataType : "text",
-			//async: false,
-			success: function(data) {
-				qtdLinhasDes = eval(data);
-				// console.log("Qtdlinhas BD Desnormalizado: "+qtdLinhasDes);
-				showMenuItem(qtdLinhasDes, li2, li3, li4);
-			}
-		});
-	}
+	// function liberaMenu(li2, li3, li4){
+	// 	$.ajax({ //Ajax para saber a qtd de linhas atuais do BD Desnormalizado
+	// 		url:"../controller/QtdLinesDes.php",
+	// 		dataType : "text",
+	// 		//async: false,
+	// 		success: function(data) {
+	// 			qtdLinhasDes = eval(data);
+	// 			// console.log("Qtdlinhas BD Desnormalizado: "+qtdLinhasDes);
+	// 			// showMenuItem(qtdLinhasDes, li2, li3, li4);
+	// 		}
+	// 	});
+	// } 
 
 	function addProgress(percentual){
 		progressbar.width(percentual+'%');
@@ -61,7 +61,7 @@ $(document).ready(function(){
 		});
 	}
 
-	liberaMenu(true, true, true); //Pesquisa qtd de linhas na desnormalizada e libera o menu
+	// liberaMenu(true, true, true); //Pesquisa qtd de linhas na desnormalizada e libera o menu
 
 	$('#consumidor_table').DataTable({
 		"processing": true,
@@ -72,6 +72,7 @@ $(document).ready(function(){
 	});
 
 	myform.on("submit", function(e){
+		// $("#uploadBtn").disabled = 0;
 		e.preventDefault();
 		addProgress(0);
 		$.ajax({
@@ -123,11 +124,29 @@ $(document).ready(function(){
 							var table = $('#consumidor_table').DataTable();
 							table.clear().draw();
 							table.rows.add(JSON.parse(dataSet)).draw();
-							liberaMenu(true, false, false);
+							// liberaMenu(true, false, false);
 						}
 					}
 				})
 			}
 		})
 	});
+
+	$("#clearBtn").click(function(){
+	  	clearDataBase();
+	});
+
+	function clearDataBase(){
+	  	$.ajax({
+            url: "../controller/ClearDataBase.php?action=clear",
+            data: "text",
+            success: function(data){
+                // document.getElementById("#uploadBtn").disabled = "enabled";
+                alert(data);
+                var table = $('#consumidor_table').DataTable();
+				table.clear().draw();
+				table.rows.add(JSON.parse(dataSet)).draw();
+            }
+        });
+	}
 });

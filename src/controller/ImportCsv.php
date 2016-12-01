@@ -16,6 +16,7 @@
   $mysqli = $conex->getConnection();
   $desnormalizada = new MagicDesnormalizada();
 	$DAODesnormalizada = new DAODesnormalizada();
+
   if(!empty($_FILES["consumidor_csv"]["name"])){
 
      $output = array();
@@ -77,14 +78,12 @@
           }
           echo json_encode($output);
 
-     }
-     else{
+     }else{
           echo 'Error1';
      }
-   }
-  else{
+  }else{
      echo "Error2";
-   }
+  }
 
 
  ?>

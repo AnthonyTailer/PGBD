@@ -12,13 +12,13 @@ $(document).ready(function(){
   var formnormaliza   = $("#normaliza_table");
   var flag = new Array(0,0,0,0,0,0,0,0,0,0);
 
-  function showMenuItem(haveItems){
-      if(haveItems > 0){
-         $('#li2').css("display", "block");
-         $('#li3').css("display", "block");
-         $('#li4').css("display", "block");
-      }
-  }
+  // function showMenuItem(haveItems){
+  //     if(haveItems > 0){
+  //        $('#li2').css("display", "block");
+  //        $('#li3').css("display", "block");
+  //        $('#li4').css("display", "block");
+  //     }
+  // }
 
   function chamaTable(i, table, request){
     //hiddenTables();
@@ -34,7 +34,7 @@ $(document).ready(function(){
     }
   }
 
-  showMenuItem(true);
+  // showMenuItem(true);
 
   $('#collapseOne').on('shown.bs.collapse', function(e){ chamaTable(0, regiao, "regiao"); $('#headingOne > h4 > i').addClass("glyphicon-minus")});
   $('#collapseOne').on('hidden.bs.collapse', function(e){ $('#headingOne > h4 > i').removeClass("glyphicon-minus") });

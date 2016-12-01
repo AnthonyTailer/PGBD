@@ -15,15 +15,15 @@ $(document).ready(function(){
    var submitbutton    = $("#normalizaBtn"); // Botao de Enviar
 
    var progresso       = 0;
-   var tabelas         = ["regiao", "estado", "cidade", "consumidor", "area", "grupo", "problema", "segmento", "empresa", "reclamacao" ];
+   var tabelas = ["regiao", "estado", "cidade", "consumidor", "area", "grupo", "problema", "segmento", "empresa", "reclamacao" ];
 
-   function showMenuItem(haveItems){
-      if(haveItems != 0){
-         $('#li2').css("display", "block");
-         $('#li3').css("display", "block");
-         $('#li4').css("display", "block");
-      }
-   }
+   // function showMenuItem(haveItems){
+   //    if(haveItems != 0){
+   //       $('#li2').css("display", "block");
+   //       $('#li3').css("display", "block");
+   //       $('#li4').css("display", "block");
+   //    }
+   // }
 
    function showAlerts(alert){
       if (alert == "cidade") {
@@ -83,7 +83,7 @@ $(document).ready(function(){
    }
 
    $.ajax({
-      url: "../controller/Normaliza.php?tabela=ini",
+      url: "../controller/Normaliza.php?tabela=init",
       data: "text",
       success: function(data) {
          console.log(data);
@@ -96,8 +96,9 @@ $(document).ready(function(){
             alertSegmento.css("display", "block");
             alertEmpresa.css("display", "block");
             alertReclamacao.css("display", "block");
-            showMenuItem(eval(data));
             submitbutton.css("display", "none");
+            addProgress(100);
+            // showMenuItem(eval(data));
          }
       }
    });
@@ -105,7 +106,7 @@ $(document).ready(function(){
    var flag2 = 0;
    submitbutton.click(function(e){  
      flag2 = requestData(tabelas[0]); //regiao
-     showMenuItem(flag2);
      submitbutton.css("display", "none");
+     // showMenuItem(flag2);
    });     
 });

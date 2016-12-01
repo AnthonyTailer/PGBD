@@ -18,7 +18,7 @@ $DAODesnormalizada = new DAODesnormalizada();
 $request = $_GET['tabela'];
 $porcentagem = 10;
 
-if($request == "ini"){
+if($request == "init"){
   $query = "SELECT COUNT(*) AS QTDE from RECLAMACAO";
 
   try {
