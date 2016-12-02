@@ -72,7 +72,7 @@ $(document).ready(function(){
 	});
 
 	myform.on("submit", function(e){
-		// $("#uploadBtn").disabled = 0;
+		$("#uploadBtn").prop("disabled", true);
 		e.preventDefault();
 		addProgress(0);
 		$.ajax({
@@ -103,6 +103,7 @@ $(document).ready(function(){
 							flag = 1;
 							// console.log("Parando a func");
 							upProgress();
+							$("#uploadBtn").prop("disabled", false);
 						}, false);
 						return xhr;
 					},success: function(dataSet){

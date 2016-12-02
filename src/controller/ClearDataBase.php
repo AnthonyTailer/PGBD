@@ -10,13 +10,12 @@ function __autoload($classe){
 
 $conex = new MySQLiConsumidor();
 $mysqli = $conex->getConnection();
-$desnormalizada = new MagicDesnormalizada();
-$DAODesnormalizada = new DAODesnormalizada();
 
 $output  = array();
 $request = $_GET['action'];
 
   if($request == "clear"){
+    
     $query = "TRUNCATE RECLAMACAO;";
     $query .= "TRUNCATE PROBLEMA;";
     $query .= "TRUNCATE GRUPO;";
@@ -30,11 +29,21 @@ $request = $_GET['action'];
     $query .= "TRUNCATE RECLAMACAO_DES";
 
     try {
-      $qtde = $conex->executeMultiQuery($query);
-      echo "Dados APAGADOS com sucesso!";
+      $qtde = qtdeDados();
+      $clean = $conex->executeMultiQuery($query);
+      echo $qtde["QTDE"]." dados APAGADOS com sucesso!";
     } catch (Exception $e) {
       echo "Error";
     }
+  }
+
+  function qtdeDados(){
+      $conex2 = new MySQLiConsumidor();
+      $select = "SELECT COUNT(*) AS QTDE FROM RECLAMACAO_DES";
+      $result = $conex2->executeQuery($select);
+      
+      $output = $result->fetch_array(MYSQLI_ASSOC);
+      return $output;
   }
 
 ?>
