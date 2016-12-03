@@ -58,7 +58,7 @@ $(document).ready(function(){
   $('#collapseSeven').on('hidden.bs.collapse', function(e){ $('#headingSeven > h4 > i').removeClass("glyphicon-minus") });
 
   $('#collapseEight').on('shown.bs.collapse', function(e){ chamaTable(7, grupo, "grupo") ; $('#headingEight > h4 > i').addClass("glyphicon-minus")});
-  $('#collapseeight').on('hidden.bs.collapse', function(e){ $('#headingEight > h4 > i').removeClass("glyphicon-minus") });
+  $('#collapseEight').on('hidden.bs.collapse', function(e){ $('#headingEight > h4 > i').removeClass("glyphicon-minus") });
 
   $('#collapseNine').on('shown.bs.collapse', function(e){ chamaTable(8, problema, "problema") ; $('#headingNine > h4 > i').addClass("glyphicon-minus")});
   $('#collapseNine').on('hidden.bs.collapse', function(e){ $('#headingNine > h4 > i').removeClass("glyphicon-minus") });

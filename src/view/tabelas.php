@@ -137,7 +137,7 @@
 							</div>
 						</div>
 						<div class="card">
-							<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight" role="tab" id="headingSeven">
+							<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight" role="tab" id="headingEight">
 								<h4>
 									<i class="glyphicon glyphicon-plus"></i> Grupo
 								</h4>
