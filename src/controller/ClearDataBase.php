@@ -16,7 +16,8 @@ $request = $_GET['action'];
 
   if($request == "clear"){
     
-    $query = "TRUNCATE RECLAMACAO;";
+    $query = "SET FOREIGN_KEY_CHECKS = 0;";
+    $query .= "TRUNCATE RECLAMACAO;";
     $query .= "TRUNCATE PROBLEMA;";
     $query .= "TRUNCATE GRUPO;";
     $query .= "TRUNCATE AREA;";
@@ -26,7 +27,8 @@ $request = $_GET['action'];
     $query .= "TRUNCATE CIDADE;";
     $query .= "TRUNCATE ESTADO;";
     $query .= "TRUNCATE REGIAO;";
-    $query .= "TRUNCATE RECLAMACAO_DES";
+    $query .= "TRUNCATE RECLAMACAO_DES;";
+    $query .= "SET FOREIGN_KEY_CHECKS = 1";
 
     try {
       $qtde = qtdeDados();

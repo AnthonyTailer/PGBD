@@ -33,7 +33,7 @@ footer {
 
 .nav-side-menu {
   overflow: auto;
-  font-size: 12px;
+  font-size: 12pt;
   font-weight: 200;
   background-color: #2e353d;
   position: fixed;
@@ -50,7 +50,7 @@ footer {
   line-height: 50px;
   display: block;
   text-align: center;
-  font-size: 14px;
+  font-size: 14pt;
 }
 
 .brand a {
@@ -164,9 +164,9 @@ footer {
     padding-right: 0px !important;
   }
 }
-@media (max-width: 1020px){
+@media (max-width: 1170px){
   .nav-side-menu .brand {
-    font-size: 12px;  
+    font-size: 10pt;  
   }
 }
 @media (max-width: 991px) {
@@ -190,13 +190,17 @@ footer {
   }
   .brand {
     text-align: left !important;
-    font-size: 22px;
+    font-size: 20pt;
     padding-left: 20px;
     line-height: 50px !important;
   }
   .copyright{
     display: none;
   }
+}
+/* >>>>>>>>>>> HOME <<<<<<<<<<< */
+.home{
+  font-size: 13pt;
 }
 
 /* >>>>>>>> IMPORTAÇÃO <<<<<<<< */
@@ -262,7 +266,7 @@ box-shadow: 0px 2px 5px 0px rgba(207,207,207,1);
 }
 
 #legend{
-  font-size: 14px;
+  font-size: 14pt;
   background: #fff;
   padding: 10px;
   margin: 10px;
@@ -270,7 +274,7 @@ box-shadow: 0px 2px 5px 0px rgba(207,207,207,1);
 }
 
 #legend2 {
-  font-size: 14px;
+  font-size: 14pt;
   background: #fff;
   padding: 10px;
   margin: 10px;
@@ -286,7 +290,7 @@ box-shadow: 0px 2px 5px 0px rgba(207,207,207,1);
 }
 
 #legend2 h4 {
-  font-size: 14px;
+  font-size: 14pt;
   font-weight: bold;
 }
 

@@ -11,7 +11,7 @@
 	  *@author Anthony Tailer
 	  *@author Lucas Lima
 	  */
-		$redirect = "src/view/importacao.php";
+		$redirect = "src/view/home.php";
 		header("location:$redirect");
 	?>
 </body>

@@ -8,15 +8,18 @@
 
 <div class="nav-side-menu lado-direito">
   <div class="brand">
-    <img rel="icon" src="../utilities/img/icon.svg" type="image/png" width="30px" />
-    <a href="https://github.com/AnthonyTailer/consumidor.gov.br" target="_blank">
-        <b>CONSUMIDOR.GOV.BR</b> <i class="glyphicon glyphicon-new-window"></i>
-    </a>
+      <img rel="icon" src="../utilities/img/icon.svg" type="image/png" width="30px" />
+      <a href="https://github.com/AnthonyTailer/consumidor.gov.br" target="_blank">
+          <b>CONSUMIDOR.GOV.BR</b> <i class="glyphicon glyphicon-new-window"></i>
+      </a>
   </div>
   <i class="glyphicon glyphicon-menu-hamburger btn-lg toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
   <article>
     <div class="menu-list">
       <ul id="menu-content" class="menu-content collapse out ">
+          <a href="home.php">
+            <li id="li0" style="display: block"><i class="glyphicon glyphicon-home"></i> Home</li>
+          </a>
           <a href="importacao.php">
             <li id="li1" style="display: block"><i class="glyphicon glyphicon-import"></i> Importação do CSV</li>
           </a>
@@ -33,7 +36,7 @@
     </div>
   </article>
   <footer>
-    <p class="copyright">Copyright ©
+    <p class="copyright">By
       <a href="http://github.com/limalucas" target="_blank">LimaLucas</a> •
       <a href="https://github.com/AnthonyTailer" target="_blank">AnthonyTailer</a>
     </p>
