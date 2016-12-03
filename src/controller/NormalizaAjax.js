@@ -96,7 +96,6 @@ $(document).ready(function(){
             alertSegmento.css("display", "block");
             alertEmpresa.css("display", "block");
             alertReclamacao.css("display", "block");
-            submitbutton.css("display", "none");
             addProgress(100);
             // showMenuItem(eval(data));
          }
@@ -104,9 +103,11 @@ $(document).ready(function(){
    });
 
    var flag2 = 0;
-   submitbutton.click(function(e){  
+   submitbutton.click(function(e){
+     $("#normalizaBtn").prop("disabled", true);
+     // submitbutton.css("display", "none");
      flag2 = requestData(tabelas[0]); //regiao
-     submitbutton.css("display", "none");
      // showMenuItem(flag2);
+     // $("#normalizaBtn").prop("disabled", false);
    });     
 });
