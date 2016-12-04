@@ -1,9 +1,8 @@
 <?php
 /**
-  *
   * @author Anthony Tailer
   * @author Lucas Lima
-  **/
+  */
 
   require_once '../model/MySQLiConsumidor.class.php';
 

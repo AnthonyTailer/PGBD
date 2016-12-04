@@ -19,7 +19,7 @@ $request = $_GET['tabela'];
 $porcentagem = 10;
 
 if($request == "init"){
-  $query = "SELECT COUNT(*) AS QTDE from RECLAMACAO";
+  $query = "SELECT COUNT(*) AS QTDE from RECLAMACAO_DES";
 
   try {
     $qtde = $conex->executeQuery($query);
@@ -27,6 +27,16 @@ if($request == "init"){
   } catch (Exception $e) {
     echo 0;
   }
+
+}else if($request == "init2"){
+  $query = "SELECT COUNT(*) AS QTDE from RECLAMACAO";
+
+  try {
+    $qtde = $conex->executeQuery($query);
+    echo $qtde->fetch_array(MYSQLI_ASSOC)["QTDE"];
+  } catch (Exception $e) {
+    echo 0;
+  }  
 
 }else if ($request == "regiao") {
 

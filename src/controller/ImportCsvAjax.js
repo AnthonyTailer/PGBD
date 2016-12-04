@@ -32,6 +32,19 @@ $(document).ready(function(){
 	// 	});
 	// } 
 
+	$.ajax({
+      	url: "../controller/QtdLinesDes.php",
+	    data: "text",
+	    method: "POST",
+	    success: function(data) {
+	        if(eval(data) == 0){
+            	hideTable();
+         	}else{
+         		addProgress(100);
+         	}
+      	}
+   	});
+
 	function addProgress(percentual){
 		progressbar.width(percentual+'%');
 		statustxt.html(percentual+'%');
@@ -53,7 +66,6 @@ $(document).ready(function(){
 					}, 500);
 				}else if(flag == 1){
 					addProgress(100);
-					//$('#normalizarBtn').css("display", "inline-block");
 				}else{
 					addProgress(0);
 				}
@@ -64,7 +76,7 @@ $(document).ready(function(){
 	// liberaMenu(true, true, true); //Pesquisa qtd de linhas na desnormalizada e libera o menu
 
 	$('#consumidor_table').DataTable({
-		"processing": true,
+		// "processing": true,
 	    "ajax": {
 	        "url": "../controller/AdminDataTable.php?tabela=desnormalizada",
 	        "type": "GET"
@@ -108,20 +120,20 @@ $(document).ready(function(){
 						return xhr;
 					},success: function(dataSet){
 
-						if(dataSet == 'Error1')
-						{
+						if(dataSet == 'Error1'){
 							alert("O arquivo selecionado deve ser um .csv");
 							flag = 2;
 							addProgress(0);
-						}
-						else if(dataSet == "Error2")
-						{
+
+						}else if(dataSet == "Error2"){
 							alert("Por Favor selecione um arquivo!");
 							flag = 2;
 							addProgress(0);
-						}
-						else
-						{
+
+						}else{
+							$("#consumidor_div").css("display", "block");
+							$("#mensagem").css("display", "none");
+
 							var table = $('#consumidor_table').DataTable();
 							table.clear().draw();
 							table.rows.add(JSON.parse(dataSet)).draw();
@@ -144,10 +156,20 @@ $(document).ready(function(){
             success: function(data){
                 // document.getElementById("#uploadBtn").disabled = "enabled";
                 alert(data);
+				hideTable();
+				addProgress(0);
+
                 var table = $('#consumidor_table').DataTable();
 				table.clear().draw();
 				table.rows.add(JSON.parse(dataSet)).draw();
+
+
             }
         });
+	}
+
+	function hideTable(){
+		$("#consumidor_div").css("display", "none");
+		$("#mensagem").css("display", "block");
 	}
 });

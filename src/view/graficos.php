@@ -36,7 +36,8 @@
 				</header>
 				<article>
 					<br><br>
-					<div class="alert alert-info" id="mensagem" style="display: none;" role="alert"><strong>Nenhum registro normalizado na base!</strong></div>
+					<div class="alert alert-info" id="mensagem" style="display: none;" role="alert"><strong>NENHUM REGISTRO NORMALIZADO NA BASE!</strong></div>
+					<!-- .................. GRAFICOS .................. -->
 					<div id="accordion" role="tablist" aria-multiselectable="true" style="display: block;">
 					  <!-- .................. GRAFICO 1 .................. -->
 					  <div class="card">

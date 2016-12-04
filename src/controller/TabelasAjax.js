@@ -20,6 +20,17 @@ $(document).ready(function(){
   //     }
   // }
 
+  $.ajax({
+      url: "../controller/Tabelas.php?query=init",
+      data: "text",
+      success: function(data) {
+         if(eval(data) == 0){
+            $("#accordion").css("display", "none");
+            $("#mensagem").css("display", "block");
+         }
+      }
+   });
+
   function chamaTable(i, table, request){
     //hiddenTables();
     $("#"+request).css("display", "block");

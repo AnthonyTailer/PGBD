@@ -1,8 +1,8 @@
 <?php
 /**
-* @author Anthony Tailer
-* @author Lucas Lima
-*/
+  * @author Anthony Tailer
+  * @author Lucas Lima
+  */
 
 function __autoload($classe){
     include_once "../model/{$classe}.class.php";
@@ -10,8 +10,8 @@ function __autoload($classe){
 
 $conex = new MySQLiConsumidor();
 $mysqli = $conex->getConnection();
-$desnormalizada = new MagicDesnormalizada();
-$DAODesnormalizada = new DAODesnormalizada();
+// $desnormalizada = new MagicDesnormalizada();
+// $DAODesnormalizada = new DAODesnormalizada();
 
 $output  = array();
 $request = $_GET['query'];

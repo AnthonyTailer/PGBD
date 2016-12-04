@@ -176,7 +176,7 @@ if ($request == "desnormalizada") {
                 JOIN EMPRESA E ON E.IDEMPRESA = R.IDEMPRESA
                 JOIN SEGMENTO S ON E.IDSEGMENTO = S.IDSEGMENTO
                 JOIN PROBLEMA P ON P.IDPROBLEMA = R.IDPROBLEMA
-                ORDER BY 1";
+                ORDER BY 1 LIMIT 100";
     $result = $conex->executeQuery($query);
     while($row = $result->fetch_array(MYSQLI_ASSOC)){
         array_push($data, $row);

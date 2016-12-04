@@ -34,6 +34,8 @@
 				</header>
 				<article>
 					<br><br><br>
+					<div class="alert alert-info" id="mensagem" style="display: none;" role="alert"><strong>NENHUM REGISTRO NA BASE DE DADOS!</strong></div>
+					<!-- .................. FORMULÁRIO .................. -->
 					<form id="upload_csv" enctype="multipart/form-data" method="post">
 						<div class="row" id="import-elems">
 							<div class="col-md-9">
@@ -62,8 +64,9 @@
 						<div style="clear:both"></div>
 					</form>
 					<br>
+					<!-- .................. TABELA .................. -->
 					<div class="table-responsive" id="consumidor_div">
-						<table class="display" id="consumidor_table" width="100%" cellspacing="0">
+						<table class="table table-responsive table-striped display" id="consumidor_table" width="100%" cellspacing="0">
 							<thead>
 								<tr>
 									<th>REGIÃO</th>

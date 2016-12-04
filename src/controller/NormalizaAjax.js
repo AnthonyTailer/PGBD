@@ -42,8 +42,6 @@ $(document).ready(function(){
         alertProblema.css("display", "block");
       }else if(alert == "reclamacao"){
         alertReclamacao.css("display", "block");
-      }else{
-        ;
       }
    }
 
@@ -86,18 +84,30 @@ $(document).ready(function(){
       url: "../controller/Normaliza.php?tabela=init",
       data: "text",
       success: function(data) {
-         console.log(data);
-         if(eval(data) > 0){
-            alertRegiao.css("display", "block");
-            alertConsumidor.css("display", "block");
-            alertArea.css("display", "block");
-            alertGrupo.css("display", "block");
-            alertProblema.css("display", "block");
-            alertSegmento.css("display", "block");
-            alertEmpresa.css("display", "block");
-            alertReclamacao.css("display", "block");
-            addProgress(100);
+         // console.log(data);
+         if(eval(data) == 0){
+            $("#normaliza_tabelas").css("display", "none");
+            $("#mensagem").css("display", "block");
             // showMenuItem(eval(data));
+         }else{
+            $.ajax({
+              url: "../controller/Normaliza.php?tabela=init2",
+              data: "text",
+              success: function(data) {
+                if(eval(data) > 0){
+                  alertRegiao.css("display", "block");
+                  alertConsumidor.css("display", "block");
+                  alertArea.css("display", "block");
+                  alertGrupo.css("display", "block");
+                  alertProblema.css("display", "block");
+                  alertSegmento.css("display", "block");
+                  alertEmpresa.css("display", "block");
+                  alertReclamacao.css("display", "block");
+                  $("#normalizaBtn").prop("disabled", true);
+                  addProgress(100);
+                }
+              }
+            });
          }
       }
    });
@@ -108,6 +118,5 @@ $(document).ready(function(){
      // submitbutton.css("display", "none");
      flag2 = requestData(tabelas[0]); //regiao
      // showMenuItem(flag2);
-     // $("#normalizaBtn").prop("disabled", false);
    });     
 });

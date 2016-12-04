@@ -42,6 +42,8 @@
 				</header>
 				<article>
 					<br><br>
+					<div class="alert alert-info" id="mensagem" style="display: none;" role="alert"><strong>NENHUM REGISTRO NORMALIZADO NA BASE!</strong></div>
+					<!-- .................. TABELAS .................. -->
 					<div id="accordion" role="tablist" aria-multiselectable="true">
 						<div class="card">
 							<div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseTen" role="tab" id="headingTen">
@@ -52,7 +54,7 @@
 							<div id="collapseTen" class="collapse" role="tabpanel" aria-labelledby="headingTen">
 								<div class="card-block" id="reclamacao_dion">
 									<div class="table-responsive" id="reclamacao" style="display: none;">
-										<table class="display" id="reclamacao_table" width="100%" cellspacing="0" title="">
+										<table class="table table-striped display" id="reclamacao_table" width="100%" cellspacing="0" title="">
 											<thead>
 												<tr>
 													<th></th>
@@ -123,7 +125,7 @@
 							<div id="collapseNine" class="collapse" role="tabpanel" aria-labelledby="headingNine">
 								<div class="card-block" id="problema_dion">
 									<div class="table-responsive" id="problema" style="display: none;">
-										<table class="display" id="problema_table" width="100%" cellspacing="0">
+										<table class="table table-striped display" id="problema_table" width="100%" cellspacing="0">
 											<thead>
 												<tr>
 													<th>ID</th>
@@ -145,7 +147,7 @@
 							<div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="headingEight">
 								<div class="card-block" id="grupo_dion">
 									<div class="table-responsive" id="grupo" style="display: none;">
-										<table class="display" id="grupo_table" width="100%" cellspacing="0">
+										<table class="table table-striped display" id="grupo_table" width="100%" cellspacing="0">
 											<thead>
 												<tr>
 													<th>ID</th>
@@ -166,7 +168,7 @@
 							<div id="collapseSeven" class="collapse" role="tabpanel" aria-labelledby="headingSeven">
 								<div class="card-block" id="area_dion">
 									<div class="table-responsive" id="area" style="display: none;">
-										<table class="display" id="area_table" width="100%" cellspacing="0">
+										<table class="table table-striped display" id="area_table" width="100%" cellspacing="0">
 											<thead>
 												<tr>
 													<th>ID</th>
@@ -187,7 +189,7 @@
 							<div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
 								<div class="card-block" id="empresa_dion">
 									<div class="table-responsive" id="empresa" style="display: none;">
-										<table class="display" id="empresa_table" width="100%" cellspacing="0">
+										<table class="table table-striped display" id="empresa_table" width="100%" cellspacing="0">
 											<thead>
 												<tr>
 													<th>ID</th>
@@ -209,7 +211,7 @@
 							<div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
 								<div class="card-block" id="segmento_dion">
 									<div class="table-responsive" id="segmento" style="display: none;">
-										<table class="display" id="segmento_table" width="100%" cellspacing="0">
+										<table class="table table-striped display" id="segmento_table" width="100%" cellspacing="0">
 											<thead>
 												<tr>
 													<th>ID</th>
@@ -230,7 +232,7 @@
 							<div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
 								<div class="card-block" id="consumidor_dion">
 									<div class="table-responsive" style="display:none" id="consumidor">
-										<table class="display" id="consumidor_table" width="100%" cellspacing="0">
+										<table class="table table-striped display" id="consumidor_table" width="100%" cellspacing="0">
 											<thead>
 												<tr>
 													<th>ID</th>
@@ -253,7 +255,7 @@
 							<div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
 								<div class="card-block" id="cidade_dion">
 									<div class="table-responsive"  id="cidade" style="display:none">
-										<table class="display" id="cidade_table" width="100%" cellspacing="0">
+										<table class="table table-striped display" id="cidade_table" width="100%" cellspacing="0">
 											<thead>
 												<tr>
 													<th>ID</th>
@@ -275,7 +277,7 @@
 							<div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
 								<div class="card-block" id="estado_dion"></div>
 								<div class="table-responsive" style="display:none" id="estado">
-									<table class="display" id="estado_table" width="100%" cellspacing="0">
+									<table class="table table-striped display" id="estado_table" width="100%" cellspacing="0">
 										<thead>
 											<tr>
 												<th>ID</th>
@@ -296,7 +298,7 @@
 							<div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
 								<div class="card-block" id="regiao_dion"></div>
 								<div class="table-responsive" style="display:none"id="regiao">
-									<table class="display" id="regiao_table" width="100%" cellspacing="0">
+									<table class="table table-striped display" id="regiao_table" width="100%" cellspacing="0">
 										<thead>
 											<tr>
 												<th>ID</th>
