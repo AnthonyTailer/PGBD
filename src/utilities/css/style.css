@@ -198,34 +198,6 @@ footer {
     display: none;
   }
 }
-/* >>>>>>>>>>> HOME <<<<<<<<<<< */
-.home{
-  font-size: 13pt;
-}
-
-/* >>>>>>>> IMPORTAÇÃO <<<<<<<< */
-
-#import-elems input{
-  margin-right: 20px
-}
-
-#import-elems, #progress-elems{
-  margin-right: 0px !important;
-  margin-top: 10px;
-}
-
-@media (max-width: 991px) {
-  #import-elems, #progress-elems{
-    margin-left: 10px !important;
-  }
-  #enviar-btn{
-    margin-top: 5px !important;
-  }
-}
-
-.btn {
-  min-width: 160px;
-}
 
 /* >>>>>>> TÍTULO <<<<<<< */
 .cabecalho {
@@ -300,4 +272,47 @@ box-shadow: 0px 2px 5px 0px rgba(207,207,207,1);
 
 #legend2 img {
   vertical-align: bottom;
+}
+
+/* >>>>>>>>>>> HOME <<<<<<<<<<< */
+.home{
+  font-size: 13pt;
+}
+
+/* >>>>>>>> IMPORTAÇÃO <<<<<<<< */
+
+#import-elems input{
+  margin-right: 20px
+}
+
+#import-elems, #progress-elems{
+  margin-right: 0px !important;
+  margin-top: 10px;
+}
+
+@media (max-width: 991px) {
+  #import-elems, #progress-elems{
+    margin-left: 10px !important;
+  }
+  #enviar-btn{
+    margin-top: 5px !important;
+  }
+}
+
+.btn {
+  min-width: 160px;
+}
+
+/* >>>>>>> NORMALIZAÇÃO <<<<<<< */
+
+.eer-img{
+  /*visibility: hidden;*/
+  width: 100%;
+}
+
+.eer{
+  /*background-image: url("../img/eer.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 100%;*/
 }

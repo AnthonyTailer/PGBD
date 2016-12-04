@@ -36,7 +36,7 @@
 					<!-- .................. NORMALIZA TABELAS .................. -->
 					<div id="normaliza_tabelas">
 						<div class="row">
-							<button class=" btn btn-success btn-lg center-block" id="normalizaBtn" name="normalizaBtn" >Normalizar Tabela</button>
+							<button class=" btn btn-primary btn-lg center-block" id="normalizaBtn" name="normalizaBtn" >Normalizar Tabela</button>
 						</div>
 
 						<div class="row" id="progress-elems">
@@ -55,6 +55,10 @@
 						<div style="display: none" class="alert alert-success" id="alertSegmento" role="alert">Tabela <b>SEGMENTO</b> foi criada e populada!</div>
 						<div style="display: none" class="alert alert-success" id="alertEmpresa" role="alert">Tabela <b>EMPRESA</b> foi criada e populada!</div>
 						<div style="display: none" class="alert alert-success" id="alertReclamacao" role="alert">Tabela <b>RECLAMACAO</b> foi criada e populada!</div>
+
+						<div class="container-fluid">
+							<img class="eer-img" id="eer-des" src="../utilities/img/eer.png">
+						</div>
 					</div>
 				</article>
 			</div>
