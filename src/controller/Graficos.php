@@ -58,6 +58,7 @@ if($request == "init"){
   echo json_encode($output);
 
 }else if($request == "grafico3"){
+    $qtdeLimite = $_GET["qtdeLimite"];
     $query = "SELECT E.NOMEFANTASIA AS EMPRESA, COUNT(*) AS QTDE_0,
                   (SELECT COUNT(*) FROM RECLAMACAO R2 WHERE R2.IDEMPRESA = E.IDEMPRESA GROUP BY R2.IDEMPRESA) AS QTDE_TOTAL
               FROM RECLAMACAO R
@@ -65,7 +66,7 @@ if($request == "init"){
               WHERE R.NOTACONSUMIDOR = 0
               GROUP BY 1, 3
               ORDER BY 2 DESC
-              LIMIT 7 # OFFSET 10;";
+              LIMIT ".$qtdeLimite;
     $result = $conex->executeQuery($query);
     while($row = $result->fetch_array(MYSQLI_ASSOC)){
         array_push(

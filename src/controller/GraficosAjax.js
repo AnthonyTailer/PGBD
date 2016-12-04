@@ -404,17 +404,21 @@ $(document).ready(function(){
         $('#headingThree > h4 > i').addClass("glyphicon-minus");
         if(flag3){
             flag3 = false;
-            requestData3();
+            requestData3(7);
         }
+    })
+
+    $('#executaLimite').click(function(emp){
+        requestData3($('#qtdeLimite').val());
     })
 
     $('#collapseThree').on('hidden.bs.collapse', function () {
         $('#headingThree > h4 > i').removeClass("glyphicon-minus");
     })
 
-    function requestData3(){ // Executa consulta SQL para o gráfico
+    function requestData3(qtdeLimite){ // Executa consulta SQL para o gráfico
         $.ajax({
-            url: "../controller/Graficos.php?query=grafico3",
+            url: "../controller/Graficos.php?query=grafico3&qtdeLimite="+qtdeLimite,
             dataType: "json",
             type: 'GET',
             success: function(msg){

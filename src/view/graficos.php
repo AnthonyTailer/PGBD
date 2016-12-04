@@ -68,6 +68,11 @@
 					    </div>
 					    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
 					      <div class="card-block">
+					      		<div id="filtro_map3" class="form-inline">
+								    <label for="filtro_map">Escolha a quantidade de empresas: </label>
+								    <input id="qtdeLimite" type="number" class="form-control" placeholder="Limite de empresas" value=7>
+								    <button id="executaLimite" type="submit" class="btn btn-default">Execute</button>
+							 	</div><br>
 					        	<div  id="map3" style="width: 900px; margin: 0 auto">
 				        			<img src="../utilities/img/loading.gif" class="img-responsive center-block" width=100 style="padding-top: 150px">
 					        	</div>
