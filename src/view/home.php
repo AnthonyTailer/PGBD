@@ -137,7 +137,7 @@
 								<ul>
 									<li>Pelo menos um dos relatórios deve ser de distribuição espacial</li>
 									<li>Para isso, é importante que os dados possuam algum tipo de referência geográfica</li>
-									<li>Disponível no menu: <a href="graficos.php"><i class="glyphicon glyphicon-stats"></i> Tabelas Normalizadas</a></li>
+									<li>Disponível no menu: <a href="graficos.php"><i class="glyphicon glyphicon-stats"></i> Gráficos e Mapas</a></li>
 								</ul>
 							</li>
 						</ul>

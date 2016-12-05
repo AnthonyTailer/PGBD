@@ -66,7 +66,7 @@ $(document).ready(function(){
                 if(proxTable < 10){
                   setTimeout(function(){
                     requestData(tabelas[proxTable]);
-                  }, 1300);
+                  }, 1500);
                 }
             }, false);
             return xhr;

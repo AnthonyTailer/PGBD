@@ -229,6 +229,7 @@ $(document).ready(function(){
             type: 'GET',
             success: function(msg){
                 queryReturn2 = msg;
+                console.log(queryReturn2);
                 for (var i = 0; i < queryReturn2.length; i++) {
                     totalReclamacoesRS += eval(queryReturn2[i][2]);
                 }
