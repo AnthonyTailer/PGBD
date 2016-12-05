@@ -64,8 +64,6 @@
 										<ul>
 											<li><b>REGIAO</b>(IDREGIAO*, NOME);</li>
 											<li><b>ESTADO</b>(IDESTADO*, NOME, IDREGIAO),
-    											<br>IDREGIAO references REGIAO(IDREGIAO);</li>
-											<li><b>ESTADO</b>(IDESTADO*, NOME, IDREGIAO),
         										<br>IDREGIAO references REGIAO(IDREGIAO);</li>
 											<li><b>CIDADE</b>(IDCIDADE*, NOME, IDESTADO),
         										<br>IDESTADO references ESTADO(IDESTADO);</li>
@@ -94,7 +92,7 @@
 									<li>Podendo ser desenvolvida usando:
 										<ul>
 											<li>Qualquer linguagem de programação :<b>PHP</b></li>
-											<li>Qualquer framework de desenvolvimento: <b>jQuery, DataTable, Google API, Highcharts</b></li>
+											<li>Qualquer framework de desenvolvimento: <b>Bootstrap, jQuery, DataTable, Google API, Highcharts</b></li>
 											<li>Qualquer tipo de arquitetura/padrão de desenvolvimento: <b>MVC (tentativa)</b></li>
 											<li>Qualquer plataforma de acesso (web, Desktop, Mobile..): <b>Browser (web)</b></li>
 										</ul>
@@ -137,7 +135,11 @@
 								<ul>
 									<li>Pelo menos um dos relatórios deve ser de distribuição espacial</li>
 									<li>Para isso, é importante que os dados possuam algum tipo de referência geográfica</li>
+<<<<<<< HEAD
 									<li>Disponível no menu: <a href="graficos.php"><i class="glyphicon glyphicon-stats"></i> Gráficos e Mapas</a></li>
+=======
+									<li>Disponível no menu: <a href="graficos.php"><i class="glyphicon glyphicon-stats"></i> Graficos e Mapas</a></li>
+>>>>>>> fe8b80264620f74fab00b980fa01924792e6f49a
 								</ul>
 							</li>
 						</ul>
