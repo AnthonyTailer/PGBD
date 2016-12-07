@@ -21,3 +21,4 @@
 # http://sublimetextdicas.com.br/10-motivos-para-usar-o-sublime-text/
 # http://sublimetextdicas.com.br/workspaces-projeto-sublime-text/
 # http://sublimetextdicas.com.br/verificacao-ortografica-em-portugues/
+# https://github.com/blog/broadcasts
