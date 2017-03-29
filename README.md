@@ -1,6 +1,6 @@
 # Trabalho Final de Projeto e Gerência de Banco de Dados
 Disciplina de Projeto e Gerência de Banco de Dados | 5° semestre do curso de Sistemas de Informação UFSM
-####Grupo: Anthony Tailer, Lucas Lima (http://github.com/lucaslioli)
+#### Grupo: Anthony Tailer, Lucas Lima (http://github.com/lucaslioli)
 
 # Descrição
 
